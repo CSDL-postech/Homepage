@@ -6,98 +6,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    /* reset & body */
+    /* ===== 공통 레이아웃 ===== */
     body{margin:0;font-family:"Helvetica Neue",Arial,sans-serif;line-height:1.5;color:#222}
-    .wrapper{padding:25px;background:#f0f0f0}
+    .container{display:flex;gap:60px;max-width:1400px;margin:0 auto;padding:40px 5%}
 
-    /* card */
+    /* ----- 왼쪽 사이드바 ----- */
+    .sidebar{flex:0 0 260px;text-align:center}
+    .sidebar h1{font-size:32px;line-height:1.2;margin:0 0 18px}
+    .sidebar img{width:180px;height:auto;margin:12px 0}
+    .sidebar p{font-size:14px;color:#555;margin:0}
+
+    /* ----- 상단 내비게이션 ----- */
+    .nav{margin:0 0 35px;padding:0;list-style:none;display:flex;gap:28px}
+    .nav a{text-decoration:none;color:#006BB3;font-weight:600}
+    .nav a:hover{text-decoration:underline}
+    .nav .active{color:#000;cursor:default}
+
+    /* ----- 오른쪽 본문 ----- */
+    .content{flex:1 1 0}
+
+    /* ===== Advisor 카드 ===== */
     .card{
-      background:#f7f7f7;
-      border:1px solid #e0e0e0;
-      border-radius:2px;
-      display:flex;
-      gap:40px;
-      padding:30px;
-      max-width:1400px;
-      margin:0 auto 40px;
+      background:#f7f7f7;border:1px solid #e0e0e0;border-radius:2px;
+      display:flex;gap:40px;padding:30px;max-width:100%;box-sizing:border-box
     }
-
     .photo img{
       width:240px;height:310px;object-fit:cover;
-      border:4px solid #fff;box-shadow:0 0 6px rgba(0,0,0,.15);
+      border:4px solid #fff;box-shadow:0 0 6px rgba(0,0,0,.15)
     }
-
     .info{flex:1 1 0}
-    .info h1{
-      font-size:34px;
-      margin:0 0 8px;
-      color:#1a6cf0;        /* 링크와 비슷한 파란색 */
-    }
-    .info h2{
-      font-size:24px;
-      margin:0 0 18px;
-      font-weight:700;
-    }
+    .info h2{font-size:34px;margin:0 0 8px;color:#1a6cf0}
+    .info h3{font-size:24px;margin:0 0 18px;font-weight:700}
     .dash{border-top:1px dashed #bbb;margin:10px 0 25px}
-
-    /* 연락처 부분 */
     .contact p{margin:0 0 6px;font-size:18px}
-    .contact svg{vertical-align:middle;margin-right:6px;fill:#444}
-
-    /* 다운로드/링크 아이콘 */
     .links{margin-top:18px}
-    .links a{margin-right:22px;text-decoration:none}
-    .links svg{width:32px;height:32px;fill:#1a6cf0;transition:0.2s}
-    .links svg:hover{fill:#0d47a1}
+    .links a{margin-right:22px}
+    .links img{width:32px;height:32px;vertical-align:middle}
   </style>
 </head>
 <body>
 
-<div class="wrapper">
-  <div class="card">
-    <!-- 사진 -->
-    <div class="photo">
-      <img src="./Image/Prof_SHK.jpg" alt="Seokhyeong Kang">
-    </div>
+<div class="container">
+  <!-- ===== 사이드바 ===== -->
+  <aside class="sidebar">
+    <h1>CAD &amp; SoC<br>Design Lab.</h1>
+    <img src="assets/img/logo.png" alt="Lab Logo">
+    <p>CAD &amp; SoC Design Laboratory at<br>POSTECH.</p>
+  </aside>
 
-    <!-- 정보 -->
-    <div class="info">
-      <h1>Seokhyeong Kang</h1>
-      <h2>Associate Professor | Department of Electrical Engineering</h2>
+  <!-- ===== 본문 ===== -->
+  <main class="content">
+    <!-- 상단 메뉴 -->
+    <ul class="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Research.html">Research</a></li>
+      <li><span class="active">Advisor</span></li>
+      <li><a href="Members.html">Members</a></li>
+      <li><a href="Publications.html">Publications</a></li>
+    </ul>
 
-      <div class="dash"></div>
-
-      <div class="contact">
-        <p>Pohang University of Science and Technology (POSTECH)</p>
-        <p>
-          <!-- phone icon (unicode) -->
-          &#128222; Tel&nbsp;:&nbsp;+82-54-279-2379
-        </p>
-        <p>
-          <!-- envelope icon (unicode) -->
-          &#9993; E-mail&nbsp;:&nbsp;shkang@postech.ac.kr
-        </p>
+    <!-- Advisor 카드 -->
+    <div class="card">
+      <!-- 사진 -->
+      <div class="photo">
+        <img src="assets/img/Prof_SHK.jpg" alt="Seokhyeong Kang">
       </div>
 
-      <!-- 예: CV, Google Scholar 아이콘 등 -->
-      <div class="links">
-        <!-- Google Scholar -->
-        <a href="https://scholar.google.co.kr/citations?user=tDckZnsAAAAJ&hl=ko&oi=ao"
-           title="Google Scholar" target="_blank" rel="noopener">
-          <img src="./Image/Google_Scholar_logo.png" alt="Google Scholar"
-               width="32" height="32" style="vertical-align:middle;">
-        </a>
-        <a href="./Resume_SHK_201130.pdf"
-           title="Download CV" target="_blank" rel="noopener">
-          <img src="./Image/cv_logo.png"
-               alt="Download CV" width="32" height="32"
-               style="vertical-align:middle;">
-        </a>
-      </div>
-    </div><!-- /.info -->
-  </div><!-- /.card -->
-</div><!-- /.wrapper -->
+      <!-- 정보 -->
+      <div class="info">
+        <h2>Seokhyeong Kang</h2>
+        <h3>Associate Professor&nbsp;|&nbsp;Department of Electrical Engineering</h3>
+
+        <div class="dash"></div>
+
+        <div class="contact">
+          <p>Pohang University of Science and Technology (POSTECH)</p>
+          <p>&#128222;&nbsp;Tel&nbsp;:&nbsp;+82-54-279-2379</p>
+          <p>&#9993;&nbsp;E-mail&nbsp;:&nbsp;shkang@postech.ac.kr</p>
+        </div>
+
+        <!-- 링크 아이콘 -->
+        <div class="links">
+          <a href="https://scholar.google.co.kr/citations?user=tDckZnsAAAAJ&amp;hl=en"
+             title="Google Scholar" target="_blank" rel="noopener">
+            <img src="assets/img/google_scholar.png" alt="Google Scholar">
+          </a>
+
+          <a href="assets/CV_SeokhyeongKang.pdf"
+             title="Download CV" target="_blank" rel="noopener">
+            <img src="assets/img/cv_download.png" alt="Download CV">
+          </a>
+        </div>
+      </div><!-- /.info -->
+    </div><!-- /.card -->
+
+  </main><!-- /.content -->
+</div><!-- /.container -->
 
 </body>
 </html>
-
