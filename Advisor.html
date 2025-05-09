@@ -7,33 +7,23 @@
 
   <style>
     /* ===== 공통 레이아웃 ===== */
-    body{
-      margin:0;
-      font-family:"Helvetica Neue",Arial,sans-serif;
-      line-height:1.5;
-      color:#222;
-    }
-    .container{
-      display:flex;
-      gap:60px;          /* 칼럼 간격 */
-      max-width:1200px;  /* 전체 폭 한계 */
-      margin:0 auto;
-      padding:40px 5%;
-      align-items:flex-start;
-    }
-    
-    /* 사이드바: 항상 260 px 고정 */
-    .sidebar{
-      flex:0 0 260px;
-      text-align:center;
-    }
-    
-    /* 본문: 폭을 **고정**해 위치 불변 */
-    .content{
-      flex:0 0 840px;   /* ← 폭 840 px 고정  */
-      /* max-width 로만 두면 페이지마다 달라지므로
-         width 와 flex-basis(=0 0 840px) 같이 지정 */
-    }
+    body{margin:0;font-family:"Helvetica Neue",Arial,sans-serif;line-height:1.5;color:#222}
+    .container{display:flex;gap:60px;max-width:1400px;margin:0 auto;padding:40px 5%}
+
+    /* ----- 왼쪽 사이드바 ----- */
+    .sidebar{flex:0 0 260px;text-align:center}
+    .sidebar h1{font-size:32px;line-height:1.2;margin:0 0 18px}
+    .sidebar img{width:180px;height:auto;margin:12px 0}
+    .sidebar p{font-size:14px;color:#555;margin:0}
+
+    /* ----- 상단 내비게이션 ----- */
+    .nav{margin:0 0 35px;padding:0;list-style:none;display:flex;gap:28px}
+    .nav a{text-decoration:none;color:#006BB3;font-weight:600}
+    .nav a:hover{text-decoration:underline}
+    .nav .active{color:#000;cursor:default}
+
+    /* ----- 오른쪽 본문 ----- */
+    .content{flex:1 1 0}
 
     /* ===== Advisor 카드 ===== */
     .card{
