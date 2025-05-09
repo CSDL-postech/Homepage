@@ -1,78 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <meta charset="utf-8">
-  <title>Advisor | CAD & SoC Design Lab.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8">
+<title>Advisor | CAD & SoC Design Lab.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    /* ===== 공통 레이아웃 ===== */
-    body{
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      margin:0;
-      padding:40px 5%;
-      line-height:1.6;
-      color:#222;
-    }
-    .container{
-      display:flex;
-      gap:20px;
-      max-width:1600px;
-      margin:0 auto;
-      padding:40px 5%;
-    }
-    /* --- 사이드바 --- */
-    .sidebar{flex:0 0 260px;text-align:center}
-    .sidebar img{width:180px;height:auto}
-    .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
-    .sidebar p{font-size:14px;color:#555}
-    
-    /* ----- 상단 내비게이션 ----- */
-    .nav{margin:0 0 30px;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
-    .nav a{color:#006BB3;text-decoration:none}
-    .nav a:hover{text-decoration:underline}
-    a{color:#006BB3}
-    
-    /* ----- 오른쪽 본문 ----- */
-    .content{flex:1 1 0;max-width:700px}
-    .content h2{margin-top:0}
-    .content h3{margin:22px 0 6px}
-    .content ul{margin:0 0 18px 18px}
-    
-    /* ===== Advisor 카드 ===== */
-    .card{
-      background:#f7f7f7;
-      border:1px solid #e0e0e0;
-      border-radius:2px;
-      display:flex;
-      gap:40px;
-      padding:30px;
-      max-width:820px;
-      box-sizing:border-box;
-    }
-    .photo img{
-      width:240px;height:310px;object-fit:cover;
-      border:4px solid #fff;box-shadow:0 0 6px rgba(0,0,0,.15)
-    }
-    .info{flex:1 1 0}
-    .info h2{font-size:34px;margin:0 0 8px;color:#1a6cf0}
-    .info h3{font-size:24px;margin:0 0 18px;font-weight:700}
-    .dash{border-top:1px dashed #bbb;margin:10px 0 25px}
-    .contact p{margin:0 0 6px;font-size:18px}
-    .links{margin-top:18px}
-    .links a{margin-right:22px}
-    .links img{width:32px;height:32px;vertical-align:middle}
-    </style>
-  </head>
+<style>
+/* ===== 레이아웃 ===== */
+body{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  margin:0;
+  padding:40px 5%;
+  line-height:1.6;
+  color:#222;
+}
+.container{
+  display:flex;
+  gap:20px;
+  max-width:1600px;
+  margin:0 auto;
+  padding:40px 5%;
+}
+/* ----- 사이드바 ----- */
+.sidebar{flex:0 0 260px;text-align:center}
+.sidebar img{width:180px;height:auto}
+.sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
+.sidebar p{font-size:14px;color:#555}
+/* ----- 본문 ----- */
+.content{flex:1 1 0;max-width:700px}
+.nav{margin:0 30px 35px 0;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
+.nav a{color:#006BB3;text-decoration:none}
+.nav a:hover{text-decoration:underline}
+/* ===== 탭 버튼 ===== */
+.tab-box{
+  display:grid;
+  grid-template-columns:repeat(2,1fr); /* 1행 2열 */
+  gap:8px;
+  max-width:700px;
+  margin-bottom:30px;
+}
+.tab-btn{
+  padding:10px 0;
+  border:1px solid #006BB3;
+  text-align:center;
+  font-weight:600;
+  cursor:pointer;
+  user-select:none;
+  transition:.2s;
+}
+.tab-btn.active{background:#006BB3;color:#fff}
+/* ===== 공통 카드 ===== */
+.card{
+  background:#f7f7f7;
+  border:1px solid #e0e0e0;
+  border-radius:2px;
+  display:flex;
+  gap:40px;
+  padding:30px;
+  max-width:820px;
+  box-sizing:border-box;
+}
+.photo img{
+  width:240px;height:310px;object-fit:cover;
+  border:4px solid #fff;box-shadow:0 0 6px rgba(0,0,0,.15)
+}
+.info{flex:1 1 0}
+.info h2{font-size:34px;margin:0 0 8px;color:#1a6cf0}
+.info h3{font-size:24px;margin:0 0 18px;font-weight:700}
+.dash{border-top:1px dashed #bbb;margin:10px 0 25px}
+.contact p{margin:0 0 6px;font-size:18px}
+.links{margin-top:18px}
+.links img{width:32px;height:32px;vertical-align:middle;margin-right:22px}
+
+/* 탭 콘텐츠 숨김/표시 */
+.tab-content{display:none}
+.tab-content.active{display:block}
+</style>
+</head>
+
 <body>
-
 <div class="container">
   <!-- ===== 사이드바 ===== -->
   <aside class="sidebar">
     <h1>CAD &amp; SoC<br>Design Lab.</h1>
     <img src="./Image/CSDL.jpg" alt="Lab Logo">
     <img src="./Image/POSTECH.png" alt="POSTECH Logo">
-    <p>CAD &amp; SoC Design Laboratory at<br>POSTECH.</p>
+    <p>CAD &amp; SoC Design Laboratory at POSTECH.</p>
     <p>This website is temporarily in use.</p>
   </aside>
 
@@ -87,36 +100,87 @@
       <li><a href="Publications.html"><strong>Publications</strong></a></li>
     </ul>
 
-    <!-- Advisor 카드 -->
-    <div class="card">
-      <div class="photo">
-        <img src="./Image/Prof_SHK.jpg" alt="Seokhyeong Kang">
-      </div>
+    <!-- ===== 1행 2열 탭 ===== -->
+    <div class="tab-box">
+      <div class="tab-btn active" data-target="kang">Seokhyeong&nbsp;Kang</div>
+      <div class="tab-btn"        data-target="kim">Young Hwan Kim</div>
+    </div>
 
-      <div class="info">
-        <h2>Seokhyeong Kang</h2>
-        <h3>Associate Professor&nbsp;|&nbsp;Department of Electrical Engineering</h3>
-
-        <div class="dash"></div>
-
-        <div class="contact">
-          <p>Pohang University of Science and Technology (POSTECH)</p>
-          <p>&#128222;&nbsp;Tel&nbsp;:&nbsp;+82-54-279-2379</p>
-          <p>&#9993;&nbsp;E-mail&nbsp;:&nbsp;shkang@postech.ac.kr</p>
+    <!-- ---------------- Seokhyeong Kang ---------------- -->
+    <div id="kang" class="tab-content active">
+      <div class="card">
+        <div class="photo">
+          <img src="./Image/Prof_SHK.jpg" alt="Seokhyeong Kang">
         </div>
+        <div class="info">
+          <h2>Seokhyeong Kang</h2>
+          <h3>Associate Professor&nbsp;|&nbsp;Department of Electrical Engineering</h3>
 
-        <div class="links">
-          <a href="https://scholar.google.co.kr/citations?user=tDckZnsAAAAJ&amp;hl=en" target="_blank" rel="noopener">
-            <img src="./Image/Google_Scholar_logo.png" alt="Google Scholar">
-          </a>
-          <a href="./Resume_SHK_201130.pdf" target="_blank" rel="noopener">
-            <img src="./Image/cv_logo.png" alt="Download CV">
-          </a>
+          <div class="dash"></div>
+
+          <div class="contact">
+            <p>Pohang University of Science and Technology (POSTECH)</p>
+            <p>&#128222;&nbsp;Tel&nbsp;:&nbsp;+82-54-279-2379</p>
+            <p>&#9993;&nbsp;E-mail&nbsp;:&nbsp;shkang@postech.ac.kr</p>
+          </div>
+
+          <div class="links">
+            <a href="https://scholar.google.co.kr/citations?user=tDckZnsAAAAJ&amp;hl=en" target="_blank">
+              <img src="./Image/Google_Scholar_logo.png" alt="Google Scholar">
+            </a>
+            <a href="./Resume_SHK_201130.pdf" target="_blank">
+              <img src="./Image/cv_logo.png" alt="Download CV">
+            </a>
+          </div>
         </div>
-      </div><!-- /.info -->
-    </div><!-- /.card -->
+      </div><!-- /.card -->
+    </div><!-- /#kang -->
+
+    <!-- ---------------- Young Hwan Kim ---------------- -->
+    <div id="kim" class="tab-content">
+      <div class="card">
+        <div class="photo">
+          <img src="./Image/Prof_YHK.jpg" alt="Young Hwan Kim">
+        </div>
+        <div class="info">
+          <h2>Young Hwan Kim</h2>
+          <h3>Professor Emeritus&nbsp;|&nbsp;Department of Electrical Engineering</h3>
+
+          <div class="dash"></div>
+
+          <div class="contact">
+            <p>Pohang University of Science and Technology (POSTECH)</p>
+            <p>&#128222;&nbsp;Tel&nbsp;:&nbsp;+82-54-279-0000</p>
+            <p>&#9993;&nbsp;E-mail&nbsp;:&nbsp;yhkim@postech.ac.kr</p>
+          </div>
+
+          <div class="links">
+            <!-- 예: 구글 스칼라 링크 없으면 제거 가능 -->
+            <a href="#" target="_blank">
+              <img src="./Image/Google_Scholar_logo.png" alt="Google Scholar">
+            </a>
+          </div>
+        </div>
+      </div><!-- /.card -->
+    </div><!-- /#kim -->
+
   </main><!-- /.content -->
 </div><!-- /.container -->
 
+<!-- ===== 탭 전환 스크립트 ===== -->
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    // 버튼 상태
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    // 콘텐츠 표시
+    const tgt = btn.dataset.target;
+    document.querySelectorAll('.tab-content').forEach(box=>{
+      box.classList.toggle('active', box.id === tgt);
+    });
+  });
+});
+</script>
 </body>
 </html>
