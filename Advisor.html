@@ -8,51 +8,36 @@
   <style>
     /* ===== 공통 레이아웃 ===== */
     body{
+      font-family: "Helvetica Neue", Arial, sans-serif;
       margin:0;
       padding:40px 5%;
-      font-family:"Helvetica Neue",Arial,sans-serif;
-      line-height:1.5;
+      line-height:1.6;
       color:#222;
     }
-  
     .container{
       display:flex;
       gap:20px;
-      max-width:1200px;
+      max-width:1600px;
       margin:0 auto;
-      padding:80px 5%;
+      padding:40px 5%;
     }
-
-    /* ----- 왼쪽 사이드바 ----- */
+    /* --- 사이드바 --- */
     .sidebar{flex:0 0 260px;text-align:center}
-    .sidebar h1{font-size:32px;line-height:1.2;margin:0 0 18px}
-    .sidebar img{width:180px;height:auto;margin:12px 0}
-    .sidebar p{font-size:14px;color:#555;margin:0}
+    .sidebar img{width:180px;height:auto}
+    .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
+    .sidebar p{font-size:14px;color:#555}
     
     /* ----- 상단 내비게이션 ----- */
-    .nav{
-      margin:0 0 35px;
-      padding:0;
-      list-style:none;
-      display:flex;
-      gap:28px;
-    }
-    .nav a{
-      text-decoration:none;
-      color:#006BB3;
-      font-weight:600;      /* 기본 굵기 */
-    }
+    .nav{margin:0 0 30px;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
+    .nav a{color:#006BB3;text-decoration:none}
     .nav a:hover{text-decoration:underline}
-    .nav .active{
-      color:#000;
-      font-weight:bold;     /* 현재 페이지만 굵게 */
-      pointer-events:none;  /* 클릭 비활성(옵션) */
-    }
+    a{color:#006BB3}
     
     /* ----- 오른쪽 본문 ----- */
-    .content{
-      flex:0 0 820px;       /* 폭 고정 → 위치 불변 */
-    }
+    .content{flex:1 1 0;max-width:700px}
+    .content h2{margin-top:0}
+    .content h3{margin:22px 0 6px}
+    .content ul{margin:0 0 18px 18px}
     
     /* ===== Advisor 카드 ===== */
     .card{
