@@ -1,107 +1,160 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <title>Members | CAD & SoC Design Lab.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- ===== 기본 스타일(기존 index.html과 동일) ===== -->
-  <style>
-    body{
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      margin:0;
-      padding:40px 5%;
-      line-height:1.6;
-      color:#222;
-    }
-    .container{
-      display:flex;
-      gap:20px;
-      max-width:1600px;
-      margin:0 auto;
-      padding:40px 5%;
-    }
-    /* --- 사이드바 --- */
-    .sidebar{flex:0 0 260px;text-align:center}
-    .sidebar img{width:180px;height:auto}
-    .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
-    .sidebar p{font-size:14px;color:#555}
+<meta charset="utf-8">
+<title>Research | CAD & SoC Design Lab.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    /* --- 본문 --- */
-    .content{flex:1 1 0;max-width:700px}
-    .content h2{margin-top:0}
-    .content h3{margin:22px 0 6px}
-    .content ul{margin:0 0 18px 18px}
-    /* 네비게이션(선택) */
-    .nav{margin:0 0 30px;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
-    .nav a{color:#006BB3;text-decoration:none}
-    .nav a:hover{text-decoration:underline}
-    a{color:#006BB3}
-  </style>
+<style>
+/* ===== 기본 레이아웃 ===== */
+body{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  margin:0;
+  padding:40px 5%;
+  line-height:1.6;
+  color:#222;
+}
+.container{
+  display:flex;
+  gap:20px;
+  max-width:1600px;
+  margin:0 auto;
+  padding:40px 5%;
+}
+/* --- 왼쪽 사이드바 --- */
+.sidebar{flex:0 0 260px;text-align:center}
+.sidebar img{width:180px;height:auto}
+.sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
+.sidebar p{font-size:14px;color:#555}
+/* --- 본문 영역 --- */
+.content{flex:1 1 0;max-width:700px}
+.content h2{margin-top:0}
+.content h3{margin:22px 0 6px}
+.content ul{margin:0 0 18px 18px}
+/* --- 상단 네비게이션 --- */
+.nav{margin:0 0 30px;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
+.nav a{color:#006BB3;text-decoration:none}
+.nav a:hover{text-decoration:underline}
+/* ===== 연구 탭 버튼 ===== */
+.tab-box{
+  display:grid;
+  grid-template-columns:repeat(2,1fr); /* 1행 2열 */
+  gap:8px;
+  max-width:700px;
+  margin-bottom:30px;
+}
+.tab-btn{
+  padding:10px 0;
+  border:1px solid #006BB3;
+  text-align:center;
+  font-weight:600;
+  cursor:pointer;
+  user-select:none;
+  transition:.2s;
+}
+.tab-btn.active{background:#006BB3;color:#fff}
+/* 탭 콘텐츠 기본 숨김 → 선택된 것만 보임 */
+.tab-content{display:none}
+.tab-content.active{display:block}
+/* 이미지 100% 폭 */
+.res-img{width:100%;height:auto}
+a{color:#006BB3}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <!-- ========== 왼쪽 사이드바 ========== -->
-    <aside class="sidebar">
-      <h1>CAD &amp; SoC<br>Design Lab.</h1>
-      <img src="./Image/CSDL.jpg" alt="Lab Logo">
-      <img src="./Image/POSTECH.png" alt="POSTECH Logo">
-      <p>CAD &amp; SoC Design Laboratory at POSTECH.</p>
-      <p>This website is temporarily in use.</p>
-    </aside>
+<div class="container">
+  <!-- ===== 사이드바 ===== -->
+  <aside class="sidebar">
+    <h1>CAD &amp; SoC<br>Design Lab.</h1>
+    <img src="./Image/CSDL.jpg" alt="Lab Logo">
+    <img src="./Image/POSTECH.png" alt="POSTECH Logo">
+    <p>CAD &amp; SoC Design Laboratory at POSTECH.</p>
+    <p>This website is temporarily in use.</p>
+  </aside>
 
-    <!-- ========== 오른쪽 본문 ========== -->
-    <main class="content">
-      <!-- (선택) 상단 메뉴 -->
-      <ul class="nav">
-        <li><a href="index.html"><strong>Home</strong></a></li>
-        <li><strong>Research</strong></li>
-        <li><a href="Advisor.html"><strong>Advisor</strong></a></li>
-        <li><a href="./Members.html"><strong>Members</strong></a></li>
-        <li><a href="Publications.html"><strong>Publications</strong></a></li>
-      </ul>
+  <!-- ===== 본문 ===== -->
+  <main class="content">
+    <!-- 상단 메뉴 -->
+    <ul class="nav">
+      <li><a href="index.html"><strong>Home</strong></a></li>
+      <li><strong>Research</strong></li>
+      <li><a href="Advisor.html"><strong>Advisor</strong></a></li>
+      <li><a href="Members.html"><strong>Members</strong></a></li>
+      <li><a href="Publications.html"><strong>Publications</strong></a></li>
+    </ul>
 
+    <!-- ===== 탭 버튼 (1행 2열) ===== -->
+    <div class="tab-box">
+      <div class="tab-btn active" data-target="pdopt">Physical Design Optimization</div>
+      <div class="tab-btn"        data-target="dnn">Deep Learning Hardware</div>
+    </div>
+
+    <!-- ---------------- Physical Design Optimization ---------------- -->
+    <div id="pdopt" class="tab-content active">
       <h2>Physical Design Optimization</h2>
 
-      <p>In the field of Electronic Design Automation (EDA) for Very-Large-Scale Integration (VLSI), physical design optimization focuses on power consumption, circuit performance, and chip area (PPA). 
-      EDA tools automate complex tasks in the design process, such as circuit simulation, layout design, and verification, significantly enhancing efficiency and accuracy.
-      Advanced silicon scaling fabrication technologies, including 3D ICs, FinFET, and GAA, produce denser chips with improved PPA. 
-      However, the complexity of designs, which now contain various modules on a single chip (SoC-level), has exponentially increased.
-      Recent advancements in EDA encompass efficient design methodologies for emerging technology processes and the incorporation of AI, including machine learning (ML) and reinforcement learning (RL).
-      Our lab (CSDL) researches EDA to improve PPA using both heuristic methods and AI. Our interests span all steps of physical design, analog circuit optimization, standard cell generation, and design-technology co-optimization (DTCO).
-      We also focus on prediction, optimization and generation using ML and RL for each step of physical design and design space optimization (DSO).
-      Additionally, we actively participate in the ISPD contest and ICCAD contest, which are published annually by the International Symposium of Physical Design (ISPD) every summer and the International Conference of Computer-Aided Design (ICCAD) every winter, respectively.
-      Our current research is categorized as below.</p>
+      <p>In the field of Electronic Design Automation (EDA) for Very-Large-Scale Integration (VLSI),
+         physical design optimization focuses on power consumption, circuit performance, and chip area (PPA).
+         EDA tools automate complex tasks in the design process, such as circuit simulation, layout design, and verification,
+         significantly enhancing efficiency and accuracy. Advanced silicon-scaling technologies (3D IC, FinFET, GAA etc.)
+         further increase design complexity at the SoC level.</p>
 
-      </p>
-      <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/Physical_Design">Physical Design</a></li>
-      <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/Analog_Circuit_Opt">Analog Circuit Optimization</a></li>
-      <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/DTCO">Design-Technology Co-Optimization</a></li>
-      <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/STD_Cell_Generation">Standard Cell Generation</a></li>
-      <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/ML_Prediction_and_Opt">ML-based Prediction and Optimization</a></li>
-      <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/ML_Generation">ML-based Generation</a></li>
-      <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/RL_Opt">RL-based Optimization</a></li>
-      <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/Design_Space_Opt">Design Space Optimization</a></li>
-      </p>
+      <p>Our lab researches EDA methodologies and AI-driven techniques
+         (machine learning & reinforcement learning) covering the full flow of physical design,
+         analog circuit optimization, standard-cell generation, and design-technology co-optimization (DTCO).
+         We also participate annually in the ISPD &amp; ICCAD contests.  
+         Current research topics:</p>
 
+      <ul>
+        <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/Physical_Design">Physical Design</a></li>
+        <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/Analog_Circuit_Opt">Analog Circuit Optimization</a></li>
+        <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/DTCO">Design-Technology Co-Optimization</a></li>
+        <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/STD_Cell_Generation">Standard Cell Generation</a></li>
+        <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/ML_Prediction_and_Opt">ML-based Prediction &amp; Optimization</a></li>
+        <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/ML_Generation">ML-based Generation</a></li>
+        <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/RL_Opt">RL-based Optimization</a></li>
+        <li><a href="https://github.com/CSDL-postech/Topic_Introduction/tree/main/Design_Space_Opt">Design Space Optimization</a></li>
+      </ul>
+    </div><!-- /#pdopt -->
+
+    <!-- ---------------- Deep Learning Hardware ---------------- -->
+    <div id="dnn" class="tab-content">
       <h2>Deep Learning Hardware</h2>
-      
-      <p>Deep Neural Networks (DNNs) have proven to show superior performance compared to conventional algorithms in the field of Computer Vision (CV) and Natural Language Processing (NLP).
-      However, due to its computational complexity, high energy consumption and memory demand, both academia and industry find it difficult to port DNN-based tasks on traditional CPUs and GPUs. 
-      To tackle this problem, software-based model compression methods were proposed to increase energy and memory efficiency of DNNs. Also, engineers developed domain-specific hardware to efficiently accelerate the heavy DNN computation.</p>
-      
-      <p>Our lab also studies and develops domain-specific hardware accelerators and model compression techniques for efficient deployment of DNNs. 
-      We target acceleration and compression of both traditional Convolution-based Neural Networks (CNNs) and attention-based transformers. 
-      Our current research is the optimization of DNN training, where we aim to minimize memory footprint and training latency for effective deployment of DNNs for on-device training (edge computing).
-      We also study model compression techniques for attention-based transformers, such as Vision Transformers (ViT) and Large-Language Models (LLMs).</p>
 
-      <img src="./Image/Edge_Cloud.png" style="width:100%;" alt="Lab Logo">
-      <img src="./Image/HW_Series.png" style="width:100%;" alt="Lab Logo">
+      <p>Deep Neural Networks (DNNs) outperform conventional algorithms in computer vision and NLP, but
+         their computational complexity and high resource demand challenge deployment on CPUs / GPUs.
+         Our lab develops <strong>(i)</strong> software-based model-compression techniques for energy &amp; memory
+         efficiency and <strong>(ii)</strong> domain-specific accelerators for both CNNs and transformer models.</p>
 
-    </main>
-  </div>
+      <p>Current efforts focus on on-device training (edge computing) and compression of large models,
+         including Vision Transformers (ViT) and LLMs.</p>
 
-  <footer style="text-align:center;font-size:13px;margin-top:40px;color:#777;">
-    Hosted on GitHub Pages — Theme by orderedlist
-  </footer>
+      <img class="res-img" src="./Image/Edge_Cloud.png"  alt="Edge vs Cloud">
+      <img class="res-img" src="./Image/HW_Series.png"   alt="DNN Processing Units">
+    </div><!-- /#dnn -->
+
+  </main><!-- /.content -->
+</div><!-- /.container -->
+
+<!-- ===== 탭 스크립트 ===== -->
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    // 버튼 active 상태
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    // 콘텐츠 토글
+    const tgt = btn.dataset.target;
+    document.querySelectorAll('.tab-content').forEach(box=>{
+      box.classList.toggle('active', box.id === tgt);
+    });
+  });
+});
+</script>
+
+<footer style="text-align:center;font-size:13px;margin-top:40px;color:#777;">
+  Hosted on GitHub Pages — Theme by orderedlist
+</footer>
 </body>
 </html>
