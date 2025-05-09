@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Advisor | CAD & SoC Design Lab.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* reset & body */
+    body{margin:0;font-family:"Helvetica Neue",Arial,sans-serif;line-height:1.5;color:#222}
+    .wrapper{padding:25px;background:#f0f0f0}
+
+    /* card */
+    .card{
+      background:#f7f7f7;
+      border:1px solid #e0e0e0;
+      border-radius:2px;
+      display:flex;
+      gap:40px;
+      padding:30px;
+      max-width:1400px;
+      margin:0 auto 40px;
+    }
+
+    .photo img{
+      width:240px;height:310px;object-fit:cover;
+      border:4px solid #fff;box-shadow:0 0 6px rgba(0,0,0,.15);
+    }
+
+    .info{flex:1 1 0}
+    .info h1{
+      font-size:34px;
+      margin:0 0 8px;
+      color:#1a6cf0;        /* 링크와 비슷한 파란색 */
+    }
+    .info h2{
+      font-size:24px;
+      margin:0 0 18px;
+      font-weight:700;
+    }
+    .dash{border-top:1px dashed #bbb;margin:10px 0 25px}
+
+    /* 연락처 부분 */
+    .contact p{margin:0 0 6px;font-size:18px}
+    .contact svg{vertical-align:middle;margin-right:6px;fill:#444}
+
+    /* 다운로드/링크 아이콘 */
+    .links{margin-top:18px}
+    .links a{margin-right:22px;text-decoration:none}
+    .links svg{width:32px;height:32px;fill:#1a6cf0;transition:0.2s}
+    .links svg:hover{fill:#0d47a1}
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="card">
+    <!-- 사진 -->
+    <div class="photo">
+      <img src="./Image/Prof_SHK.jpg" alt="Seokhyeong Kang">
+    </div>
+
+    <!-- 정보 -->
+    <div class="info">
+      <h1>Seokhyeong Kang</h1>
+      <h2>Associate Professor | Department of Electrical Engineering</h2>
+
+      <div class="dash"></div>
+
+      <div class="contact">
+        <p>Pohang University of Science and Technology (POSTECH)</p>
+        <p>
+          <!-- phone icon (unicode) -->
+          &#128222; Tel&nbsp;:&nbsp;+82-54-279-2379
+        </p>
+        <p>
+          <!-- envelope icon (unicode) -->
+          &#9993; E-mail&nbsp;:&nbsp;shkang@postech.ac.kr
+        </p>
+      </div>
+
+      <!-- 예: CV, Google Scholar 아이콘 등 -->
+      <div class="links">
+        <!-- Google Scholar -->
+        <a href="https://scholar.google.co.kr/citations?user=tDckZnsAAAAJ&hl=ko&oi=ao" title="Google Scholar" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 0L2.197 4v8c0 5.524 3.805 10.744 9.803 12 5.998-1.256 9.803-6.476 9.803-12V4L12 0zM8 16a4 4 0 118 0 4 4 0 01-8 0zm9.5-7h-13v-3h13v3z"/>
+          </svg>
+        </a>
+
+      </div>
+    </div><!-- /.info -->
+  </div><!-- /.card -->
+</div><!-- /.wrapper -->
+
+</body>
+</html>
 
