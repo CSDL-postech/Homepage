@@ -8,7 +8,7 @@
   <style>
     /* ===== 공통 레이아웃 ===== */
     body{margin:0;font-family:"Helvetica Neue",Arial,sans-serif;line-height:1.5;color:#222}
-    .container{display:flex;gap:60px;max-width:1400px;margin:0 auto;padding:40px 5%}
+    .container{display:flex;gap:40px;max-width:1400px;margin:0 auto;padding:40px 5%}
 
     /* ----- 왼쪽 사이드바 ----- */
     .sidebar{flex:0 0 260px;text-align:center}
@@ -23,12 +23,15 @@
     .nav .active{color:#000;cursor:default}
 
     /* ----- 오른쪽 본문 ----- */
-    .content{flex:1 1 0}
+    .content{
+      flex:1 1 0;
+      max-width: 900px;
+    }
 
     /* ===== Advisor 카드 ===== */
     .card{
-      background:#f7f7f7;border:1px solid #e0e0e0;border-radius:2px;
-      display:flex;gap:40px;padding:30px;max-width:100%;box-sizing:border-box
+      width:100%;
+      box-sizing:border-box;
     }
     .photo img{
       width:240px;height:310px;object-fit:cover;
@@ -52,7 +55,7 @@
     <h1>CAD &amp; SoC<br>Design Lab.</h1>
     <img src="./Image/CSDL.jpg" alt="Lab Logo">
     <p>CAD &amp; SoC Design Laboratory at<br>POSTECH.</p>
-    <p>This website is temporarily in use.></p>
+    <p>This website is temporarily in use.</p>
   </aside>
 
   <!-- ===== 본문 ===== -->
