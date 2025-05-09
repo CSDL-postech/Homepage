@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Members | CAD & SoC Design Lab.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ===== 기본 스타일(기존 index.html과 동일) ===== -->
+  <style>
+    body{
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin:0;
+      padding:40px 5%;
+      line-height:1.6;
+      color:#222;
+    }
+    .container{
+      display:flex;
+      gap:60px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    /* --- 사이드바 --- */
+    .sidebar{flex:0 0 260px;text-align:center}
+    .sidebar img{width:180px;height:auto}
+    .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
+    .sidebar p{font-size:14px;color:#555}
 
+    /* --- 본문 --- */
+    .content{flex:1 1 0;max-width:700px}
+    .content h2{margin-top:0}
+    .content h3{margin:22px 0 6px}
+    .content ul{margin:0 0 18px 18px}
+    /* 네비게이션(선택) */
+    .nav{margin:0 0 30px;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
+    .nav a{color:#006BB3;text-decoration:none}
+    .nav a:hover{text-decoration:underline}
+    a{color:#006BB3}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ========== 왼쪽 사이드바 ========== -->
+    <aside class="sidebar">
+      <h1>CAD &amp; SoC Design Lab.</h1>
+      <img src="assets/img/logo.png" alt="Lab Logo">
+      <p>CAD &amp; SoC Design Laboratory at POSTECH<br>
+         researches cool circuits and design automation.</p>
+      <p><a href="https://github.com/yourID">View My GitHub Profile</a></p>
+    </aside>
+
+    <!-- ========== 오른쪽 본문 ========== -->
+    <main class="content">
+      <!-- (선택) 상단 메뉴 -->
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Research.html">Research</a></li>
+        <li><strong>Members</strong></li>
+        <li><a href="Publications.html">Publications</a></li>
+      </ul>
+
+      <h2>CSDL Members</h2>
+
+      <h4>PhD / MS·PhD Candidates</h4>
+      <ul>
+      </ul>
+
+      <h4>MS Candidates</h4>     
+      <ul>
+        <li>Jonghyeon Nam, jhnam99@postech.ac.kr</li>
+      </ul>
+
+      <!-- 필요 시 석사/학부 연구생 섹션도 추가 -->
+    </main>
+  </div>
+
+  <footer style="text-align:center;font-size:13px;margin-top:40px;color:#777;">
+    Hosted on GitHub Pages — Theme by orderedlist
+  </footer>
+</body>
+</html>
