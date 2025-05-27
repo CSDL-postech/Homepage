@@ -2,83 +2,127 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>CAD & SoC Design Lab.</title>
+  <title>CAD &amp; SoC Design Lab.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
-    /* 레이아웃 */
-    body{
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      margin:0;
-      padding:40px 5%;
-      line-height:1.6;
-      color:#222;
-    }
-    .container{
-      display:flex;
-      gap:20px;
-      max-width:1600px;
-      margin:0 auto;
-      padding:40px 5%;
-    }
-    /* --- 사이드바 --- */
-    .sidebar{flex:0 0 260px;text-align:center}
-    .sidebar img{width:180px;height:auto}
-    .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
-    .sidebar p{font-size:14px;color:#555}
-    
-    /* --- 본문 --- */
-    .content{flex:1 1 0;max-width:700px}
-    .content h2{margin-top:0}
-    .content h3{margin:22px 0 6px}
-    .content ul{margin:0 0 18px 18px}
-    
-    /* 네비게이션(선택) */
-    .nav{margin:0 0 30px;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
-    .nav a{color:#006BB3;text-decoration:none}
-    .nav a:hover{text-decoration:underline}
-    a{color:#006BB3}
-    
-    /* 목록 들여쓰기 감소 */
-    ul{
-      margin:0 0 20px 18px;
-    }
+  /* ===== 레이아웃 공통 ===== */
+  body{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    margin:0;
+    padding:40px 5%;
+    line-height:1.6;
+    color:#222;
+  }
+  .container{
+    display:flex;
+    gap:20px;
+    max-width:1600px;
+    margin:0 auto;
+    padding:40px 5%;
+  }
+
+  /* ----- 사이드바 ----- */
+  .sidebar{flex:0 0 260px;text-align:center}
+  .sidebar img{width:180px;height:auto}
+  .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
+  .sidebar p{font-size:14px;color:#555}
+
+  /* ----- 본문 ----- */
+  .content{flex:1 1 0;max-width:700px}
+  .content h2{margin-top:0}
+  .content ul{margin:0 0 18px 18px}
+
+  /* ----- 상단 메뉴 ----- */
+  .nav{
+    margin:0 0 30px;
+    padding:0;
+    list-style:none;
+    display:flex;
+    gap:12px 25px;
+    flex-wrap:wrap;
+  }
+  .nav a{color:#006BB3;text-decoration:none}
+  .nav a:hover{text-decoration:underline}
+  a{color:#006BB3}
+
+  /* ===== 영상 2열 ===== */
+  .video-row{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;            /* 모바일에선 세로로 쌓임 */
+    margin-top:40px;
+  }
+  .video-row video{
+    width:100%;
+    max-width:480px;           /* 필요 시 조정 */
+    aspect-ratio:16/9;
+    border:1px solid #ccc;
+    border-radius:4px;
+  }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <!-- 왼쪽 사이드바 -->
+    <!-- ===== 왼쪽 사이드바 ===== -->
     <aside class="sidebar">
       <h1>CAD &amp; SoC<br>Design Lab.</h1>
-      <img src="./Image/CSDL.jpg" alt="Lab Logo">
+      <img src="./Image/CSDL.jpg"  alt="CSDL Logo">
       <img src="./Image/POSTECH.png" alt="POSTECH Logo">
       <p>CAD &amp; SoC Design Laboratory at POSTECH.</p>
       <p>This website is temporarily in use.</p>
     </aside>
 
-    <!-- 오른쪽 본문 -->
+    <!-- ===== 오른쪽 본문 ===== -->
     <main class="content">
-      <!-- 네비게이션 -->
+      <!-- 상단 네비게이션 -->
       <ul class="nav">
         <li><strong>Home</strong></li>
         <li><a href="Research.html"><strong>Research</strong></a></li>
         <li><a href="Advisor.html"><strong>Advisor</strong></a></li>
-        <li><a href="./Members.html"><strong>Members</strong></a></li>
+        <li><a href="Members.html"><strong>Members</strong></a></li>
         <li><a href="Publications.html"><strong>Publications</strong></a></li>
       </ul>
 
-      <!-- 소개 본문 -->
-      <p>In 1989, the <strong>CAD and SoC Design Laboratory(CSDL)</strong> was established by Professor <strong>Younghwan Kim</strong>.
-      The main research topics in the CSDL are SoC (System-on-a-Chip) design, hardware/software codesign, low power design, design methodology, image processing.
-      Recently, we are focusing on <strong>physical design optimization</strong> (3D-IC PDN, detailed routing and detailed placement), and <strong>deep-learning hardware accelerator design</strong>.</p>
-      </p>The Professor <strong>Seokhyeong Kang</strong> who received master’s degree in 2001 at CSDL joined to our new advisor in 2017.
-      Currently we are looking for talented students who would like to work with us on designing state-of-the-art SoC and CAD solution. Candidates with experience or interest in one or more of the following areas will be considered seriously.</p>
-      <p>If you’re interested, please email <strong>Seokhyeong Kang(shkang@postech.ac.kr)</strong>.</p>
+      <!-- 소개 글 -->
+      <p>In&nbsp;1989, the <strong>CAD and SoC Design Laboratory (CSDL)</strong> was established by
+         Professor <strong>Younghwan&nbsp;Kim</strong>.
+         The main research topics in CSDL are SoC design, hardware/software codesign,
+         low-power design, design methodology and image processing.  
+         Recently, we are focusing on <strong>physical-design optimization</strong> (3D-IC PDN,
+         detailed routing &amp; placement) and
+         <strong>deep-learning hardware accelerator design</strong>.</p>
 
+      <p>The Professor <strong>Seokhyeong&nbsp;Kang</strong>, who received his master’s degree in 2001
+         at CSDL, joined as our new advisor in&nbsp;2017.  
+         We are looking for talented students who would like to work with us on designing
+         state-of-the-art SoC and CAD solutions. Candidates with experience or interest in any
+         of the following areas will be considered seriously.</p>
+
+      <p>If you’re interested, please email
+         <strong>Seokhyeong&nbsp;Kang (shkang@postech.ac.kr)</strong>.</p>
+
+      <!-- ===== 소개 영상 2편 ===== -->
+      <h2>Lab Introduction Videos</h2>
+      <div class="video-row">
+        <video controls
+               src="https://raw.githubusercontent.com/CSDL-postech/Homepage/main/Video/CSDL_Intro.mp4?raw=true"
+               poster="./Image/intro_thumb.jpg">
+          Your browser does not support the video tag.
+        </video>
+
+        <video controls
+               src="https://raw.githubusercontent.com/CSDL-postech/Homepage/main/Video/Lab_Introduction.mp4?raw=true"
+               poster="./Image/lab_thumb.jpg">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </main>
   </div>
 
   <!-- 바닥글 -->
-  <footer style="text-align:center; font-size:13px; margin-top:40px; color:#777;">
+  <footer style="text-align:center;font-size:13px;margin-top:40px;color:#777;">
     Hosted on GitHub Pages — Theme by orderedlist
   </footer>
 </body>
