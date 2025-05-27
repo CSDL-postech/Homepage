@@ -78,26 +78,39 @@
       .sidebar img{width:140px}  /* 로고 조금 작게(선택) */
       .content{max-width:100%}    /* 본문은 전체폭 사용 */
       .video-row video{width:100%}/* 비디오도 화면폭에 맞춰 */
-    } */
-
+    }
+ */
+    
     @media (max-width:1200px){
-      .container{              /* 가로 배치 → 세로 쌓기 */
-        flex-direction:column; 
+      /* ========== 모바일 레이아웃 ========== */
+      .container{
+        flex-direction:column;   /* 세로 배치 */
         padding:25px 5%;
       }
+    
+      /* ----- 사이드바(로고 영역) ----- */
       .sidebar{
-        text-align:center;          /* inline-block 중앙 정렬 기준 */
+        /* .container 가 column 상태이므로 가운데로 보내기 */
+        align-self:center;       /* Flex-box 축 기준 가운데 */
+        text-align:center;       /* 인라인 요소 중앙 정렬 */
+        margin:0 0 30px;         /* 아래쪽 여백만 */
       }
+    
       .sidebar img{
-        display:inline-block;       /* 가로로 나란히 */
-        width:38vw;                 /* 화면폭의 38%씩 → 반응형으로 살짝 줄어듦 */
-        max-width:140px;            /* 너무 커지지 않도록 상한 */
+        /* 두 장을 가로로 나란히+가운데 */
+        display:inline-block;
+        vertical-align:middle;
+    
+        /* 반응형 크기 */
+        width:38vw;              /* 화면폭 38 % */
+        max-width:140px;         /* 너무 커지지 않게 상한 */
         height:auto;
-        margin:4px 6px;             /* 로고 사이 약간의 간격 */
-        vertical-align:middle;      /* 세로 가운데 맞춤 */
+        margin:4px 6px;          /* 로고 사이 간격 */
       }
-      .content{max-width:100%}    /* 본문은 전체폭 사용 */
-      .video-row video{width:100%}/* 비디오도 화면폭에 맞춰 */
+    
+      /* 본문과 비디오 */
+      .content        {max-width:100%;}
+      .video-row video{width:100%;}
     }
   
     /* 본문 문단을 양쪽 정렬로 */
