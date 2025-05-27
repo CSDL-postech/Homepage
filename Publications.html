@@ -59,6 +59,27 @@
     .tab-content{display:none}
     .tab-content.active{display:block}
     a{color:#006BB3}
+
+    /* ▼ 화면이 좁을 때(예: 모바일) 레이아웃 전환 --------------- */
+    @media (max-width:1200px){
+      .container{              /* 가로 배치 → 세로 쌓기 */
+        flex-direction:column; 
+        padding:25px 5%;
+      }
+      .sidebar{                /* 폭 제약 해제 + 여백 */
+        flex:0 0 auto;
+        margin-bottom:30px;
+      }
+      .sidebar img{width:140px}  /* 로고 조금 작게(선택) */
+      .content{max-width:100%}    /* 본문은 전체폭 사용 */
+      .video-row video{width:100%}/* 비디오도 화면폭에 맞춰 */
+    }
+  
+    /* 본문 문단을 양쪽 정렬로 */
+    .content p{
+      text-align:justify;      /* 양쪽 정렬 */
+      text-justify:inter-word; /* 한-글/영문 모두 단어 기준으로 공백 조정 */
+    }
   </style>
 </head>
 
