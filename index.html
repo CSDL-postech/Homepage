@@ -66,7 +66,7 @@
     h2.video-title{margin-top:40px;}
   
     /* ▼ 화면이 좁을 때(예: 모바일) 레이아웃 전환 --------------- */
-    @media (max-width:1200px){
+/*     @media (max-width:1200px){
       .container{              /* 가로 배치 → 세로 쌓기 */
         flex-direction:column; 
         padding:25px 5%;
@@ -78,6 +78,20 @@
       .sidebar img{width:140px}  /* 로고 조금 작게(선택) */
       .content{max-width:100%}    /* 본문은 전체폭 사용 */
       .video-row video{width:100%}/* 비디오도 화면폭에 맞춰 */
+    } */
+
+    @media (max-width:1200px){
+      .sidebar{
+        text-align:center;          /* inline-block 중앙 정렬 기준 */
+      }
+      .sidebar img{
+        display:inline-block;       /* 가로로 나란히 */
+        width:38vw;                 /* 화면폭의 38%씩 → 반응형으로 살짝 줄어듦 */
+        max-width:140px;            /* 너무 커지지 않도록 상한 */
+        height:auto;
+        margin:4px 6px;             /* 로고 사이 약간의 간격 */
+        vertical-align:middle;      /* 세로 가운데 맞춤 */
+      }
     }
   
     /* 본문 문단을 양쪽 정렬로 */
