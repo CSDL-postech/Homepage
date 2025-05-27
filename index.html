@@ -46,16 +46,18 @@
   .nav a:hover{text-decoration:underline}
   a{color:#006BB3}
 
-  /* ===== 영상 2열 ===== */
   .video-row{
     display:flex;
-    gap:30px;
-    flex-wrap:wrap;            /* 모바일에선 세로로 쌓임 */
+    justify-content:center;   /* 가운데 정렬 */
+    gap:40px;                 /* 두 영상 사이 간격 */
+    flex-wrap:wrap;
     margin-top:40px;
   }
+  
+  /* ▽ ② 비디오를 더 크게 – 폭을 최대 90 %, 800 px 까지 */
   .video-row video{
-    width:100%;
-    max-width:480px;           /* 필요 시 조정 */
+    width:90%;        /* 컨텐트 폭의 90 % */
+    max-width:800px;  /* 너무 커지지 않도록 상한 */
     aspect-ratio:16/9;
     border:1px solid #ccc;
     border-radius:4px;
@@ -107,13 +109,13 @@
       <h2>Lab Introduction Videos</h2>
       <div class="video-row">
         <video controls
-               src="https://raw.githubusercontent.com/CSDL-postech/Homepage/main/Video/CSDL_Intro.mp4?raw=true"
+               src="./Video/CSDL_Intro.mp4?raw=true"
                poster="./Image/intro_thumb.jpg">
           Your browser does not support the video tag.
         </video>
 
         <video controls
-               src="https://raw.githubusercontent.com/CSDL-postech/Homepage/main/Video/Lab_Introduction.mp4?raw=true"
+               src="./Video/Lab_Introduction.mp4?raw=true"
                poster="./Image/lab_thumb.jpg">
           Your browser does not support the video tag.
         </video>
