@@ -6,80 +6,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-  /* ===== 레이아웃 공통 ===== */
-  body{
-    font-family:"Helvetica Neue",Arial,sans-serif;
-    margin:0;
-    padding:40px 5%;
-    line-height:1.6;
-    color:#222;
-  }
-  .container{
-    display:flex;
-    gap:20px;
-    max-width:1600px;
-    margin:0 auto;
-    padding:40px 5%;
-  }
-
-  /* ----- 사이드바 ----- */
-  .sidebar{flex:0 0 260px;text-align:center}
-  .sidebar img{width:180px;height:auto}
-  .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
-  .sidebar p{font-size:14px;color:#555}
-
-  /* ----- 본문 ----- */
-  .content{flex:1 1 0;max-width:700px}
-  .content h2{margin-top:0}
-  .content ul{margin:0 0 18px 18px}
-
-  /* ----- 상단 메뉴 ----- */
-  .nav{
-    margin:0 0 30px;
-    padding:0;
-    list-style:none;
-    display:flex;
-    gap:12px 25px;
-    flex-wrap:wrap;
-  }
-  .nav a{color:#006BB3;text-decoration:none}
-  .nav a:hover{text-decoration:underline}
-  a{color:#006BB3}
-
-  .video-row{
-    display:flex;
-    justify-content:center;   /* 가운데 정렬 */
-    gap:40px;                 /* 두 영상 사이 간격 */
-    flex-wrap:wrap;
-    margin-top:40px;
-  }
-  
-  /* ▽ ② 비디오를 더 크게 – 폭을 최대 90 %, 800 px 까지 */
-  .video-row video{
-    width:90%;        /* 컨텐트 폭의 90 % */
-    max-width:800px;  /* 너무 커지지 않도록 상한 */
-    aspect-ratio:16/9;
-    border:1px solid #ccc;
-    border-radius:4px;
-  }
-
-  h2.video-title{margin-top:40px;}
-
-  /* ▼ 화면이 좁을 때(예: 모바일) 레이아웃 전환 --------------- */
-  @media (max-width:1200px){
-    .container{              /* 가로 배치 → 세로 쌓기 */
-      flex-direction:column; 
-      padding:25px 5%;
+    /* ===== 레이아웃 공통 ===== */
+    body{
+      font-family:"Helvetica Neue",Arial,sans-serif;
+      margin:0;
+      padding:40px 5%;
+      line-height:1.6;
+      color:#222;
     }
-    .sidebar{                /* 폭 제약 해제 + 여백 */
-      flex:0 0 auto;
-      margin-bottom:30px;
+    .container{
+      display:flex;
+      gap:20px;
+      max-width:1600px;
+      margin:0 auto;
+      padding:40px 5%;
     }
-    .sidebar img{width:140px}  /* 로고 조금 작게(선택) */
-    .content{max-width:100%}    /* 본문은 전체폭 사용 */
-    .video-row video{width:100%}/* 비디오도 화면폭에 맞춰 */
-  }
   
+    /* ----- 사이드바 ----- */
+    .sidebar{flex:0 0 260px;text-align:center}
+    .sidebar img{width:180px;height:auto}
+    .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
+    .sidebar p{font-size:14px;color:#555}
+  
+    /* ----- 본문 ----- */
+    .content{flex:1 1 0;max-width:700px}
+    .content h2{margin-top:0}
+    .content ul{margin:0 0 18px 18px}
+  
+    /* ----- 상단 메뉴 ----- */
+    .nav{
+      margin:0 0 30px;
+      padding:0;
+      list-style:none;
+      display:flex;
+      gap:12px 25px;
+      flex-wrap:wrap;
+    }
+    .nav a{color:#006BB3;text-decoration:none}
+    .nav a:hover{text-decoration:underline}
+    a{color:#006BB3}
+  
+    .video-row{
+      display:flex;
+      justify-content:center;   /* 가운데 정렬 */
+      gap:40px;                 /* 두 영상 사이 간격 */
+      flex-wrap:wrap;
+      margin-top:40px;
+    }
+    
+    /* ▽ ② 비디오를 더 크게 – 폭을 최대 90 %, 800 px 까지 */
+    .video-row video{
+      width:90%;        /* 컨텐트 폭의 90 % */
+      max-width:800px;  /* 너무 커지지 않도록 상한 */
+      aspect-ratio:16/9;
+      border:1px solid #ccc;
+      border-radius:4px;
+    }
+  
+    h2.video-title{margin-top:40px;}
+  
+    /* ▼ 화면이 좁을 때(예: 모바일) 레이아웃 전환 --------------- */
+    @media (max-width:1200px){
+      .container{              /* 가로 배치 → 세로 쌓기 */
+        flex-direction:column; 
+        padding:25px 5%;
+      }
+      .sidebar{                /* 폭 제약 해제 + 여백 */
+        flex:0 0 auto;
+        margin-bottom:30px;
+      }
+      .sidebar img{width:140px}  /* 로고 조금 작게(선택) */
+      .content{max-width:100%}    /* 본문은 전체폭 사용 */
+      .video-row video{width:100%}/* 비디오도 화면폭에 맞춰 */
+    }
+  
+    /* 본문 문단을 양쪽 정렬로 */
+    .content p{
+      text-align:justify;      /* 양쪽 정렬 */
+      text-justify:inter-word; /* 한-글/영문 모두 단어 기준으로 공백 조정 */
+    }
+    
   </style>
 </head>
 
