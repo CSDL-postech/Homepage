@@ -61,6 +61,12 @@
     .tab-content.active{display:block}
     a{color:#006BB3}
 
+    #current li,
+    #alum    li{
+      text-align:justify;      /* 좌·우 맞춤 */
+      text-justify:inter-word; /* 단어 단위로 여백 조정 */
+    }
+
     /* ▼ 화면이 좁을 때(예: 모바일) 레이아웃 전환 --------------- */
     @media (max-width:1200px){
       .container{                 /* 가로 배치 → 세로 쌓기 */
