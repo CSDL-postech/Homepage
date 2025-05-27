@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Advisor | CAD & SoC Design Lab.</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Advisor | CAD & SoC Design Lab.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-/* ===== 레이아웃 ===== */
-body{
-  font-family:"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:40px 5%;
-  line-height:1.6;
-  color:#222;
-}
-.container{
-  display:flex;
-  gap:20px;
-  max-width:1600px;
-  margin:0 auto;
-  padding:40px 5%;
-}
-/* ----- 사이드바 ----- */
-.sidebar{flex:0 0 260px;text-align:center}
-.sidebar img{width:180px;height:auto}
-.sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
-.sidebar p{font-size:14px;color:#555}
-/* ----- 본문 ----- */
-.content{flex:1 1 0;max-width:700px}
-.content h2{margin-top:0}
-.content h4{margin:22px 0 6px}
-/* ----- 상단 메뉴 ----- */
-.content ul{margin:0 0 18px 18px}
-.nav{margin:0 30px 35px 0;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
-.nav a{color:#006BB3;text-decoration:none}
-.nav a:hover{text-decoration:underline}
-/* ===== 탭 버튼 ===== */
-.tab-box{
-  display:grid;
-  grid-template-columns:repeat(2,1fr); /* 1행 2열 */
-  gap:8px;
-  max-width:700px;
-  margin-bottom:30px;
-}
-.tab-btn{
-  padding:10px 0;
-  border:1px solid #006BB3;
-  text-align:center;
-  font-weight:600;
-  cursor:pointer;
-  user-select:none;
-  transition:.2s;
-}
-.tab-btn.active{background:#006BB3;color:#fff}
-/* ===== 공통 카드 ===== */
-.card{
-  background:#f7f7f7;
-  border:1px solid #e0e0e0;
-  border-radius:2px;
-  display:flex;
-  gap:40px;
-  padding:30px;
-  max-width:820px;
-  box-sizing:border-box;
-}
-.photo img{
-  width:240px;height:310px;object-fit:cover;
-  border:4px solid #fff;box-shadow:0 0 6px rgba(0,0,0,.15)
-}
-.info{flex:1 1 0}
-.info h2{font-size:34px;margin:0 0 8px;color:#1a6cf0}
-.info h3{font-size:24px;margin:0 0 18px;font-weight:700}
-.dash{border-top:1px dashed #bbb;margin:10px 0 25px}
-.contact p{margin:0 0 6px;font-size:18px}
-.links{margin-top:18px}
-.links img{width:32px;height:32px;vertical-align:middle;margin-right:22px}
+  <style>
+    /* ===== 레이아웃 ===== */
+    body{
+      font-family:"Helvetica Neue",Arial,sans-serif;
+      margin:0;
+      padding:40px 5%;
+      line-height:1.6;
+      color:#222;
+    }
+    .container{
+      display:flex;
+      gap:20px;
+      max-width:1600px;
+      margin:0 auto;
+      padding:40px 5%;
+    }
+    /* ----- 사이드바 ----- */
+    .sidebar{flex:0 0 260px;text-align:center}
+    .sidebar img{width:180px;height:auto}
+    .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
+    .sidebar p{font-size:14px;color:#555}
+    /* ----- 본문 ----- */
+    .content{flex:1 1 0;max-width:700px}
+    .content h2{margin-top:0}
+    .content h4{margin:22px 0 6px}
+    /* ----- 상단 메뉴 ----- */
+    .content ul{margin:0 0 18px 18px}
+    .nav{margin:0 30px 35px 0;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
+    .nav a{color:#006BB3;text-decoration:none}
+    .nav a:hover{text-decoration:underline}
+    /* ===== 탭 버튼 ===== */
+    .tab-box{
+      display:grid;
+      grid-template-columns:repeat(2,1fr); /* 1행 2열 */
+      gap:8px;
+      max-width:700px;
+      margin-bottom:30px;
+    }
+    .tab-btn{
+      padding:10px 0;
+      border:1px solid #006BB3;
+      text-align:center;
+      font-weight:600;
+      cursor:pointer;
+      user-select:none;
+      transition:.2s;
+    }
+    .tab-btn.active{background:#006BB3;color:#fff}
+    /* ===== 공통 카드 ===== */
+    .card{
+      background:#f7f7f7;
+      border:1px solid #e0e0e0;
+      border-radius:2px;
+      display:flex;
+      gap:40px;
+      padding:30px;
+      max-width:820px;
+      box-sizing:border-box;
+    }
+    .photo img{
+      width:240px;height:310px;object-fit:cover;
+      border:4px solid #fff;box-shadow:0 0 6px rgba(0,0,0,.15)
+    }
+    .info{flex:1 1 0}
+    .info h2{font-size:34px;margin:0 0 8px;color:#1a6cf0}
+    .info h3{font-size:24px;margin:0 0 18px;font-weight:700}
+    .dash{border-top:1px dashed #bbb;margin:10px 0 25px}
+    .contact p{margin:0 0 6px;font-size:18px}
+    .links{margin-top:18px}
+    .links img{width:32px;height:32px;vertical-align:middle;margin-right:22px}
+    
+    /* 탭 콘텐츠 숨김/표시 */
+    .tab-content{display:none}
+    .tab-content.active{display:block}
 
-/* 탭 콘텐츠 숨김/표시 */
-.tab-content{display:none}
-.tab-content.active{display:block}
-</style>
+    .cv-logo {
+      width : 28px;
+      height: 28px;
+      object-fit: contain;   /* 잘려나가는 것 방지 */
+    }
+    
+  </style>
 </head>
 
 <body>
@@ -133,7 +140,7 @@ body{
               <img src="./Image/Google_Scholar_logo.png" alt="Google Scholar">
             </a>
             <a href="./Resume_SHK_201130.pdf" target="_blank">
-              <img src="./Image/cv_logo.png" alt="Download CV">
+              <img src="./Image/cv_logo.png" alt="Download CV" class="cv-logo">
             </a>
           </div>
         </div>
