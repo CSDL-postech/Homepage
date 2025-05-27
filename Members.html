@@ -63,15 +63,26 @@
 
     /* ▼ 화면이 좁을 때(예: 모바일) 레이아웃 전환 --------------- */
     @media (max-width:1200px){
-      .container{              /* 가로 배치 → 세로 쌓기 */
+      .container{                 /* 가로 배치 → 세로 쌓기 */
         flex-direction:column; 
         padding:25px 5%;
       }
-      .sidebar{                /* 폭 제약 해제 + 여백 */
+    
+      /* 사이드바 */
+      .sidebar{
         flex:0 0 auto;
         margin-bottom:30px;
+        text-align:center;        /* ← 가운데 기준 */
       }
-      .sidebar img{width:140px}  /* 로고 조금 작게(선택) */
+    
+      /* 로고 두 개를 한 줄에, 가운데 정렬 */
+      .sidebar img{
+        width:140px;              /* 기존 크기 유지 */
+        display:inline-block;     /* 가로로 나란히 */
+        vertical-align:middle;    /* 세로 기준선 맞춤 */
+        margin:0 6px;             /* 좌우 간격만 살짝 */
+      }
+    
       .content{max-width:100%}    /* 본문은 전체폭 사용 */
       .video-row video{width:100%}/* 비디오도 화면폭에 맞춰 */
     }
