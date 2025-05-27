@@ -89,11 +89,9 @@
       }
     
       /* ----- 사이드바(로고 영역) ----- */
-      .sidebar{
-        /* .container 가 column 상태이므로 가운데로 보내기 */
-        align-self:center;       /* Flex-box 축 기준 가운데 */
-        text-align:center;       /* 인라인 요소 중앙 정렬 */
-        margin:0 0 30px;         /* 아래쪽 여백만 */
+      .sidebar{                /* 폭 제약 해제 + 여백 */
+        flex:0 0 auto;
+        margin-bottom:30px;
       }
     
       .sidebar img{
