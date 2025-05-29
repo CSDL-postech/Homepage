@@ -63,7 +63,10 @@
       border-radius:4px;
     }
   
-    h2.video-title{margin-top:40px;}
+    h2.intro-title{
+      margin:40px auto 0;   /* 위쪽 40px, 좌‧우 auto → 블록 자체를 가운데 정렬 */
+      text-align:center;    /* h2 안의 문자열도 가운데 정렬 */
+    }
     
     /* 두 로고를 한 줄 가운데 정렬 */
     .logo-links{
@@ -158,7 +161,7 @@
       <p>If you’re interested, please email
          <strong>Seokhyeong&nbsp;Kang (shkang@postech.ac.kr)</strong>.</p>
 
-      <h2 class="video-title">Lab Introduction PDF & Video</h2>
+      <h2 class="intro-title">Lab Introduction PDF & Video</h2>
       <div class="logo-links">
         <!-- 1) CSDL 로고 → PDF -->
         <a href="./PDF/lab_intro.pdf" target="_blank" title="Lab Introduction PDF">
