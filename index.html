@@ -64,18 +64,20 @@
     }
   
     h2.video-title{margin-top:40px;}
-
+    
+    /* 두 로고를 한 줄 가운데 정렬 */
     .logo-links{
       display:flex;
       justify-content:center;
       gap:24px;
-      margin:12px 0 24px;
+      margin:28px 0 40px;
     }
+    
     .logo-links img{
-      width:120px;
-      height:auto;
-      border:none;          /* ← 테두리 제거 */
-      border-radius:6px;    /* 필요하면 둥글기 유지 */
+      height:120px;   /* ★ CSDL 로고 실제 높이로 맞춤 */
+      width:auto;     /* 가로-세로 비율 유지 */
+      border:none;
+      border-radius:6px;
       transition:.2s;
     }
     .logo-links img:hover{
@@ -155,6 +157,8 @@
 
       <p>If you’re interested, please email
          <strong>Seokhyeong&nbsp;Kang (shkang@postech.ac.kr)</strong>.</p>
+
+      <h2 class="video-title">Lab Introduction PDF & Video</h2>
       <div class="logo-links">
         <!-- 1) CSDL 로고 → PDF -->
         <a href="./PDF/lab_intro.pdf" target="_blank" title="Lab Introduction PDF">
