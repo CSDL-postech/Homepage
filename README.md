@@ -26,8 +26,9 @@ snapshot, not live database contents.
 | `Members-archive.html`, `Publications-archive.html` | Historical lists before the first sync; not maintained |
 | `data/content.json` | Public content snapshot with source URLs and fetch date |
 | `scripts/sync-content.php` | Fetch, render, and consistency-check commands |
-| `scripts/content.php` | Public board parser and HTML renderer |
-| `tests/content.php` | Parser and renderer regression checks |
+| `scripts/content.php` | Public board parser, snapshot validation, and HTML renderer |
+| `scripts/export-db.php`, `scripts/database.php` | Optional sudo exporter using local MariaDB |
+| `tests/content.php`, `tests/database.php` | Parser, renderer, DB mapping, and visibility checks |
 | `Image/`, `PDF/`, `Video/` | Local media |
 | `AGENTS.md` | Contributor and coding-agent instructions |
 
@@ -35,7 +36,8 @@ snapshot, not live database contents.
 
 Run from this repository with PHP CLI 7.4 or later, DOM/libxml, and HTTPS stream
 support. These are maintenance tools only; GitHub Pages does not run PHP.
-No Composer, Python, Node, or database dependency is required.
+The HTTPS importer needs no Composer, Python, Node, or database dependency.
+The optional database exporter also uses MySQLi; its importer uses POSIX.
 
 ```sh
 php scripts/sync-content.php fetch
@@ -70,6 +72,33 @@ php scripts/sync-content.php render
 from the saved snapshot. The regression checks cover pagination, wrong-page
 responses, missing markup, stable record URLs, acceptance status, HTML escaping,
 and unknown record kinds.
+
+### Update through MariaDB with sudo
+
+On this server, you can use the existing main-site secret instead of fetching
+public pages. Run from this repository as `csdl`:
+
+```sh
+set -o pipefail
+sudo php scripts/export-db.php | php scripts/sync-content.php import
+php tests/content.php
+php tests/database.php
+php scripts/sync-content.php check
+git diff --check
+git diff --stat
+```
+
+Only the exporter runs with sudo. It reads the existing main-site environment
+and password file, queries the six public boards in a read-only transaction,
+and emits validated public JSON. The normal-user importer updates this repo's
+snapshot and pages. It rejects root execution, empty input, and invalid records.
+No credentials enter the output, no database writes occur, and no main-site
+files are changed. Review, commit, and push separately after validation.
+
+This is an operator-run command, not an installed scheduled job. It requires
+MariaDB to be available but does not need the main site's PHP or Apache service.
+See [database export instructions](docs/database-export.md) for prerequisites,
+verification limits, and the separate SELECT-only account option.
 
 ## Content sources and scope
 
@@ -115,10 +144,9 @@ current content sources. This static website is not a service-recovery backup.
 
 Public-page import avoids database credentials and production code changes.
 If the board markup changes, update the parser and its tests here. The
-[optional database export design](docs/database-export.md) explains the separate
-read-only account, host-only secret file, public-field views, and validation
-needed for direct MariaDB access. This route is not implemented. A `.env` file
-alone does not grant access or remove the need for administrator provisioning.
+[sudo database exporter](docs/database-export.md) can use the existing main-site
+credentials for operator-run refreshes. A separate SELECT-only account remains
+a future option for scheduled exports. A `.env` file alone does not grant access.
 
 ## Preview and publish
 

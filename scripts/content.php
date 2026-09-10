@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-// Only public board markup is read. Source HTML is never copied into output.
+// Source HTML is never copied into output.
 const BOARDS = [
     'sub4_1' => ['kind' => 'member', 'label' => 'Current Members', 'tab' => 'current'],
     'sub4_2' => ['kind' => 'member', 'label' => 'Alumni', 'tab' => 'alum'],
@@ -135,4 +135,39 @@ function renderContent(array $snapshot, array $boards): string {
     }
     $html .= '<p class="sync-note">Last updated: ' . escape($snapshot['date']) . '.</p>' . "\n";
     return $html . '<!-- END SYNCED CONTENT -->';
+}
+
+function validateSnapshot(array $snapshot): void {
+    ensure(array_keys($snapshot) === ['date', 'boards'], 'Unexpected snapshot fields');
+    ensure(is_string($snapshot['date']) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $snapshot['date']) === 1, 'Invalid snapshot date');
+    ensure(array_keys($snapshot['boards']) === array_keys(BOARDS), 'Snapshot board set changed');
+    $fields = [
+        'member' => ['kind', 'name', 'roles', 'source'],
+        'publication' => ['kind', 'year', 'title', 'authors', 'venue', 'details', 'source'],
+        'patent' => ['kind', 'text', 'source'],
+    ];
+    foreach (BOARDS as $board => $definition) {
+        ensure(count($snapshot['boards'][$board]) > 0, 'Empty board: ' . $board);
+        $keys = [];
+        foreach ($snapshot['boards'][$board] as $record) {
+            ensure($record['kind'] === $definition['kind'], 'Record kind does not match board');
+            ensure(array_keys($record) === $fields[$definition['kind']], 'Unexpected record fields');
+            foreach ($record as $field => $value) {
+                if ($field === 'roles') {
+                    ensure(is_array($value), 'Invalid member roles');
+                    foreach ($value as $role) ensure(is_string($role), 'Invalid role');
+                } else ensure(is_string($value), 'Invalid record field: ' . $field);
+            }
+            if ($definition['kind'] === 'patent') {
+                ensure($record['text'] !== '' && preg_match('~^https://csdl\.postech\.ac\.kr/bbs/board\.php\?bo_table=' . $board . '&page=[1-9][0-9]*$~', $record['source']) === 1, 'Invalid patent');
+                $keys[] = $record['text'];
+            } else {
+                ensure($record['source'] === recordUrl($record['source'], $board), 'Noncanonical record URL');
+                ensure($record[$definition['kind'] === 'member' ? 'name' : 'title'] !== '', 'Empty record title');
+                if ($definition['kind'] === 'publication') ensure($record['year'] !== '', 'Empty publication year');
+                $keys[] = $record['source'];
+            }
+        }
+        ensure(count(array_unique($keys)) === count($keys), 'Duplicate records: ' . $board);
+    }
 }

@@ -6,7 +6,8 @@ Keep the site as plain HTML, CSS, JavaScript, and local media. Do not add a buil
 system or dependencies unless the task requires them. Preserve relative asset
 links and the main-site link on all five pages. Use confirmed public information
 from the main site or its source project when updating members and publications.
-Use `php scripts/sync-content.php fetch` for these updates. Do not edit generated
+Use `php scripts/sync-content.php fetch` for these updates, or the documented
+sudo exporter piped into the normal-user `import` command. Do not edit generated
 HTML blocks by hand. Commit the public snapshot and generated pages together.
 Keep the historical archive pages unchanged. See README.md for source scope.
 
@@ -36,7 +37,8 @@ Use concise, ASD-STE100-inspired plain technical language in user docs, docstrin
 Dependency guidance:
 The static site has no package manager or runtime dependencies. Do not add Python
 or Node tooling for routine content edits. The content importer uses PHP CLI
-with DOM/libxml and HTTPS support, without third-party packages. If Python tooling becomes necessary,
+with DOM/libxml and HTTPS support, without third-party packages. The optional
+DB export also uses MySQLi, and normal-user import uses POSIX. If Python tooling becomes necessary,
 use `python3 -m uv` to manage its environment and dependencies.
 
 Verification guidance:
@@ -46,8 +48,10 @@ Verification guidance:
    navigation, main-site links, and tabs on pages that have them.
 4. Check member and publication changes against the confirmed source. Preserve
    publication categories, year order, author order, and links.
-5. For content sync changes, run `php tests/content.php` and
-   `php scripts/sync-content.php check`. Lint changed PHP files with `php -l`.
+5. For content sync changes, run `php tests/content.php`,
+   `php tests/database.php`, and `php scripts/sync-content.php check`. Lint
+   changed PHP files with `php -l`. DB exports must use read-only transactions,
+   fixed public-field queries, and normal-user writes to this repo only.
 6. Record checks that could not run and why. Python lint and typecheck do not
    apply to this static site.
 
