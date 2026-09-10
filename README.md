@@ -2,13 +2,17 @@
 
 This repository contains the GitHub Pages backup website for the CAD & SoC
 Design Laboratory at POSTECH. The main website is
-[csdl.postech.ac.kr](https://csdl.postech.ac.kr/).
+[csdl.postech.ac.kr](https://csdl.postech.ac.kr/). The backup is published at
+[csdl-postech.github.io/Homepage/](https://csdl-postech.github.io/Homepage/).
+Bookmark the backup URL for use when the main site is unavailable.
 
 The published site is plain HTML, CSS, JavaScript, and local media. It needs no
-server application or build service. Members and publications are generated
+server application or build service at runtime. Members and publications are generated
 from a checked-in snapshot of the main site's public boards. Reading the lists
 does not require the main site to be available; external profile and paper
-links still lead to the main site.
+links still lead to the main site. Failover is manual: the main domain does not
+redirect automatically during an outage. The backup shows the last published
+snapshot, not live database contents.
 
 ## Files
 
@@ -121,7 +125,44 @@ Local paths must match filename case. Keep asset links relative for GitHub Pages
 repository paths. Update shared navigation and backup notices consistently on
 the five current pages.
 
-Confirm the publishing branch and folder in **Settings → Pages** before
-deployment; this checkout does not define a deployment workflow. Review and
-commit the snapshot and both generated pages together. Record the source date,
-counts, and validation results in the commit or pull request description.
+### Publish to GitHub Pages
+
+This checkout does not define a custom deployment workflow. GitHub's public
+Actions history shows **pages build and deployment** runs from `main`, including
+content commit `dab8f48` on 2026-09-10. The unauthenticated Pages settings API
+returns 404, so the configured source folder was not verified through that API.
+
+In the [repository Pages settings](https://github.com/CSDL-postech/Homepage/settings/pages),
+confirm **Deploy from a branch → main → /(root)**. With that configuration,
+pushing committed changes to `main` triggers publication. PHP does not run on
+GitHub Pages; commit the public snapshot and both generated HTML pages together.
+See [GitHub's publishing-source guide](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+
+After the sync, validation, preview, and commit:
+
+```sh
+cd /home/csdl/csdl-github-static-homepage
+git fetch origin
+git status --short --branch
+git log --oneline origin/main..HEAD
+git push origin main
+```
+
+If the branch is behind or diverged, reconcile it and repeat validation before
+pushing. Do not force-push. The push must target this repository's `origin`,
+`CSDL-postech/Homepage`, not the main-site repository.
+
+Open the [Actions page](https://github.com/CSDL-postech/Homepage/actions) and
+wait for the Pages run for your commit to succeed. Then open the
+[backup homepage](https://csdl-postech.github.io/Homepage/),
+[members](https://csdl-postech.github.io/Homepage/Members.html), and
+[publications](https://csdl-postech.github.io/Homepage/Publications.html).
+Check the displayed snapshot date, a changed record, navigation, and tabs.
+A successful Git push alone does not prove that deployment completed.
+
+Keep the GitHub Pages URL independent of `csdl.postech.ac.kr`; no production
+DNS, Apache, Docker, or MariaDB change is needed for this deployment. During a
+main-site outage, use the existing snapshot and offline `render` / `check`
+commands. `fetch` requires the main site to be reachable. A future workflow that
+pushes with `GITHUB_TOKEN` needs a separate Pages deployment design because
+those pushes do not trigger branch-based Pages builds.
