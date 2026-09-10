@@ -99,7 +99,6 @@ function escape(string $text): string {
 
 function renderContent(array $snapshot, array $boards): string {
     $html = '<!-- BEGIN SYNCED CONTENT -->' . "\n";
-    $html .= '<p>Updated from the main lab website on ' . escape($snapshot['date']) . '.</p>' . "\n";
     $html .= '<div class="tab-box">' . "\n";
     foreach ($boards as $index => $board) {
         $html .= '<button type="button" class="tab-btn' . ($index === 0 ? ' active' : '') . '" data-target="' . BOARDS[$board]['tab'] . '">' . BOARDS[$board]['label'] . '</button>' . "\n";
@@ -134,5 +133,6 @@ function renderContent(array $snapshot, array $boards): string {
         }
         $html .= "</ul>\n</div>\n";
     }
+    $html .= '<p class="sync-note">Last updated: ' . escape($snapshot['date']) . '.</p>' . "\n";
     return $html . '<!-- END SYNCED CONTENT -->';
 }

@@ -93,7 +93,8 @@ backup now uses one Domestic Publications tab.
 
 The historical pages preserve prior information that may not appear on the
 current boards, including older contact details and publication categories.
-They are labeled as historical and linked from the current lists.
+They are labeled as historical and linked below the current lists, beside the
+muted update note. The renderer keeps the update date below all tab content.
 
 The first sync on **2026-09-10** imported **32 current members, 110 alumni,
 199 international conference papers, 116 international journal papers,
