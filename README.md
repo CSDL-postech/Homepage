@@ -113,9 +113,11 @@ checkout. Historical SQL dumps and `www/research_map/data.json` are not complete
 current content sources. This static website is not a service-recovery backup.
 
 Public-page import avoids database credentials and production code changes.
-If the board markup changes, update the parser and its tests here. If a future
-DB export is needed, use a dedicated SELECT-only account and an explicit list
-of public fields; do not import whole tables or runtime directories.
+If the board markup changes, update the parser and its tests here. The
+[optional database export design](docs/database-export.md) explains the separate
+read-only account, host-only secret file, public-field views, and validation
+needed for direct MariaDB access. This route is not implemented. A `.env` file
+alone does not grant access or remove the need for administrator provisioning.
 
 ## Preview and publish
 
