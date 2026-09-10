@@ -1,0 +1,3210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Publications | CAD & SoC Design Lab.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===== 기본 레이아웃 ===== -->
+  <style>
+    body{
+      font-family:"Helvetica Neue",Arial,sans-serif;
+      margin:0;
+      padding:40px 5%;
+      line-height:1.6;
+      color:#222;
+    }
+    .container{
+      display:flex;
+      gap:20px;
+      max-width:1600px;
+      margin:0 auto;
+      padding:40px 5%;
+    }
+    /* --- 사이드바 --- */
+    .sidebar{flex:0 0 260px;text-align:center}
+    .sidebar img{width:180px;height:auto}
+    .sidebar h1{font-size:28px;line-height:1.2;margin:0 0 20px}
+    .sidebar p{font-size:14px;color:#555}
+    /* --- 본문 --- */
+    .content{flex:1 1 0;max-width:700px}
+    .content h2{margin-top:0}
+    .content h4{margin:22px 0 6px}
+    .content ul{margin:0 0 18px 18px}
+    /* 네비게이션 */
+    .nav{margin:0 0 30px;padding:0;list-style:none;display:flex;gap:12px 25px;flex-wrap:wrap}
+    .nav a{color:#006BB3;text-decoration:none}
+    .nav a:hover{text-decoration:underline}
+    /* ===== 탭 박스 ===== */
+    .tab-box{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+      max-width:700px;
+      margin-bottom:30px;
+    }
+    .tab-btn{
+      padding:10px 0;
+      border:1px solid #006BB3;
+      text-align:center;
+      font-weight:600;
+      cursor:pointer;
+      user-select:none;
+      transition:.2s;
+    }
+    .tab-btn.active{
+      background:#006BB3;
+      color:#fff;
+    }
+    .tab-content{display:none}
+    .tab-content.active{display:block}
+
+    a{color:#006BB3}
+
+    #internal_conf li{
+      text-align:justify;      /* 양쪽 정렬 */
+      text-justify:inter-word; /* 한글·영문 모두 단어 기준으로 간격 조정 */
+    }
+
+    #internal_jour li{
+      text-align:justify;      /* 양쪽 정렬 */
+      text-justify:inter-word; /* 한글·영문 모두 단어 기준으로 간격 조정 */
+    }
+
+    #domestic_conf li{
+      text-align:justify;      /* 양쪽 정렬 */
+      text-justify:inter-word; /* 한글·영문 모두 단어 기준으로 간격 조정 */
+    }
+
+    #domestic_jour li{
+      text-align:justify;      /* 양쪽 정렬 */
+      text-justify:inter-word; /* 한글·영문 모두 단어 기준으로 간격 조정 */
+    }
+
+    #pat li{
+      text-align:justify;      /* 양쪽 정렬 */
+      text-justify:inter-word; /* 한글·영문 모두 단어 기준으로 간격 조정 */
+    }
+
+    /* ▼ 화면이 좁을 때(예: 모바일) 레이아웃 전환 --------------- */
+    @media (max-width:1200px){
+      .container{                 /* 가로 배치 → 세로 쌓기 */
+        flex-direction:column;
+        padding:25px 5%;
+      }
+
+      /* 사이드바 */
+      .sidebar{
+        flex:0 0 auto;
+        margin-bottom:30px;
+        text-align:center;        /* ← 가운데 기준 */
+      }
+
+      /* 로고 두 개를 한 줄에, 가운데 정렬 */
+      .sidebar img{
+        width:140px;              /* 기존 크기 유지 */
+        display:inline-block;     /* 가로로 나란히 */
+        vertical-align:middle;    /* 세로 기준선 맞춤 */
+        margin:0 6px;             /* 좌우 간격만 살짝 */
+      }
+
+      .content{max-width:100%}    /* 본문은 전체폭 사용 */
+      .video-row video{width:100%}/* 비디오도 화면폭에 맞춰 */
+    }
+
+    /* 본문 문단을 양쪽 정렬로 */
+    .content p{
+      text-align:justify;      /* 양쪽 정렬 */
+      text-justify:inter-word; /* 한-글/영문 모두 단어 기준으로 공백 조정 */
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <!-- ========== 왼쪽 사이드바 ========== -->
+  <aside class="sidebar">
+    <h1>CAD &amp; SoC<br>Design Lab.</h1>
+    <img src="./Image/CSDL_Resized.jpg" alt="Lab Logo">
+    <img src="./Image/POSTECH.png" alt="POSTECH Logo">
+    <p>CAD &amp; SoC Design Laboratory at POSTECH.</p>
+    <p>This is the lab’s static backup website.<br>
+      <a href="https://csdl.postech.ac.kr/">Visit the main lab website</a>.</p>
+  </aside>
+
+  <!-- ========== 오른쪽 본문 ========== -->
+  <main class="content">
+    <p><strong>Historical snapshot before the September 10, 2026 sync. This page is not maintained.</strong> <a href="Publications.html">View the current list</a>.</p>
+    <!-- 상단 메뉴 -->
+    <ul class="nav">
+      <li><a href="index.html"><strong>Home</strong></a></li>
+      <li><a href="Research.html"><strong>Research</strong></a></li>
+      <li><a href="Advisor.html"><strong>Advisor</strong></a></li>
+      <li><a href="Members.html"><strong>Members</strong></a></li>
+      <li><strong>Publications</strong></li>
+    </ul>
+
+    <!-- ===== 1행 3열 탭 ===== -->
+    <div class="tab-box">
+      <div class="tab-btn active" data-target="internal_conf">International Conference</div>
+      <div class="tab-btn"        data-target="internal_jour">International Journal</div>
+      <div class="tab-btn"        data-target="domestic_conf">Domestic Conference</div>
+      <div class="tab-btn"        data-target="domestic_jour">Domestic Journal</div>
+      <div class="tab-btn"        data-target="pat">Patents</div>
+    </div>
+
+    <!-- ===== International Conference ===== -->
+    <div id="internal_conf" class="tab-content active">
+
+      <h4>2025</h4>
+      <ul>
+       <li>Joonyoung Seo, Jonghyeon Nam, Howoo jang, Yunseok Jung, and Seokhyeong Kang,
+          <strong>“Enhancing Timing Closure via Spatially Embedded Graph Transformer with Low Power/Area Overhead”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD) <strong>(Accepted)</strong></em>
+        </li>
+
+        <li>Jaekyung Im, and Seokhyeong Kang,
+        <strong>“A Parallel Analytical Legalization Algorithm via Alternating Direction Method of Multipliers”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD) <strong>(Accepted)</strong></em>
+        </li>
+
+        <li>Chung-Kuan Cheng, Andrew B. Kahng, Byeonggon Kang, Seokhyeong Kang, Jakang Lee, and Bill Lin,
+          <strong>“SO3-Cell: Standard Cell Layout Synthesis Framework for Simultaneous Optimization of Topology, Placement, and Routing”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD) <strong>(Accepted)</strong></em>
+        </li>
+
+        <li>Ho-Jin Lee, Kyeong-Jun Lee, Jaehoon Lee, Kyu-Jin Choi, Geunyong Choi, Youngchang Choi, Kyongsu Lee, Seokhyeong Kang, and Jae-Yoon Sim
+          <strong>“Diffusion-Enhanced Graph Transformer with Reinforcement Learning for Transferable Analog Circuit Optimizer (Accepted)”</strong>,
+          <em>ACM/IEEE International Symposium on Low Power Electronics and Design (ISLPED)</em>
+        </li>
+
+        <li>Jongho Yoon, Jinsung Jeon, and Seokhyeong Kang,
+          <strong>“Late Breaking Results: A Geometric Diffusion Model for Macro Placement Generation”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Hyeonwoo Park, Seonghyeon Park, and Seokhyeong Kang,
+          <strong>“Late Breaking Results: Fine-Tuning LLMs for Test Stimuli Generation”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>JoonSeok Kim*, Donggyu Kim*, Seonghyeon Park, and Seokhyeong Kang,
+          <strong>“FedEDA: Federated Learning Framework for Privacy-Preserving Machine Learning in EDA”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Kyungjun Min, Seonghyeon Park, Hyeonwoo Park, Jinoh Cho, and Seokhyeong,
+          <strong>“Improving LLM-based Verilog Code Generation with Data Augmentation and RL”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Dohun Kim, Sunghye Park, and Seokhyeong Kang,
+          <strong>“Neural Circuit Parameter Prediction for Efficient Quantum Data Loading”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Jinoh Cho, Jaekyung Im, Jaeseung Lee, Kyungjun Min, Seonghyeon Park, Jaemin Seo, Jongho Yoon, and Seokhyeong Kang,
+          <strong>“Leveraging Machine Learning Techniques for Traditional EDA Workflow Enhancement”</strong>,
+          <em>IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC)</em>
+        </li>
+
+        <li>Youngchang Choi, Sejin Park, Ho-jin Lee, Kyongsu Lee, Jae-Yoon Sim, and Seokhyeong Kang,
+          <strong>“PC-Opt: Partition and Conquest-based Optimizer using Multi-Agents for Complex Analog Circuits”</strong>,
+          <em>IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC)</em>
+        </li>
+
+        <li>Jongho Yoon, Jakang Lee, Donggyu Kim, Junseok Hur, and Seokhyeong Kang,
+          <strong>“ParaFormer: A Hybrid Graph Neural Network and Transformer Approach for Pre-Routing Parasitic RC Prediction”</strong>,
+          <em>IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC)</em>
+        </li>
+
+        <li>Jaeseung Lee, Sunggyu Jang, Jakang Lee, and Seokhyeong Kang,
+          <strong>“LIBMixer: An all-MLP Architecture for Cell Library Characterization towards Design Space Optimization”</strong>,
+          <em>IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2024</h4>
+      <ul>
+        <li>Jinoh Cho, Seonghyeon Park, Jakang Lee, Sung-Yun Lee, Jinmo Ahn, and Seokhyeong Kang,
+          <strong>“RL-Fill: Timing-Aware Fill Insertion Using Reinforcement Learning”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+
+        <li>Jaemin Seo, Sejin Park, and Seokhyeong Kang,
+          <strong>“Improving Timing & Power Trade-off in Post-place Optimization Using Multi-agent Reinforcement Learning”</strong>,
+          <em> IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+
+        <li>Donggyu Kim, Minjae Kim, Junseok Hur, Jakang Lee, Jinoh Cho, and Seokhyeong Kang,
+          <strong>“TA3D: Timing-Aware 3D IC Partitioning and Placement by Optimizing the Critical Path”</strong>,
+          <em>ACM/IEEE International Symposium on Machine Learning for CAD (MLCAD)</em>
+        </li>
+
+        <li>Eunji Kwon, Minxuan Zhou, Weihong Xu, Tajana Rosing, and Seokhyeong Kang,
+          <strong>“RL-PTQ: RL-based Mixed Precision Quantization for Hybrid Vision Transformers”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Jaekyung Im, and Seokhyeong Kang,
+          <strong>“SkyPlace: A New Mixed-size Placement Framework using Modularity-based Clustering and SDP Relaxation”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Sayak Kundu, Kyungjun Min, Seonghyeon Park, and Bodhisatta Pramanik,
+          <strong>“PPA-Relevant Clustering-Driven Placement for Large-Scale VLSI Designs”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Sunghye Park, Dohun Kim, and Seokhyeong Kang,
+          <strong>“HiLight: A Comprehensive Framework for High-Performance and Lightweight Scalability in Surface Code Communication”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Seongbin Kwon, Dohun Kim, Sunghye Park, Seojeong Kim, and Seokhyeong Kang,
+          <strong>“QNSA: Quantum Neural Simulated Annealing for Combinatorial Optimization”</strong>,
+          <em>International Symposium on Quality Electronic Design (ISQED)</em>
+        </li>
+
+        <li>Jaemin Seo, Sejin Park, and Seokhyeong Kang,
+          <strong>“Unveiling the Black-Box: Leveraging Explainable AI for FPGA Design Space Optimization”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Seungju Lee, Kyumin Cho, Eunji Kwon, Sejin Park, Seojeong Kim, and Seokhyeong Kang,
+          <strong>“ViT-ToGo : Vision Transformer Accelerator with Grouped Token Pruning”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Sung-Yun Lee, Kyungjun Min, and Seokhyeong Kang,
+          <strong>“CTRL-B: Back-End-Of-Line Configuration Pathfinding using Cross-Technology Transferable Reinforcement Learning”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Andrew B. Kahng*, Seokhyeong Kang, and Minhyuk Kweon*,
+          <strong>“Improvement of Mixed Track-Height Standard-Cell Placement”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Ho-Jin Lee, Kyeong-Jun Lee, Youngchang Choi, Kyongsu Lee, Seokhyeong Kang, and Jae-Yoon Sim,
+          <strong>“Trans-Net: Knowledge-Transferring Analog Circuit Optimizer with a Netlist-Based Circuit Representation”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2023</h4>
+      <ul>
+        <li>Kyungjun Min, Seongbin Kwon, Sung-Yun Lee, Dohun Kim, Sunghye Park, and Seokhyeong Kang,
+          <strong>“ClusterNet: Routing Congestion Prediction and Optimization using Netlist Clustering and Graph Neural Networks”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+
+        <li>Seonghyeon Park, Daeyeon Kim, Seongbin Kwon, and Seokhyeong Kang,
+          <strong>“Routability Prediction and Optimization Using Explainable AI”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+
+        <li>Jaeseung Lee, Sejin Park, Minhyeok Kweon, and Seokhyeong Kang,
+          <strong>“Machine Learning-based Fast Circuit Simulation for Analog Circuit Array”</strong>,
+          <em>ACM/IEEE International Symposium on Machine Learning for CAD (MLCAD)</em>
+        </li>
+
+        <li>Jakang Lee, Jaeseung Lee, Seonghyeon Park, and Seokhyeong Kang,
+          <strong>“Multi-Source Transfer Learning for Design Technology Co-Optimization”</strong>,
+          <em>IEEE/ACM International Symposium on Low Power Electronics and Design (ISLPED)</em>
+        </li>
+
+        <li>Minjeong Choi, Youngchang Choi, Kyongsu Lee, and Seokhyeong Kang,
+          <strong>“Reinforcement Learning-based Analog Circuit Optimizer using gm/ID for Sizing”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Seonghyeon Park, Daeyeon Kim, and Seokhyeong Kang,
+          <strong>“Acceleration on Physical Design: Machine Learning-based Routability Optimization”</strong>,
+          <em>ACM/IEEE International Workshop on System-Level Interconnect Pathfinding (SLIP)</em>
+        </li>
+
+        <li>Haena Song, Jongho Yoon, Dohun Kim, Eunji Kwon, Tae-Hyun Oh, and Seokhyeong Kang,
+          <strong>“FPGA-Based Accelerator for Rank-Enhanced and Highly-Pruned Block-Circulant Neural Networks”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Eunji Kwon, Haena Song, Jihye Park, and Seokhyeong Kang,
+          <strong>“Mobile Accelerator Exploiting Sparsity of Multi-Heads, Lines and Blocks in Transformer in Computer Vision”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Youngchang Choi, Minjeong Choi, Kyongsu Lee, and Seokhyeong Kang,
+          <strong>“MA-Opt: Reinforcement Learning-based Analog Circuit Optimization using Multi-Actors”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Sung-Yun Lee, Seonghyeon Park, Daeyeon Kim, Minjae Kim, Tuyen P. Le, and Seokhyeong Kang,
+          <strong>“RL-Legalizer: Reinforcement Learning-based Cell Priority Optimization in Mixed-Height Standard Cell Legalization”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Daeyeon Kim, Jakang Lee, and Seokhyeong Kang,
+          <strong>“Routability Prediction using Deep Hierarchical Classification and Regression”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Jaekyung Im, and Seokhyeong Kang,
+          <strong>“Graph Partitioning Approach for Fast Quantum Circuit Simulation”</strong>,
+          <em>IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2022</h4>
+      <ul>
+        <li>Aeri Kim, Seungju Lee, Eunji Kwon, and Seokhyeong Kang,
+          <strong>“Adaptive FSP: Adaptive Architecture Search with Filter Shape Pruning”</strong>,
+          <em>Asian Conference on Computer Vision (ACCV)</em>
+        </li>
+
+        <li>Jihye Park and Seokhyeong Kang,
+          <strong>“CPR: Crossbar-grain Pruning for RRAM-based Accelerator with Coordinate-based Weight Mapping”</strong>,
+          <em>IEEE International Conference on Computer Design (ICCD)</em>
+        </li>
+
+        <li>Sunghye Park, Dohun Kim, Jae-Yoon Sim, and Seokhyeong Kang,
+          <strong>“MCQA: Multi-Constraint Qubit Allocation for Near-FTQC Device”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+
+        <li>Myong Kong, Daeyeon Kim, Minhyuk Kweon, and Seokhyeong Kang,
+          <strong>“GAN-Dummy Fill: Timing-aware Dummy Fill Method using GAN”</strong>,
+          <em>ACM Great Lakes Symposium on VLSI (GLSVLSI)</em>
+        </li>
+
+        <li>Sunghye Park, Daeyeon Kim, Minhyuk Kweon, Jae-Yoon Sim, and Seokhyeong Kang,
+          <strong>“A Fast and Scalable Qubit-Mapping Method for Noisy Intermediate-Scale Quantum Computers”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Dongyun Kam, Jung Gyu Min, Jongho Yoon, Sunmean Kim, Seokhyeong Kang, and Youngjoo Lee,
+          <strong>“Design and Evaluation Frameworks for Advanced RISC-based Ternary Processor”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Kiseo Kang*, Donggyu Minn*, Seunghun Bae, Jaeho Lee, Seongun Bae, Gichang Jung, Seokhyeong Kang, Moonjoo Lee, Ho-Jin Song, and Jae-Yoon Sim,
+          <strong>“A Cryo-CMOS Controller IC With Fully Integrated Frequency Generators for Superconducting Qubits”</strong>,
+          <em>IEEE International Solid-State Circuits Conference (ISSCC)</em>
+        </li>
+
+        <li>Sung-Yun Lee, Daeyeon Kim, Kyungjun Min, and Seokhyeong Kang,
+          <strong>“Signal-Integrity-Aware Interposer Bus Routing in 2.5D Heterogeneous Integration”</strong>,
+          <em>IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2021</h4>
+      <ul>
+        <li>Kiseo Kang, ByungJun Kim, Gahyun Choi, Sun-Kyung Lee, Jisoo Choi, Jaeho Lee, Seokhyeong Kang, Moonjoo Lee, Ho-Jin Song, Yonuk Chong, and Jae-Yoon Sim,
+          <strong>“A 5.5mW/Channel 2-to-7 GHz Frequency Synthesizable Qubit-Controlling Cryogenic Pulse Modulator for Scalable Quantum Computers”</strong>,
+          <em>IEEE Symposium on VLSI Circuits (VLSI)</em>
+        </li>
+
+        <li>Youngchang Choi, Sunmean Kim, Kyongsu Lee, and Seokhyeong Kang,
+          <strong>“Design and Analysis of a Low-Power Ternary SRAM”</strong>,
+          <em>IEEE International Symposium on Circuits and Systems (ISCAS)</em>
+        </li>
+
+        <li>Sunghoon Kim, Hyunjeong Kwon, Eunji Kwon, Youngchang Choi, Tae-Hyun Oh, and Seokhyeong Kang,
+          <strong>“MDARTS: Multi-objective Differentiable Neural Architecture Search”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Daeyeon Kim, Hyunjeong Kwon, Sung-Yun Lee, Seungwon Kim, Mingyu Woo, and Seokhyeong Kang,
+          <strong>“Machine Learning Framework for Early Routability Prediction with Artificial Netlist Generator”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Yesung Kang, Eunji Kwon, Seunggyu Lee, Younghoon Byun, Youngjoo Lee, and Seokhyeong Kang,
+          <strong>“Approach to Improve the Performance Using Bit-level Sparsity in Neural Networks”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2020</h4>
+      <ul>
+        <li>Yoonho Park, Yesung Kang, Sunghoon Kim, Eunji Kwon, and Seokhyeong Kang,
+          <strong>“GRLC: Grid-based Run-length Compression for Energy-efficient CNN Accelerator”</strong>,
+          <em>IEEE/ACM International Symposium on Low Power Electronics and Design (ISLPED)</em>
+        </li>
+
+        <li>Eunji Kwon, Sodam Han, Yoonho Park, Young Hwan Kim, and Seokhyeong Kang,
+          <strong>“Late Breaking Results: Reinforcement Learning-based Power Management Policy for Mobile Device Systems”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Kiyung Kim, Sunmean Kim, Yongsu Lee, Daeyeon Kim, So-Young Kim, Seokhyeong Kang, and Byoung Hun Lee,
+          <strong>“Extreme Low Power Technology using Ternary Arithmetic Logic Circuits via Drastic Interconnect Length Reduction”</strong>,
+          <em>IEEE International Symposium on Multiple-Valued Logic (ISMVL)</em>
+        </li>
+
+        <li>Yesung Kang, Yoonho Park, Sunghoon Kim, Eunji Kwon, Taeho Lim, Sangyun Oh, Mingyu Woo, and Seokhyeong Kang,
+          <strong>“Analysis and Solution of CNN Accuracy Reduction over Channel Loop Tiling”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2019</h4>
+      <ul>
+        <li>SangGi Do, Mingyu Woo, and Seokhyeong Kang,
+          <strong>“Fence-Region-Aware Mixed-Height Standard Cell Legalization”</strong>,
+          <em>ACM Great Lakes Symposium on VLSI (GLSVLSI)</em>
+        </li>
+
+        <li>Sunmean Kim, Sung-Yun Lee, Sunghye Park, and Seokhyeong Kang,
+          <strong>“Design of Quad-Edge-Triggered Sequential Logic Circuits for Ternary Logic”</strong>,
+          <em>IEEE International Symposium on Multiple-Valued Logic (ISMVL)</em>
+        </li>
+
+        <li>Sung-Yun Lee, Sunmean Kim, and Seokhyeong Kang,
+          <strong>“Ternary Logic Synthesis with Modified Quine-McCluskey Algorithm”</strong>,
+          <em>IEEE International Symposium on Multiple-Valued Logic (ISMVL)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Seungwon Kim, Kambiz Samadi, and Bangqi Xu,
+          <strong>“Power Delivery Pathfinding for Emerging Die-to-Wafer Integration Technology”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2018</h4>
+      <ul>
+        <li>Seungwon Kim, Ki Jin Han, Youngmin Kim, and Seokhyeong Kang,
+          <strong>“Fast Chip-Package-PCB Coanalysis Methodology for Power Integrity of Multi-domain High-Speed Memory: A Case Study”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Sunmean Kim, Taeho Lim, and Seokhyeong Kang,
+          <strong>“An Optimal Gate Design for the Synthesis of Ternary Logic Circuits”</strong>,
+          <em>IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC)</em>
+        </li>
+
+        <li>Kyoungrok Cho, Minyoung Jeong, Eungu Jeong, and Young Hwan Kim,
+          <strong>“Extract LUT Logics from a Downloaded Bitstream Data in FPGA”</strong>,
+          <em>IEEE International Symposium on Circuits and Systems (ISCAS)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2017</h4>
+      <ul>
+        <li>Mingyu Woo, Seungwon Kim and Seokhyeong Kang,
+          <strong>“GRASP Based Metaheuristics for Layout Pattern Classification”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+
+        <li>Byoungjin Bae, Seungwon Kim, Youngmin Kim, Seokhyeong Kang, Il Joon Kim, Kwangseok Kim, Sunwon Kang and Ki Jin Han,
+          <strong>“A Preliminary Analysis of Domain Coupling in Package Power Distribution Network”</strong>,
+          <em>IEEE International Symposium on Radio-Frequency Integration Technology (RFIT)</em>
+        </li>
+
+        <li>Seungwon Kim, SangGi Do and Seokhyeong Kang,
+          <strong>“Fast Predictive Useful Skew Methodology for Timing-Driven Placement Optimization”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Yesung Kang, Jaewoo Kim, Sunmean Kim, Sunhae Shin, E-San Jang, Jae Won Jeong, Kyung Rok Kim and Seokhyeong Kang,
+          <strong>“A Novel Ternary Multiplier Based on Ternary CMOS Compact Model”</strong>,
+          <em>IEEE International Symposium on Multiple-Valued Logic (ISMVL)</em>
+        </li>
+
+        <li>Gyu Jin Bae, Suk-Ju Kang, and Young Hwan Kim,
+          <strong>“Census Transform-Based Static Caption Detection for Frame Rate Up-Conversion”</strong>,
+          <em>IEEE International Symposium on Circuits and Systems (ISCAS)</em>
+        </li>
+
+        <li>Hyunjeong Kwon, and Young Hwan Kim,
+          <strong>“Utilization of Relieved Corners from Multi-Corner Libraries in Deterministic Static Timing Analysis”</strong>,
+          <em>VLSI Design, Automation and Test (VLSI-DAT)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2016</h4>
+      <ul>
+        <li>Yesung Kang, Jaewoo Kim and Seokhyeong Kang,
+          <strong>“A Novel Approximate Synthesis Flow for the Energy-Efficient FIR Filter”</strong>,
+          <em>IEEE International Conference on Computer Design (ICCD)</em>
+        </li>
+
+        <li>Jaemin Lee, Sunmean Kim, Youngmin Kim and Seokhyeong Kang,
+          <strong>“A Novel Design Methodology for Error-Resilient Circuits in Near-Threshold Computing”</strong>,
+          <em>IEEE/IEIE International Conference on Consumer Electronics Asia (ICCE-A)</em>
+        </li>
+
+        <li>Sangho Yoon, Suk-Ju Kang, and Young Hwan Kim,
+          <strong>“Block-Based Static Caption Detection Using Intensity Range”</strong>,
+          <em>IEEE Global Conference on Consumer Electronics (GCCE)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2015</h4>
+      <ul>
+        <li>Jaemin Lee, Seungwon Kim, Youngmin Kim and Seokhyeong Kang,
+          <strong>“An Optimal Operating Point by Using Error Monitoring Circuits with an Error-Resilient Technique”</strong>,
+          <em>IEEE Symposium on VLSI Circuits (VLSI)</em>
+        </li>
+
+        <li>Seungwon Kim, Ki Jin Han, Seokhyeong Kang and Yougming Kim,
+          <strong>“Novel Adaptive Power Gating Strategy of TSV-based Multi-layer 3D IC”</strong>,
+          <em>International Symposium on Quality Electronic Design (ISQED)</em>
+        </li>
+
+        <li>Kai Chen, and Young Hwan Kim,
+          <strong>“Balanced Current Source Model of the Three-Input Combinational Logic Gate for Timing Analysis”</strong>,
+          <em>IEEE Conference On Ph.D. Research In Microelectronics and Electronics (PRIME)</em>
+        </li>
+
+        <li>Hanjoo Cho, and Young Hwan Kim,
+          <strong>“Image Segmentation Using Linked Mean-Shift Vectors with Region Attribution Analysis”</strong>,
+          <em>IEEE Conference On Ph.D. Research In Microelectronics and Electronics (PRIME)</em>
+        </li>
+
+        <li>Hoseop Lee, Seongin Cho, Gyujin Bae, Heeseok Kim, and Young Hwan Kim,
+          <strong>“Foreground-Based Depth Map Generation for 2D-to-3D Conversion”</strong>,
+          <em>IEEE International Symposium on Circuits and Systems (ISCAS)</em>
+        </li>
+
+        <li>Kai Chen, and Young Hwan Kim,
+          <strong>“Current Source Model of Combinational Logic Gates for Accurate Gate-Level Circuit Analysis and Timing Analysis”</strong>,
+          <em>VLSI Design, Automation and Test (VLSI-DAT)</em>
+        </li>
+
+        <li>Seongin Cho, Kyoungrok Cho, and Young Hwan Kim,
+          <strong>“Automatic Depth Map Generation from a Single Image Using Segment-Adaptive Depth Merging”</strong>,
+          <em>IEEE International Conference on Consumer Electronics (ICCE)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2014</h4>
+      <ul>
+        <li>Andrew B. Kahng, Seokhyeong Kang and Jiajia Li,
+          <strong>“A New Methodology for Reduced Cost of Resilience”</strong>,
+          <em>ACM Great Lakes Symposium on VLSI (GLSVLSI)</em>
+        </li>
+
+        <li>Hanju Cho, and Young Hwan Kim,
+        <strong>“Ray-Casting Algorithm and Its Considerations for Parallel Processing: Optimization Techniques for Parallel Ray-Casting Algorithm”</strong>,
+        <em>International Symposium on Integrated Circuits (ISIC)</em></li>
+
+        <li>Gyujin Bae, Seongin Cho, Sanghun Kim, and Young Hwan Kim,
+        <strong>“Image Denoising Considering Characteristics of YCbCr Color Channels”</strong>,
+        <em>IEEE International Conference on Consumer Electronics-Berlin (ICCE-Berlin)</em></li>
+
+        <li>Sanghun Kim, Donggon Yu, and Young Hwan Kim,
+        <strong>“Stereo Confidence Metrics Using the Costs of Surrounding Pixels”</strong>,
+        <em>International Conference on Digital Signal Processing (DSP)</em></li>
+
+         <li>Jinwook Kim, and Young Hwan Kim,
+            <strong>“Delay Calculation of a Victim Gate under Crosstalk Noise Using Cumulative Gate Overdrive Voltage”</strong>,
+            <em>International Technical Conference on Circuits/Systems, Computers and Communications ITC-CSCC</em></li>
+
+        <li>Jaehwan Im, Seongin Cho, and Young Hwan Kim,
+          <strong>“Adaptive Noise Reduction Method Using Variable Window Size Based on Region Analysis”</strong>,
+          <em>SID International Symposium, Seminar, and Exhibition</em></li>
+
+        <li>Hanju Cho, Seongin Cho, and Young Hwan Kim,
+          <strong>“Image Segmentation Using Densely Constructed Mean-Shift Vectors”</strong>,
+          <em>SID International Symposium, Seminar, and Exhibition</em>
+        </li>
+
+        <li>Hanju Cho, Seongin Cho, and Young Hwan Kim,
+          <strong>“Image Segmentation Using Linked Mean-Shift Vectors for SIMD Architecture”</strong>,
+          <em>International Conference on Consumer Electronics (ICCE)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2013</h4>
+      <ul>
+        <li>Wei-Ting Chan, Andrew B. Kahng, Seokhyeong Kang, Rakesh Kumar and John Sartori,
+          <strong>“Statistical Analysis and Modeling for Error Composition in Approximate Computation Circuits”</strong>,
+          <em>IEEE International Conference on Computer Design (ICCD)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Hyein Lee, Igor L. Markov and Pankit Thapar,
+          <strong>“High-Performance Gate Sizing with a Signoff Timer”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang and Hyein Lee,
+          <strong>“Smart Non-Default Routing for Clock Power Reduction”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Hyein Lee, Siddhartha Nath and Jyoti Wadhwani,
+          <strong>“Learning-Based Approximation of Interconnect Delay and Slew in Signoff Timing Tools”</strong>,
+          <em>ACM/IEEE International Workshop on System-Level Interconnect Pathfinding (SLIP)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang and Bongil Park,
+          <strong>“Active-Mode Leakage Reduction with Data-Retained Power Gating”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Jaesung Im, Seongin Cho, and Young Hwan Kim,
+          <strong>“Accuracy Enhancement of Image Segmentation Using Adaptive Anisotropic Diffusion”</strong>,
+          <em>IEEE Global Conference on Consumer Electronics (GCCE)</em>
+        </li>
+
+        <li>Hyoeon Yang, and Young Hwan Kim,
+          <strong>“An Efficient Metric for Detecting Timing-Failure Regions Due to Crosstalk Noise”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+
+        <li>Heeseok Kim, Siho Kim, Chungmo Yoon, and Young Hwan Kim,
+          <strong>“FPGA Implementation of a Disparity-Estimation Processing Architecture for Stereo-Camera Systems”</strong>,
+          <em>International Conference on Advances in Circuits, Electronics and Micro-electronics (CENICS)</em>
+        </li>
+
+        <li>Seokju Kang, Seongin Cho, Seungjoo Yoo, and Young Hwan Kim,
+          <strong>“Multi-Histogram-Based Scene-Change Detection for Frame-Rate Up-Conversion”</strong>,
+          <em>International Conference on Consumer Electronics (ICCE)</em>
+        </li>
+        <li>Donggon Yoo, and Young Hwan Kim,
+          <strong>“Perceived Distortion Aware Backlight Dimming for Low-Power and High-Quality LCD Devices”</strong>,
+          <em>IEEE International Conference on Consumer Electronics (ICCE)</em>
+        </li>
+
+        <li>Seongin Cho, and Young Hwan Kim,
+          <strong>“Edge Connectivity-Based Image Denoising for Digital TV Systems”</strong>,
+          <em>IEEE International Conference on Consumer Electronics (ICCE)</em>
+        </li>
+
+        <li>Jaeseong Lim, Seongin Cho, and Young Hwan Kim,
+          <strong>“Accuracy Enhancement of Image Segmentation Using Adaptive Anisotropic Diffusion”</strong>,
+          <em>IEEE Global Conference on Consumer Electronics (GCCE)</em>
+        </li>
+
+        <li>Hyoeon Yang, and Young Hwan Kim,
+          <strong>“An Efficient Metric for Detecting Timing Failure Region Due to Crosstalk Noise”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+
+        <li>Heeseok Kim, Siho Kim, Chungmo Yoon, and Young Hwan Kim,
+          <strong>“FPGA Implementation of Disparity Estimation Processing Architecture for Stereo Camera System”</strong>,
+          <em>International Conference on Advances in Circuits, Electronics and Micro-Electronics (CENICS)</em>
+        </li>
+
+        <li>Suk-Ju Kang, Seongin Cho, Seungju Yu, and Young Hwan Kim,
+          <strong>“Multi-Histogram-Based Scene Change Detection for Frame Rate Up-Conversion”</strong>,
+          <em>IEEE International Conference on Consumer Electronics (ICCE)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2012</h4>
+      <ul>
+        <li>Jin Hu, Andrew B. Kahng, Seokhyeong Kang, Myung-Chul Kim and Igor L. Markov,
+          <strong>“Sensitivity-Guided Metaheuristics for Accurate Discrete Gate Sizing”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Tajana S. Rosing and Richard Strong,
+          <strong>“TAP – Token-Based Adaptive Power Gating”</strong>,
+          <em>IEEE/ACM International Symposium on Low Power Electronics and Design (ISLPED)</em>
+        </li>
+
+        <li>Andrew B. Kahng and Seokhyeong Kang,
+          <strong>“Accuracy-Configurable Adder for Approximate Arithmetic Designs”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Andrew B. Kahng and Seokhyeong Kang,
+          <strong>“Construction of Realistic Gate Sizing Benchmarks With Known Optimal Solutions”</strong>,
+          <em>ACM International Symposium on Physical Design (ISPD)</em>
+        </li>
+
+        <li>Kwangok Jeong, Andrew B. Kahng, Seokhyeong Kang, Tajana S. Rosing and Richard Strong,
+          <strong>“MAPG: Memory Access Power Gating”</strong>,
+          <em>IEEE/ACM Design, Automation and Test in Europe Conference and Exhibition (DATE)</em>
+        </li>
+
+        <li>Jaehun Kim, and Young Hwan Kim,
+          <strong>“Statistical Leakage Analysis Using the Deterministic Modeling of Cell Leakage Current”</strong>,
+          <em>International Conference on Electronics, Circuits and Systems (ICECS)</em>
+        </li>
+
+        <li>Jaeseong Lim, Seongin Cho, and Young Hwan Kim,
+          <strong>“Image Denoising Method Based on Non-Local Means Filter and Noise Estimation”</strong>,
+          <em>International Display Workshops (IDW)</em>
+        </li>
+        <li>Chanyoung Jang, Hyunho Hyun, Sooyoung Cho, Heeseok Kim, and Young Hwan Kim,
+          <strong>“Adaptive Selection of Weights in Multi-Scale Retinex Using Illumination and Object Edges”</strong>,
+          <em>International Conference on Image Processing, Computer Vision & Pattern Recognition (IPCV)</em>
+        </li>
+        <li>Sanghun Kim, Donggon Yoo, Heeseok Kim, and Young Hwan Kim,
+          <strong>“Temporal Sparse Scan for Human Detection in Video”</strong>,
+          <em>International Conference on Image Processing, Computer Vision & Pattern Recognition (IPCV)</em>
+        </li>
+        <li>Hyoeon Yang, Taeil Bae, Jinwook Kim, and Young Hwan Kim,
+          <strong>“Load Model Technique for Mesh-Structured Power Distribution Network”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+        <li>Hyunho Hyun, Myeongjin Park, Heeseok Kim, and Young Hwan Kim,
+          <strong>“ASIP-Based Control System for LED Matrix Display”</strong>,
+          <em>IEEE International Symposium on Circuits and Systems (ISCAS)</em>
+        </li>
+        <li>Kyungjun Kwon, Seongkyu Lee, Sanghun Kim, Sooyoung Cho, and Young Hwan Kim,
+          <strong>“Analysis and Design for Text Readability Increase in Quad-Structure RGBW Color EPD”</strong>,
+          <em>IEEE International Symposium on Circuits and Systems (ISCAS)</em>
+        </li>
+      </ul>
+
+
+      <h4>2011</h4>
+      <ul>
+        <li>Jungil Ahn, Jinwook Kim, and Young Hwan Kim,
+          <strong>“Statistical Leakage Analysis by Parallel Monte-Carlo Programming on a CUDA Platform”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+        <li>Eunju Hwang, Wook Kim, and Young Hwan Kim,
+          <strong>“Timing Yield Slack for Statistical Optimization”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+        <li>Hee Kwan Eun, Sung Jo Hwang, Myung Hoon Sunwoo, Young Hwan Kim, and Hi Seok Kim
+          <strong>“Integer-Pel Motion Estimation Specific Instructions and Their Hardware Architecture for ASIP”</strong>,
+          <em>IEEE International Symposium on Circuits and Systems (ISCAS)</em>
+        </li>
+        <li>Suk-Ju Kang, and Young Hwan Kim,
+          <strong>“Dynamic Backlight Dimming Using Multiple Histograms for Low-Power Liquid Crystal Displays”</strong>,
+          <em>International Conference on Consumer Electronics (ICCE)</em>
+        </li>
+      </ul>
+
+
+      <h4>2010</h4>
+      <ul>
+        <li>Andrew B. Kahng, Seokhyeong Kang, Rakesh Kumar and John Sartori,
+          <strong>“Recovery-Driven Design: A Power Minimization Methodology for Error-Tolerant Processor Modules”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+
+        <li>Kwangok Jeong, Andrew B. Kahng and Seokhyeong Kang,
+          <strong>“Toward Effective Utilization of Timing Exceptions in Design Optimization”</strong>,
+          <em>International Symposium on Quality Electronic Design (ISQED)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Rakesh Kumar and John Sartori,
+          <strong>“Designing a Processor From the Ground Up to Allow Voltage/Reliability Tradeoffs”</strong>,
+          <em>IEEE International Symposium on High-Performance Computer Architecture (HPCA)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Rakesh Kumar and John Sartori,
+          <strong>“Slack Redistribution for Graceful Degradation Under Voltage Overscaling”</strong>,
+          <em>IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC)</em>
+        </li>
+        <li>Philippe Lavole, Suk-Ju Kang, Seongkyu Lee, and Young Hwan Kim,
+          <strong>“Dynamic Global Dimming Method Based on the Complementary Cumulative Distribution Function for LCD”</strong>,
+          <em>International Meeting on Information Display (IMID)</em>
+        </li>
+        <li>Seongin Cho, Suk-Ju Kang, and Young Hwan Kim,
+          <strong>“Global Backlight Dimming Method Using Two-Sided Gray-Level Conversion for LCD”</strong>,
+          <em>International Meeting on Information Display (IMID)</em>
+        </li>
+        <li>Donggon Yoo, Suk-Ju Kang, Seongkyu Lee, and Young Hwan Kim,
+          <strong>“Performance Comparison of Fast Bilateral Motion Estimation Algorithms for Frame Rate Up-Conversion”</strong>,
+          <em>International Meeting on Information Display (IMID)</em>
+        </li>
+
+        <li>Jaehun Kim and Young Hwan Kim,
+          <strong>“Effect of Gate-Level Design Margin Relaxation on Overall Circuit Performance Metrics in VLSI Design”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+
+        <li>Jinwook Kim and Young Hwan Kim,
+          <strong>“Efficient Reduction Technique of Resistive Mesh-Structured Power Network”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+
+        <li>Philippe Lavole, Seonggyu Lee, Seokju Kang, and Young Hwan Kim,
+          <strong>“Dynamic Clipping Ratio Determination for Global Backlight Dimming in LCD”</strong>,
+          <em>IEEE International Symposium on Circuits and Systems (ISCAS)</em>
+        </li>
+
+        <li>Seokju Kang and Young Hwan Kim,
+          <strong>“Low-Power LCDs Using an Image-Integrity-Based Backlight-Dimming Algorithm”</strong>,
+          <em>SID International Symposium, Seminar, and Exhibition</em>
+        </li>
+
+        <li>Myeongjin Park, Jaewoon Lee, and Young Hwan Kim,
+          <strong>“Surface-Based Adaptive Incremental Subfield Coding Method for Plasma Display Panels”</strong>,
+          <em>SID International Symposium, Seminar, and Exhibition</em>
+        </li>
+
+        <li>Eunjoo Hwang, Wook Kim, and Young Hwan Kim,
+          <strong>“Improving the Process-Variation Tolerability of Flip-Flops for UDSM Circuit Design”</strong>,
+          <em>International Symposium on Quality Electronic Design (ISQED)</em>
+        </li>
+
+        <li>Jiyeon Ahn, Taehun Kim, Hyunggyun Yang, and Young Hwan Kim,
+          <strong>“Worst-Case Timing Analysis in the UDSM Era”</strong>,
+          <em>IEEE International Conference on Electrical Engineering/Electronics, Computer, Telecommunications and Information Technology (ECTI-CON)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2009</h4>
+      <ul>
+        <li>Eunjoo Hwang, Wook Kim, and Young Hwan Kim,
+          <strong>“Impact of Process Variation on Timing Characteristics of MTCMOS Flip-Flops for Low-Power Mobile Multimedia Applications”</strong>,
+          <em>International Symposium on Integrated Circuits (ISIC)</em>
+        </li>
+
+        <li>Jinwook Kim, Wook Kim, and Young Hwan Kim,
+          <strong>“Evaluation of the State-of-the-Art Statistical Leakage Estimation Methods Using the BSIM4 Transistor Model”</strong>,
+          <em>International Symposium on Integrated Circuits (ISIC)</em>
+        </li>
+
+        <li>Taehun Kim, Wook Kim, Jinwook Kim, and Young Hwan Kim,
+          <strong>“High-Level Statistical Timing Analysis under Process Variation”</strong>,
+          <em>International Symposium on Integrated Circuits (ISIC)</em>
+        </li>
+
+        <li>Jaehun Kim, Wook Kim, and Young Hwan Kim,
+          <strong>“Effect of Local Random Variation on Gate-Level Delay and Leakage Statistical Analysis”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+
+        <li>Jaehun Kim, Wook Kim, and Young Hwan Kim,
+          <strong>“Assessment of Using Statistical Leakage Estimation at the Macro Level for VLSI Designs”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Seokju Kang, Donggon Yoo, Seonggyu Lee, and Young Hwan Kim,
+          <strong>“Full-Search Block-Matching Algorithm Using Pattern-Based Sub-Sampling for Low-Power Hardware Implementation”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Jiyeon Ahn, Hyunsu Park, and Young Hwan Kim,
+          <strong>“Single Power-Supply Voltage Level Converter for Multi-VDD Systems”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Jinwook Kim and Young Hwan Kim,
+          <strong>“Efficient Load Model of a Resistive Mesh-Structured Power Network”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Donggon Yoo, Seokju Kang, Seonggyu Lee, and Young Hwan Kim,
+          <strong>“Adaptive Sum of the Bilateral Absolute Difference for Motion Estimation Using Temporal Symmetry”</strong>,
+          <em>SID International Symposium, Seminar, and Exhibition</em>
+        </li>
+
+        <li>Seokju Kang, Donggon Yoo, Seonggyu Lee, and Young Hwan Kim,
+          <strong>“Design and Implementation of a Median-Filter-Based Adaptive Motion-Vector Smoothing for Motion-Compensated Frame-Rate Up-Conversion”</strong>,
+          <em>IEEE International Symposium on Consumer Electronics (ISCE)</em>
+        </li>
+
+        <li>Jaewoon Lee, Myeongjin Park, and Young Hwan Kim,
+          <strong>“Low-Cost and Flexible Processor-Based Controller for Timing-Signal Generation in PDP”</strong>,
+          <em>IEEE International Symposium on Consumer Electronics (ISCE)</em>
+        </li>
+      </ul>
+
+      <h4>2008</h4>
+      <ul>
+        <li>Jinwook Kim, Wook Kim, and Young Hwan Kim,
+          <strong>“Incremental Statistical Static Timing Analysis with Gate Timing-Yield Emphasis”</strong>,
+          <em>IEEE Asia-Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+        <li>Hyunsoo Park, Hongpa Cha, Wook Kim, and Young Hwan Kim,
+          <strong>“High-Performance Level-Converting Flip-Flop with a Simple Pulse Generator and a Fast Latch”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em></li>
+        <li>Jaeun Lee, Myeongjin Park, and Young Hwan Kim,
+          <strong>“Error Diffusion Method for Improvement of Gray-Scale Rendition in PDP”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em></li>
+        <li>Donggon Yoo, Suk-Ju Kang, Seongkyu Lee, and Young Hwan Kim,
+          <strong>“Phase-Correlated Bilateral Motion Estimation for Frame Rate Up-Conversion”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em></li>
+        <li>Hyungkyun Yang, Wook Kim, and Young Hwan Kim,
+          <strong>“Timing Estimation Method for Parameterized Macro Model Considering Pin-to-Pin Delay in High-Level Synthesis”</strong>,
+          <em>International Conference on Electronics, Information, and Communication (ICEIC)</em></li>
+        <li>Suk-Ju Kang, Donggon Yoo, and Young Hwan Kim,
+          <strong>“Adaptive Frame Rate Up-Conversion Considering Low Computational Complexity and Complex Motion”</strong>,
+          <em>SID International Symposium, Seminar, and Exhibition</em></li>
+        <li>Seongkyu Lee, Donggon Yoo, Suk-Ju Kang, and Young Hwan Kim,
+          <strong>“A Novel Image Compression Algorithm for Overdriving”</strong>,
+          <em>SID International Symposium, Seminar, and Exhibition</em></li>
+        <li>Wook Kim, Daejun Hyun, and Young Hwan Kim,
+          <strong>“Comparison of Characterization Methods for Statistical Analysis of SoC Designs”</strong>,
+          <em>IEEE International Conference on Electrical Engineering/Electronics, Computer, Telecommunications and Information Technology (ECTI-CON)</em></li>
+        <li>Jinwook Kim, Wook Kim, and Young Hwan Kim,
+          <strong>“Investigation of Efficiency and Accuracy on Incremental SSTA”</strong>,
+          <em>IEEE International Conference on Electrical Engineering/Electronics, Computer, Telecommunications and Information Technology (ECTI-CON)</em></li>
+      </ul>
+
+      <h4>2007</h4>
+      <ul>
+        <li>Suk-Ju Kang, Seongkyu Lee, Donggon Yoo, and Young Hwan Kim,
+          <strong>“Frame Rate Up-Conversion with Bidirectional Sub-Sampled Block Motion Estimation and Minimum Deviation Filter”</strong>,
+          <em>NEXT</em></li>
+        <li>Donggon Yoo, Suk-Ju Kang, Seongkyu Lee, and Young Hwan Kim,
+          <strong>“Adaptive Color Processing Algorithm for Frame Rate Up-Conversion”</strong>,
+          <em>NEXT</em></li>
+        <li>Wook Kim, Hyunsoo Park, Daejun Hyun, and Young Hwan Kim,
+          <strong>“Investigation on the Non-Lognormal Leakage Characteristic of the Leakage Current Distribution under Process Variation”</strong>,
+          <em>NEXT</em></li>
+        <li>Daejun Hyun, Wook Kim, Hyunsoo Park, and Young Hwan Kim,
+          <strong>“Investigation on Correlations in Statistical Static Timing Analysis”</strong>,
+          <em>NEXT</em></li>
+        <li>Daejun Hyun, Kyungtae Do, and Young Hwan Kim,
+          <strong>“Monte Carlo Simulation with Convergences of Mean and Variance for a SoC Design”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em></li>
+        <li>Suk-Ju Kang, Donggon Yoo, and Young Hwan Kim,
+          <strong>“Phase Correlation-Based Motion Estimation Using Variable Block Sizes for Frame Rate Up-Conversion”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em></li>
+      </ul>
+
+      <h4>2006</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“Effective Luminance Compensation: Advanced Driving Method to Improve LCD Response Time”</strong>,
+          <em>International Display Workshops</em></li>
+        <li>Young Hwan Kim,
+          <strong>“Performance Comparison of Motion Estimation Methods for Frame-Rate Up-Conversion”</strong>,
+          <em>International Display Workshops (IDW)</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“A Flexible Processor-Based Liquid-Crystal-Display Timing Controller for High Performance”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“Efficient Method for Accurate Estimation of Gate Delay with Capacitive Coupling”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“Hybrid Multi-Threshold CMOS Using Dual-Supply Voltages”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“A Real-Time Low-Memory DWT-Based Image Compression”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“Design of a Wire-Rolling Integrated Control and Data-Acquisition System Based on CAN Bus”</strong>,
+          <em>International Conference on Electronics, Information, and Communication (ICEIC)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2005</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“False-Contour Noise Reduction of Plasma Display Panels through Dynamic Codeword Selection”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“Level-Converting Flip-Flops for Multi-VDD Systems”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2004</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“Clock-Free MTCMOS Flip-Flops with High Speed and Low Power”</strong>,
+          <em>International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</em>
+        </li>
+      </ul>
+
+      <h4>1999</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“A Cell-Selection Algorithm for Area Minimization”</strong>,
+          <em>International Conference on VLSI and CAD (ICVC)</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“Critical-Path Analysis Considering the Signal Transition Time”</strong>,
+          <em>International Conference on VLSI and CAD (ICVC)</em>
+        </li>
+      </ul>
+
+      <h4>1997</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“Efficient Glitch-Generation Estimation in Logic Systems”</strong>,
+          <em>International Conference on VLSI and CAD (ICVC)</em>
+        </li>
+      </ul>
+
+      <h4>1991</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“The Timing Verification of Synchronous Systems Considering the Types of Synchronization Elements”</strong>,
+          <em>International Conference on VLSI and CAD (ICVC)</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“An Efficient Loop-Handling Algorithm for Critical-Path Analysis”</strong>,
+          <em>International Conference on VLSI and CAD (ICVC)</em>
+        </li>
+      </ul>
+
+      <h4>1986</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“Accurate Delay-Modeling Techniques for Switch-Level Timing Verification”</strong>,
+          <em>ACM/IEEE Design Automation Conference (DAC)</em>
+        </li>
+      </ul>
+
+      <h4>1984</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“Electrical-Logic Simulation”</strong>,
+          <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>
+        </li>
+      </ul>
+
+    </div><!-- /# internal_conf -->
+
+    <!-- ===== International Journal ===== -->
+    <div id="internal_jour" class="tab-content">
+
+      <h4>2025</h4>
+      <ul>
+        <li>Jinhyuk Jang, Yeongrok Jin, Yeon-Seo Nam, Heung-Sik Park, Jaegyu Kim, Kyeong Tae Kang, Yerin So, Jiwoung Choi,
+            <strong>Youngchang Choi</strong>, Jaechan Shim, Panithan Sriboriboon, Dong Kyu Lee, Kyoung-June Go, Gi-Yeop Kim, Seungbum Hong,
+            Jun Hee Lee, Daesu Lee, Myung-Geun Han, Junwoo Son, Yunseok Kim, Hiroki Taniguchi, <strong>Seokhyeong Kang</strong>, Jang-Sik Lee,
+            He Tian, Chan-Ho Yang, Yimei Zhu, Sang-Wook Cheong, Woo Seok Choi, Jaekwang Lee & Si-Young Choi,
+          <strong>“Sub-unit-cell-segmented ferroelectricity in brownmillerite oxides by phonon decoupling”</strong>,
+          <em>Nature Materials</em>, 2025.
+        </li>
+      </ul>
+
+      <h4>2024</h4>
+      <ul>
+        <li>Youngchang Choi, Sejin Park, Minjeong Choi, Kyongsu Lee, and Seokhyeong Kang,
+          <strong>“MA-Opt: Reinforcement Learning-based Analog Circuit Optimization using Multi-Actors”</strong>,
+          <em>IEEE Transactions on Circuits and Systems I: Regular Papers (TCAS-I)</em>, 2024.
+        </li>
+
+        <li>Taeran Lee, Kil-Su Jung, Seunghwan Seo, Junseo Lee, Jihye Park, Sumin Kang, Jeongwon Park, Juncheol Kang, Hogeun Ahn, Suhyun Kim, Hae Won Lee, Doyoon Lee, Ki Seok Kim, Hyunseok Kim, Keun Heo, Sunmean Kim, Sang-Hoon Bae, Seokhyeong Kang, Kibum Kang, Jeehwa Jeon,
+          <strong>“Junctionless Negative-Differential-Resistance Device using 2D Van-Der-Waals Layered Materials for Ternary Parallel Computing”</strong>,
+          <em>Advanced Materials</em>, 2024.
+        </li>
+      </ul>
+
+
+
+      <h4>2023</h4>
+      <ul>
+        <li>Daeyeon Kim, Sung-Yun Lee, Kyungjun Min, and Seokhyeong Kang,
+          <strong>“Construction of Realistic Place-and-route Benchmarks for Machine Learning Applications”</strong>,
+          <em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</em>, 2023.
+        </li>
+
+        <li>Jongho Yoon, Seunghan Baek, Sunmean Kim, and Seokhyeong Kang,
+          <strong>“Optimizing Ternary Multiplier Design with Fast Ternary Adder”</strong>,
+          <em>IEEE Transactions on Circuits and Systems II: Express Briefs (TCAS-II)</em>, 2023.
+        </li>
+
+        <li>Eunji Kwon, Jongho Yoon, and Seokhyeong Kang,
+          <strong>“Mobile Transformer Accelerator Exploiting Various Line Sparsity and Tile-based Dynamic Quantization”</strong>,
+          <em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</em>, 2023.
+        </li>
+      </ul>
+
+
+
+      <h4>2022</h4>
+      <ul>
+        <li>Jieun Lee, Kim Sung-Bin, Seokhyeong Kang, Tae-Hyun Oh,
+          <strong>“Lightweight Speaker Recognition in Poincare Spaces”</strong>,
+          <em>IEEE Signal Processing Letters</em>
+        </li>
+
+        <li>Hyeokjun Kwon, Younghoon Byun, Seokhyeong Kang, Youngjoo Lee,
+          <strong>“CHAMP: Channel Merging Process for Cost-Efficient Highly-Pruned CNN Acceleration”</strong>,
+          <em>IEEE Transactions on Circuits and Systems I: Regular Papers (TCAS-I)</em>
+        </li>
+
+        <li>Yongsu Lee, Sunmean Kim, Ho-In Lee, Seung-Mo Kim, So-Young Kim, Kiyung Kim, Heejin Kwon, Hae-Won Lee, Hyeon Jun Hwang, Seokhyeong Kang, and Byoung Hun Lee,
+          <strong>“Demonstration of Anti-ambipolar Switch and Its Applications for Extremely Low Power Ternary Logic Circuits”</strong>,
+          <em>ACS Nano</em>
+        </li>
+
+        <li>Kiseo Kang, Donggyu Minn, Seongun Bae, Jaeho Lee, Seokhyeong Kang, Moonjoo Lee, Ho-Jin Song, Jae-Yoon Sim,
+          <strong>“A 40-nm Cryo-CMOS Quantum Controller IC for Superconducting Qubit”</strong>,
+          <em>IEEE Journal of Solid-State Circuits (JSSC)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2021</h4>
+      <ul>
+        <li>Hyunjeong Kwon, Daeyeon Kim, Young Hwan Kim, Seokhyeong Kang,
+          <strong>“Variation-Aware SRAM Cell Optimization Using Deep Neural Network-Based Sensitivity Analysis”</strong>,
+          <em>IEEE Transactions on Circuits and Systems I (TCAS-I)</em>
+        </li>
+
+        <li>Eunji Kwon, Sodam Han, Yoonho Park, Jongho Yoon, and Seokhyeong Kang,
+          <strong>“Reinforcement Learning-Based Power Management Policy for Mobile Device Systems”</strong>,
+          <em>IEEE Transactions on Circuits and Systems I (TCAS-I)</em>
+        </li>
+
+        <li>Sunmean Kim, Yesung Kang, Seunghan Baek, Youngchang Choi, and Seokhyeong Kang,
+          <strong>“Low-Power Ternary Multiplication Using Approximate Computing”</strong>,
+          <em>IEEE Transactions on Circuits and Systems II (TCAS-II)</em>
+        </li>
+
+        <li>Sangho Yoon, Chanhee Lee, Hosup Lee, Young Hwan Kim, and Seokhyeong Kang,
+          <strong>“Fluctuation-based Fade Detection for Local Scene Changes”</strong>,
+          <em>IEEE Access</em>
+        </li>
+
+        <li>Sungchul Jung, Jinyoung Park, Junhyung Kim, Wonho Song, Jaehyeong Jo, Hyunjae Park, Myong Kong, Seokhyeong Kang, Muhammad Sheeraz, Ill Won Kim, Tae Heon Kim, Kibog Park,
+          <strong>“Self-selective ferroelectric memory realized with semimetallic graphene channel”</strong>,
+          <em>Materials and Applications</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2020</h4>
+      <ul>
+        <li>Daeyeon Kim, SangGi Do, Sung-Yun Lee, and Seokhyeong Kang,
+          <strong>“Compact Topology-Aware Bus Routing for Design Regularity”</strong>,
+          <em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</em>
+        </li>
+
+        <li>Sunmean Kim, Sung-Yun Lee, Sunghye Park, Kyung Rok Kim, and Seokhyeong Kang,
+          <strong>“A Logic Synthesis Methodology for Low-Power Ternary Logic Circuits”</strong>,
+          <em>IEEE Transactions on Circuits and Systems I (TCAS-I)</em>
+        </li>
+
+        <li>Hwa-Pyeong Park, Yesung Kang, Seokhyeong Kang, Jee-Hoon Jung,
+          <strong>“FPGA Controller Design For High-Frequency LLC Resonant Converters”</strong>,
+          <em>Journal of Industry Applications</em>
+        </li>
+
+        <li>Sodam Han, Yonghee Yun, Young Hwan Kim, and Seokhyeong Kang,
+          <strong>“Proactive Scenario Characteristic-Aware Online Power Management on Mobile Systems”</strong>,
+          <em>IEEE Access</em>
+        </li>
+
+        <li>Hyunjeong Kwon, Sung-Yun Lee, Young Hwan Kim, Seokhyeong Kang,
+          <strong>“Additive Statistical Leakage Analysis Using Exponential Mixture Model”</strong>,
+          <em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Seungwon Kim, Bangqi Xu,
+          <strong>“Enhanced Power Delivery Pathfinding for Emerging 3-D Integration Technology”</strong>,
+          <em>IEEE Transactions on Very Large Scale Integration Systems (TVLSI)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2019</h4>
+      <ul>
+        <li>SeungWon Kim, Ki Jin Han, YoungMin Kim, and Seokhyeong Kang,
+          <strong>“Power Integrity Coanalysis Methodology for Multi-domain High-Speed Memory Systems”</strong>,
+          <em>IEEE Access</em>
+        </li>
+
+        <li>Ho Sub Lee, Gyujin Bae, Sung In Cho, Young Hwan Kim, and Seokhyeong Kang,
+          <strong>“SmartGrid: Video Retargeting With Spatiotemporal Grid Optimization”</strong>,
+          <em>IEEE Access</em>
+        </li>
+
+        <li>Chan Young Jang, Sanghun Kim, Kyungrok Cho and Young Hwan Kim,
+          <strong>“Performance Analysis of Structural-Similarity-Based Backlight-Dimming Algorithm Modulated by Controlling Allowable Local Distortion of Output Image”</strong>,
+          <em>Displays</em>
+        </li>
+
+        <li>Sodam Han, Yonghee Yun, Eunjoo Hwang, Won Kim and Young Hwan Kim,
+          <strong>“Event-Based Application Modeling for Analysis of Asymmetric Multicore-Based Mobile Systems”</strong>,
+          <em>Journal of Systems Architecture</em>
+        </li>
+
+        <li>Yonghee Yun, Sodam Han and Young Hwan Kim,
+          <strong>“Estimation of Maximum Speed-Up in Multicore-Based Mobile Devices”</strong>,
+          <em>IEEE Embedded Systems Letters</em>
+        </li>
+
+        <li>Yonghee Yun, Eunjoo Hwang and Young Hwan Kim,
+          <strong>“Adaptive Genetic Algorithm for Energy-Efficient Task Scheduling on Asymmetric Multiprocessor System-on-Chip”</strong>,
+          <em>Microprocessors and Microsystems</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2018</h4>
+      <ul>
+        <li>Sunwoo Heo, Sunmean Kim, Kiyung Kim, Hyeji Lee, So-Young Kim, Yun Ji Kim, Seung Mo Kim, Ho-In Lee, Kyung Rok Kim, Seokhyeong Kang, and Byoung Hun Lee,
+          <strong>“Ternary full adder using multi-threshold voltage graphene barristors”</strong>,
+          <em>IEEE Electron Device Letters (EDL)</em>
+        </li>
+        <li>Hyunjeong Kwon, Mingyu Woo, Young Hwan Kim, Seokhyeong Kang,
+          <strong>“Statistical Leakage Analysis Using Gaussian Mixture Model”</strong>,
+          <em>IEEE Access</em>
+        </li>
+        <li>Hyunjeong Kwon, Jae Hoon Kim, Seokhyeong Kang, and Young Hwan Kim,
+          <strong>“SoftCorner: Relaxation of Corner Values for Deterministic Static Timing Analysis of VLSI Systems”</strong>,
+          <em>IEEE Access</em>
+        </li>
+        <li>Ho Sub Lee, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Scrolling-Text Detection Based on Region-Characteristic Analysis for Frame-Rate Up-Conversion”</strong>,
+          <em>Displays</em>
+        </li>
+
+        <li>Gyujin Bae, Chan Young Jang, Sung In Cho and Young Hwan Kim,
+          <strong>“Non-Iterative Tone Mapping with High Efficiency and Robustness”</strong>,
+          <em>IEEE Access</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2017</h4>
+      <ul>
+        <li>Hanjoo Cho, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Image Segmentation Using Linked Mean-Shift Vectors and Global/Local Attributes”</strong>,
+          <em>IEEE Transactions on Circuits and Systems for Video Technology</em>
+        </li>
+
+        <li>Chan Young Jang, Sanghun Kim and Young Hwan Kim,
+          <strong>“Contrast Enhancement Using Multiple Mapping Functions for Power Reduction in OLED Display”</strong>,
+          <em>IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+
+        <li>Sanghun Kim, Chan Young Jang and Young Hwan Kim,
+          <strong>“Weighted Peak Ratio for Estimating Stereo-Confidence Level Using Color Similarity”</strong>,
+          <em>IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+
+        <li>Gyujin Bae, Sung In Cho, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Dual-Dissimilarity-Measure-Based Statistical Video-Cut Detection”</strong>,
+          <em>Journal of Real-Time Image Processing</em>
+        </li>
+
+        <li>Hyun-Jin Kwon and Young Hwan Kim,
+          <strong>“Calculating the Probability of Timing Violation of F/F-Controlled Paths with Timing Variations”</strong>,
+          <em>IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+      </ul>
+
+
+      <h4>2016</h4>
+      <ul>
+        <li>Sangmin Kim, Seokhyeong Kang and Youngsoo Shin,
+          <strong>“Synthesis of Dual-Mode Circuits through Library Design, Gate Sizing, and Clock Tree Optimization”</strong>,
+          <em>TODAES</em>
+        </li>
+
+        <li>Sangmin Kim, Seungwhun Paik, Seokhyeong Kang and Youngsoo Shin,
+          <strong>“Wakeup Scheduling and Its Buffered Tree Synthesis for Power Gating Circuits”</strong>,
+          <em>I-VLSI</em>
+        </li>
+
+        <li>Seungwon Kim, Seokhyeong Kang, Ki Jin Han and Youngmin Kim,
+          <strong>“Novel Adaptive Power Gating Strategy and Tapered TSV Structure in Multi-layer 3D IC”</strong>,
+          <em>TODAES</em>
+        </li>
+
+        <li>Joonho Hyun, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Configurable Controller for High-Resolution LED Display Systems”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+
+        <li>Chan Young Jang, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Adaptive Contrast Enhancement Using Edge-Based Lighting-Condition Estimation”</strong>,
+          <em>Digital Signal Processing</em>
+        </li>
+
+        <li>Chan Young Jang, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Non-Iterative Power-Constrained Contrast-Enhancement Algorithm for OLED Display”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+
+        <li>Chan Young Jang, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Perceived Distortion-Based Progressive LCD Backlight-Dimming Method”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+
+        <li>Sanghun Kim, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Anisotropic Diffusion Noise Filtering Using Region-Adaptive Smoothing Strength”</strong>,
+          <em>Journal of Visual Communication and Image Representation</em>
+        </li>
+
+        <li>Sanghun Kim, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Real-Time Stereo Matching Using Extended Binary Weighted Aggregation”</strong>,
+          <em>Digital Signal Processing</em>
+        </li>
+
+        <li>Sung In Cho, Suk-Ju Kang, Seongsoo Lee and Young Hwan Kim,
+          <strong>“Extended-Dimensional Anisotropic Diffusion Using Diffusion Paths on Inter-Color Planes for Noise Reduction”</strong>,
+          <em>Digital Signal Processing</em>
+        </li>
+
+      </ul>
+
+
+
+      <h4>2015</h4>
+      <ul>
+        <li>Andrew B. Kahng, Seokhyeong Kang, Jiajia Li and Jose Pineda De Gyvez,
+          <strong>“An Improved Methodology for Resilient Design Implementation”</strong>,
+          <em>TODAES</em>
+        </li>
+
+        <li>Kyung Joon Kwon, Minbeom Kim, Cheon Heo, Seonggyun Kim, Jongsang Baek and Young Hwan Kim,
+          <strong>“Wide Color Gamut and High Dynamic Range Displays Using RGBW LCDs”</strong>,
+          <em>Displays</em>
+        </li>
+
+        <li>Sung Kyu Lee, Seonggyun Kim and Young Hwan Kim,
+          <strong>“Multimode Image Compression Algorithm Employing Multiple-Choice Knapsack-Problem-Based Encoding-Mode Selection”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+
+        <li>Jae Hoon Kim, Wook Kim and Young Hwan Kim,
+          <strong>“Efficient Statistical Timing Analysis Using Deterministic Cell Delay Models”</strong>,
+          <em>IEEE Transactions on Very Large Scale Integration (VLSI) Systems</em>
+        </li>
+      </ul>
+
+
+      <h4>2014</h4>
+      <ul>
+        <li>Sung In Cho, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Human Perception-Based Image Segmentation Using Optimizing of Colour Quantisation”</strong>,
+          <em>IET Image Processing</em>
+        </li>
+
+        <li>Hanjoo Cho, Suk-Ju Kang, Sung In Cho and Young Hwan Kim,
+          <strong>“Image Segmentation Using Linked Mean-Shift Vectors and Its Implementation on GPU”</strong>,
+          <em>IEEE Transactions on Consumer Electronics</em>
+        </li>
+
+        <li>Dong-Gon Yoo, Suk-Ju Kang, Hiseok Kim and Young Hwan Kim,
+          <strong>“Viewing Distance-Aware Backlight Dimming of Liquid Crystal Displays”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+
+        <li>Sung In Cho, Suk-Ju Kang, Hiseok Kim and Young Hwan Kim,
+          <strong>“Dictionary-Based Anisotropic Diffusion for Noise Reduction”</strong>,
+          <em>Pattern Recognition Letters</em>
+        </li>
+
+        <li>Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Segmentation-Based Clipped-Error Control Algorithm for Global Backlight Dimming”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+
+        <li>Jinwook Kim and Young Hwan Kim,
+          <strong>“Hybrid Gate-Level Leakage Model for Monte Carlo Analysis on Multiple GPUs”</strong>,
+          <em>IEEE Access</em>
+        </li>
+      </ul>
+
+
+      <h4>2013</h4>
+      <ul>
+        <li>Andrew B. Kahng, Seokhyeong Kang, Rakesh Kumar and John Sartori,
+          <strong>“Enhancing the Efficiency of Energy-Constrained DVFS Designs”</strong>,
+          <em>TVLSI</em>
+        </li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang, Tajana S. Rosing and Richard Strong,
+          <strong>“Many-Core Token-Based Adaptive Power Gating”</strong>,
+          <em>TCAD</em>
+        </li>
+        <li>Dong-Gon Yoo, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Direction-Select Motion Estimation for Motion-Compensated Frame-Rate Up-Conversion”</strong>,
+          <em>IEEE/OSA Journal of Display Technology</em>
+        </li>
+
+        <li>Eunjoo Hwang, Wook Kim and Young Hwan Kim,
+          <strong>“Timing-Yield Slack for Timing-Yield-Constrained Optimization and Its Application to Statistical Leakage Minimization”</strong>,
+          <em>IEEE Transactions on Very Large Scale Integration (VLSI) Systems</em>
+        </li>
+
+        <li>Jae Hoon Kim and Young Hwan Kim,
+          <strong>“Efficient Statistical Leakage Analysis Using Deterministic Cell Leakage Models”</strong>,
+          <em>Microelectronics Journal</em>
+        </li>
+
+        <li>Sung In Cho, Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Image Quality-Aware Backlight Dimming with Color and Detail Enhancement Techniques”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2012</h4>
+      <ul>
+        <li>Andrew B. Kahng, Seokhyeong Kang, Rakesh Kumar and John Sartori,
+          <strong>“Recovery-Driven Design: Exploiting Error Resilience in Design of Energy-Efficient Processors”</strong>,
+          <em>TCAD</em>
+        </li>
+
+        <li>Kyung Joon Kwon and Young Hwan Kim,
+          <strong>“Scene-Adaptive RGB-to-RGBW Conversion Using Retinex-Theory-Based Color Preservation”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+
+        <li>Jun Yang, Jinwook Kim, Wonjoo Kim and Young Hwan Kim,
+          <strong>“Measuring User Similarity Using Electric-Circuit Analysis: Application to Collaborative Filtering”</strong>,
+          <em>PLoS ONE</em>
+        </li>
+
+        <li>Suk-Ju Kang, Sung In Cho, Sungjoo Yoo and Young Hwan Kim,
+          <strong>“Scene-Change Detection Using Multiple Histograms for Motion-Compensated Frame-Rate Up-Conversion”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2011</h4>
+      <ul>
+        <li>Jaemin Ra, Minjeong Jeon, Jiho Lee, Sunghoon Moon and Young Hwan Kim,
+          <strong>“A Simulation Model of 3D Crosstalk Phenomenon on 3D Plasma Display with Active Shutter Glasses”</strong>,
+          <em>IEEE Transactions on Consumer Electronics</em>
+        </li>
+
+        <li>Jiho Lee, Seongchul Kim, Kyungrok Cho and Young Hwan Kim,
+          <strong>“Efficient Co-Simulation Framework Enhancing System-Level Power Estimation for a Platform-Based SoC Design”</strong>,
+          <em>Microelectronics Journal</em>
+        </li>
+
+        <li>Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Multi-Histogram-Based Backlight Dimming for Low-Power Liquid Crystal Displays”</strong>,
+          <em>Journal of Display Technology</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2010</h4>
+      <ul>
+        <li>Suk-Ju Kang, Seung Yoo and Young Hwan Kim,
+          <strong>“Dual Motion Estimation for Frame-Rate Up-Conversion”</strong>,
+          <em>IEEE Transactions on Circuits and Systems for Video Technology</em>
+        </li>
+
+        <li>Wook Kim, Kyungtae Do and Young Hwan Kim,
+          <strong>“Statistical Leakage Estimation Based on Sequential Addition of Cell Leakage Currents”</strong>,
+          <em>IEEE Transactions on Very Large Scale Integration (VLSI) Systems</em>
+        </li>
+
+        <li>Jiyeon Ahn, Hyun Soo Park and Young Hwan Kim,
+          <strong>“Level Up/Down Converter With Single Power-Supply Voltage for Multi-VDD Systems”</strong>,
+          <em>Journal of Semiconductor Technology and Science</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2009</h4>
+      <ul>
+        <li>Jinwook Kim and Young Hwan Kim,
+          <strong>“Comparison of Circuit Reduction Techniques for Power-Network Noise Analysis”</strong>,
+          <em>Journal of Semiconductor Technology and Science</em>
+        </li>
+
+        <li>Suk-Ju Kang and Young Hwan Kim,
+          <strong>“Image Integrity-Based Gray-Level Error Control for Low-Power Liquid Crystal Displays”</strong>,
+          <em>IEEE Transactions on Consumer Electronics</em>
+        </li>
+
+        <li>Bongseok Kang and Young Hwan Kim,
+          <strong>“Codeword Mapping Optimization Method for Minimization of Recognized False-Contour Noise”</strong>,
+          <em>IEEE Transactions on Consumer Electronics</em>
+        </li>
+
+        <li>Wook Kim, Hyun Soo Park and Young Hwan Kim,
+          <strong>“Post-Silicon Timing-Yield Enhancement Using Dual-Mode Elements”</strong>,
+          <em>Electronics Letters</em>
+        </li>
+
+        <li>Hongbo Che, Hyun Soo Park, Jinwook Kim and Young Hwan Kim,
+          <strong>“Realizable Reduction of RC Networks With Current Sources for Dynamic IR-Drop Analysis of Power Networks of SoCs”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+
+        <li>Hongbo Che, Jinwook Kim, Taeil Bae and Young Hwan Kim,
+          <strong>“Accelerating Relaxation Using Dynamic Error Prediction”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2008</h4>
+      <ul>
+        <li>Taeil Bae, Jinwook Kim and Young Hwan Kim,
+          <strong>“New Gate Models for Gate-Level Delay Calculation Under Crosstalk Effects”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+
+        <li>Hyun Soo Park, Wook Kim, Daijoon Hyun and Young Hwan Kim,
+          <strong>“Timing Criticality for Timing-Yield Optimization”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+
+        <li>Suk-Ju Kang, Dong-Gon Yoo, Sung-Kyu Lee and Young Hwan Kim,
+          <strong>“Multiframe-Based Bilateral Motion Estimation With Emphasis on Stationary Caption Processing for Frame-Rate Up-Conversion”</strong>,
+          <em>IEEE Transactions on Consumer Electronics</em>
+        </li>
+
+        <li>Jiho Lee, Kyungrok Cho and Young Hwan Kim,
+          <strong>“A Low-Power Implementation of Asynchronous 8051 Employing Adaptive Pipeline Structure”</strong>,
+          <em>IEEE Transactions on Circuits and Systems II: Express Briefs</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2007</h4>
+      <ul>
+        <li>Myeongjin Park, Hyun Soo Park and Young Hwan Kim,
+          <strong>“Image-Adaptive Incremental Subfield Coding for Plasma Display Panels”</strong>,
+          <em>IEICE Transactions on Electronics</em>
+        </li>
+
+        <li>Suk-Ju Kang, Kyungrok Cho and Young Hwan Kim,
+          <strong>“Motion-Compensated Frame-Rate Up-Conversion Using Extended Bilateral Motion Estimation”</strong>,
+          <em>IEEE Transactions on Consumer Electronics</em>
+        </li>
+
+        <li>Kyungtae Do, Hyunsoo Son and Young Hwan Kim,
+          <strong>“Timing Modeling of Latch-Controlled Sub-Systems”</strong>,
+          <em>Integration, the VLSI Journal</em>
+        </li>
+
+        <li>Jae-Seok Lee, Jaewoon Lee and Young Hwan Kim,
+          <strong>“Symmetric Discharge Logic Against Differential Power Analysis”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2006</h4>
+      <ul>
+        <li>Jae-Seok Lee, Bongseok Kang and Young Hwan Kim,
+          <strong>“Image-Dependent Code Optimization to Improve Motion-Picture Quality of Plasma Displays”</strong>,
+          <em>IEICE Transactions on Electronics</em>
+        </li>
+
+        <li>Jae-Seok Lee, Beom-Hun Lee, Bongseok Kang and Young Hwan Kim,
+          <strong>“An Application-Specific Processor-Based Controller for Plasma Display Panels”</strong>,
+          <em>IEEE Transactions on Consumer Electronics</em>
+        </li>
+
+        <li>Hyun Soo Park, Beom-Hun Lee and Young Hwan Kim,
+          <strong>“Level-Converting Flip-Flops for High-Speed and Low-Power Applications”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2005</h4>
+      <ul>
+        <li>Beom-Hun Lee, Kyoung-Oh Jeong and Young Hwan Kim,
+          <strong>“Clock-Free MTCMOS Flip-Flops With High Speed and Low Power”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+      </ul>
+
+
+      <h4>2004</h4>
+      <ul>
+        <li>Kyungtae Do, Wook Kim, Jiyoung Choi and Young Hwan Kim,
+          <strong>“Power Modeling of Synthesizable Soft Macros”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+
+        <li>Jiho Lee, Kyungrok Cho and Young Hwan Kim,
+          <strong>“Design of a Fast Asynchronous Embedded CISC Microprocessor, A8051”</strong>,
+          <em>IEICE Transactions on Electronics</em>
+        </li>
+      </ul>
+
+      <h4>2003</h4>
+      <ul>
+        <li>Yong-Kook Jung, Jaewon Seo, Bongkoo Kang and Young Hwan Kim,
+          <strong>“Circuit Model for Two-Electrode AC Discharge”</strong>,
+          <em>IEEE Transactions on Plasma Science</em>
+        </li>
+      </ul>
+
+      <h4>2002</h4>
+      <ul>
+        <li>Seong-Jin Yoon, Yong-Kook Jung, Jaewon Seo, Beom-Hun Lee and Young Hwan Kim,
+          <strong>“Selective Charge-Inversion Addressing Method for Driving AC Plasma Display Panel”</strong>,
+          <em>Displays</em>
+        </li>
+
+        <li>Seong-Jin Yoon, Bongkoo Kang, Nam-Kyu Lee and Young Hwan Kim,
+          <strong>“Scan-During-Sustain Method for Driving a High-Resolution AC Plasma Display Panel”</strong>,
+          <em>International Journal of Electronics</em>
+        </li>
+      </ul>
+
+      <h4>2001</h4>
+      <ul>
+        <li>Syed Dastgeer, Jae-Koo Lee, Hee-Chul Kim and Young Hwan Kim,
+          <strong>“Efficiency Improvement of High-Pressure Microplasma by an Electron Beam”</strong>,
+          <em>IEEE Transactions on Plasma Science</em>
+        </li>
+
+        <li>Bongkoo Kang, Jae-Chul Park and Young Hwan Kim,
+          <strong>“Plasma Uniformity of an Inductively Coupled Plasma Reactor With a Helical Heating Coil”</strong>,
+          <em>IEEE Transactions on Plasma Science</em>
+        </li>
+
+        <li>Jiyoung Choi, Kyungrok Cho and Young Hwan Kim,
+          <strong>“Backward-Propagated Capacitance Model for Register-Transfer-Level Power Estimation”</strong>,
+          <em>VLSI Design</em>
+        </li>
+      </ul>
+
+      <h4>2000</h4>
+      <ul>
+        <li>Bongkoo Kang, Hyun-Jong Kwon, Byung-Kook Mheen, Heung-Joo Yoo and Young Hwan Kim,
+          <strong>“Nonlinearity Compensation Circuit for a Voltage-Controlled Oscillator Operating in Linear Frequency-Sweep Mode”</strong>,
+          <em>IEEE Microwave and Guided Wave Letters</em>
+        </li>
+      </ul>
+
+      <h4>1999</h4>
+      <ul>
+        <li>Tae-Hoon Kim and Young Hwan Kim,
+          <strong>“ARDOR: Area Optimisation Algorithm for Cell-Selection Problems”</strong>,
+          <em>Electronics Letters</em>
+        </li>
+
+        <li>Tae-Hoon Kim and Young Hwan Kim,
+          <strong>“DEMI: A Delay Minimisation Algorithm for Cell-Based Digital VLSI Design”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+      </ul>
+
+      <h4>1997</h4>
+      <ul>
+        <li>HI Cho, JW Choi, KD Kim, SM Nam, JH Hong, ON Kim, JS Seo, YS Yoo, YK Boo, SH Kang and H Cho,
+          <strong>“Review of core elements used in medical records and their definitions for medical informatics standard”</strong>,
+          <em>Journal of Korean Society of Medical Informatics</em>
+        </li>
+
+        <li>Seong-Yun Han and Young Hwan Kim,
+          <strong>“Efficient Timing Verification of Latch-Synchronized Systems”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+      </ul>
+
+      <h4>1996</h4>
+      <ul>
+        <li>Dong-Hahk Lee and Young Hwan Kim,
+          <strong>“Image Vector Quantization Using a Two-Stage Self-Organizing Feature Map”</strong>,
+          <em>International Journal of Electronics</em>
+        </li>
+
+        <li>Seong-Yun Han and Young Hwan Kim,
+          <strong>“State Minimisation-Based Loop Handling for Critical-Path Analysis”</strong>,
+          <em>Electronics Letters</em>
+        </li>
+      </ul>
+
+      <h4>1995</h4>
+      <ul>
+        <li>Yong-Seok Kwon and Young Hwan Kim,
+          <strong>“An Electrical-Characteristics-Based Piecewise-Linear DC Model of the MOSFET”</strong>,
+          <em>IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences</em>
+        </li>
+
+        <li>Yong-Seok Kwon, Jiyoung Cho, Jong-Keun Cho and Young Hwan Kim,
+          <strong>“Efficient Analysis of Canonical Piecewise-Linear Resistive Networks”</strong>,
+          <em>International Journal of Electronics</em>
+        </li>
+      </ul>
+
+      <h4>1989</h4>
+      <ul>
+        <li>Seong-Ho Hwang, A. Richard Newton and Young Hwan Kim,
+          <strong>“Electrical-Logic Simulation and Its Applications”</strong>,
+          <em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- ===== Domestic Conference ===== -->
+    <div id="domestic_conf" class="tab-content">
+
+      <h4>2023</h4>
+      <ul>
+        <li>Donggyu Kim, Jakang Lee, and Seokhyeong Kang,
+          <strong>“[Best Poster Award] Advanced Parasitic Capacitance Extraction Using Active Learning”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Junseok Hur, Jaekyung Im, and Seokhyeong Kang,
+          <strong>“Placement Initialization via Community Detection”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Joonsek Kim, Eunji Kwon, and Seokhyeong Kang,
+          <strong>“Unified Hardware Solution for AES-GCM and Optimized AES-GCM-SIV”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Kyumin Cho, Eunji Kwon, and Seokhyeong Kang,
+          <strong>“Automated Generation of Piecewise-Linear Approximations for Nonlinear Activation Functions via Curvature-Based Reinforcement Learning”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Sejin Park, Youngchang Choi, and Seokhyeong Kang,
+          <strong>“Soft Actor-Critic Reinforcement-Learning-Based Optimization for Analog Circuit Sizing”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+      </ul>
+
+      <h4>2021</h4>
+      <ul>
+        <li>Seunggyu Lee, Jongho Yoon, Jakang Lee, and Seokhyeong Kang,
+          <strong>“Giga-Sample Data Acquisition Method for High-Speed DDR5 SDRAM”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Chanhee Lee, Sangho Yoon, and Seokhyeong Kang,
+          <strong>“Components Analysis on Audio Signal Mixtures”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Jaekyung Im and Seokhyeong Kang,
+          <strong>“Comparative Analysis Between Verilog and Chisel in RISC-V Core Design and Verification”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Minjeong Choi, Youngchang Choi, Sunmean Kim, and Seokhyeong Kang,
+          <strong>“Ternary Sense Amplifier Design for Ternary SRAM”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Jiyoung Min, Sunmean Kim, and Seokhyeong Kang,
+          <strong>“Memcapacitor-Based Minimum and Maximum Gate Design”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Aeri Kim and Seokhyeong Kang,
+          <strong>“Data Protection Method for Flash Memory in Serial Peripheral Interface”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Daeyeon Kim, Kyungjun Min, and Seokhyeong Kang,
+          <strong>“Artificial Netlist Generator for Machine Learning Applications in EDA”</strong>,
+          <em>제28회 한국반도체학술대회 (KCS))</em>
+        </li>
+
+        <li>Seunggyu Lee, Eunji Kwon, Yesung Kang, and Seokhyeong Kang,
+          <strong>“"Performance Improvement of Deep-Learning HW using Bit-level Sparsity"”</strong>,
+          <em>제28회 한국반도체학술대회 (KCS))</em>
+        </li>
+
+        <li>Eunji Kwon, Jongho Yoon, and Seokhyeong Kang,
+          <strong>“Q-learning-based Power Management for Mobile Systems”</strong>,
+          <em>제28회 한국반도체학술대회 (KCS))</em>
+        </li>
+      </ul>
+
+      <h4>2020</h4>
+      <ul>
+        <li>Youngchang Choi, Sunmean Kim, Seunghan Baek, and Seokhyeong Kang,
+          <strong>“Low-Power 4-Trit Current-Steering DAC for Ternary Data Conversion”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Seunghan Baek, Sunmean Kim, Youngchang Choi, and Seokhyeong Kang,
+          <strong>“MTCMOS-Based Ternary-to-Binary Converter”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Seunghan Baek, Sunmean Kim, and Seokhyeong Kang,
+          <strong>“Designs of Converting Circuit Between Binary and Ternary Logic”</strong>,
+          <em>제27회 한국반도체학술대회 (KCS))</em>
+        </li>
+
+        <li>Yoonho Park, Yesung Kang, Sunghoon Kim, Eunji Kwon, and Seokhyeong Kang,
+          <strong>“Spatial Correlation-aware Compression Algorithm for Energy-efficient CNN Accelerators”</strong>,
+          <em>제27회 한국반도체학술대회 (KCS))</em>
+        </li>
+
+        <li>Sung-Yun Lee, Daeyeon Kim, Minhyuk Kweon and Seokhyeong Kang,
+          <strong>“2.5D Interposer Bus Routing for Multi-Flip Chip Designs”</strong>,
+          <em>제27회 한국반도체학술대회 (KCS))</em>
+        </li>
+
+      </ul>
+
+      <h4>2019</h4>
+      <ul>
+        <li>Eunji Kwon, Yesung Kang, and Seokhyeong Kang,
+          <strong>“Outlier-Aware Time-Multiplexed MAC for Higher Energy Efficiency on Convolutional Neural Networks”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Sunghye Park, Sunmean Kim, and Seokhyeong Kang,
+          <strong>“Multi-Threshold Voltages Graphene Barristor-Based Ternary ALU”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Sodam Han, Yonghee Yun, and Young Hwan Kim,
+          <strong>“Effective Utilization of Modern Mobile CPU’s Asymmetric Characteristics”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>김은식, 윤상호, 권현정, 김영환,
+          <strong>“화자 적응 및 Catastrophic Forgetting 완화를 위한 부분 추가 학습 알고리즘”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>윤상호, 김영환,
+          <strong>“CNN 기반의 연속 음성 인식 알고리즘”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>박성혜, 김선민, 이승윤, 강석형,
+          <strong>“다중 문턱전압 그래핀 배리스터 기반 삼진 ALU 설계”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>SangGi Do, Daeyeon Kim, and Seokhyeong Kang,
+          <strong>“Mixed-Height Standard Cell Legalization for Complex Region ”</strong>,
+          <em>제26회 한국반도체학술대회 (KCS)</em>
+        </li>
+
+        <li>Daeyeon Kim, SangGi Do, and Seokhyeong Kang,
+          <strong>“Modified A* Algorithm for Obstacle-aware Topological Bus Routing”</strong>,
+          <em>제26회 한국반도체학술대회 (KCS)</em>
+        </li>
+
+      </ul>
+
+      <h4>2018</h4>
+      <ul>
+        <li>Hyunjeong Kwon, Young Hwan Kim, and Seokhyeong Kang,
+          <strong>“Estimation of Leakage Distribution Utilizing Gaussian Mixture Model”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Hyunjeong Kwon, and Young Hwan Kim,
+          <strong>“Estimation of Leakage Distribution Utilizing Gaussian Mixture Model”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Ho Sub Lee, and Young Hwan Kim,
+          <strong>“Human Visual Attention Analysis-based Image Segmentation Using Color Histogram”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Gyujin Bae, and Young Hwan Kim,
+          <strong>“Segmentation-Based Disparity Refinement”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Sangwon Cho, Sangho Yoon, and Young Hwan Kim,
+          <strong>“발화 수준의 순열 불변 학습을 이용한 단일 채널 음성 분리”</strong>,
+          <em>반도체공학회 학술대회</em>
+        </li>
+
+        <li>Yonghee Yun, Sodam Han, and Young Hwan Kim,
+          <strong>“모바일 시스템의 최대 성능 예측을 위한 암달의 법칙 확장”</strong>,
+          <em>반도체공학회 학술대회</em>
+        </li>
+
+        <li>Gyujin Bae, and Young Hwan Kim,
+          <strong>“Detecting Static Captions in a Moving Image for Frame Rate Up-Conversion”</strong>,
+          <em>반도체공학회 학술대회</em>
+        </li>
+
+        <li>윤용희, 한소담, 김욱, 황은주, 김영환,
+          <strong>“Energy-aware Scheduling (EAS) 최적화를 위한 멀티코어 시스템 시뮬레이터”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>방병준, 권현정, 김영환,
+          <strong>“Read Static Noise Margin 분석을 통한 SRAM Cell의 Near-Threshold 영역 동작 평가”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>Ho Sub Lee, and Young Hwan Kim,
+          <strong>“Foreground Protection-Based Motion Vector Refinement for Frame Rate Up-Conversion”</strong>,
+          <em>제25회 한국반도체학술대회 (KCS)</em>
+        </li>
+
+        <li>Gyujin Bae, and Young Hwan Kim,
+          <strong>“Segmentation-Based Disparity Refinement for Stereo Matching”</strong>,
+          <em>제25회 한국반도체학술대회 (KCS)</em>
+        </li>
+      </ul>
+
+      <h4>2017</h4>
+      <ul>
+        <li>Sang Ho Yoon, Hanjoo Cho, Sang Won Cho, and Young Hwan Kim,
+          <strong>“HMD-Based Virtual Multi-Screen Control System and Its Gesture Interface”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Sang Won Cho, Sang Ho Yoon, and Young Hwan Kim,
+          <strong>“Motion Vector-Based Film Mode Detection for Frame Rate Up-Conversion”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Byeong Jun Bang, Hyunjeong Kwon, and Young Hwan Kim,
+          <strong>“Effective Sampling Method for Statistical Leakage Analysis: Hybrid Sampling Method”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Yonghee Yun, Sodam Han, Wook Kim, Eun Ju Hwang, and Young Hwan Kim,
+          <strong>“모바일 기기의 효과적인 Power/Thermal 정책 개발을 위한 안드로이드 시뮬레이터”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>Byeong Jun Bang, Hyunjeong Kwon, and Young Hwan Kim,
+          <strong>“효율적인 Statistical Leakage Estimation을 위한 Variance Reduction Sampling 성능 분석”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>Yonghee Yun, Sodam Han, and Young Hwan Kim,
+          <strong>“Amdahl’s Law for Mobile Applications”</strong>,
+          <em>제24회 한국반도체학술대회 (KCS)</em>
+        </li>
+      </ul>
+
+
+      <h4>2016</h4>
+      <ul>
+        <li>SangGi Do, Seungwon Kim, and Seokhyeong Kang,
+          <strong>“Skew Control Methodology for Useful-Skew Implementation”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Sodam Han, Yonghee Yun, and Young Hwan Kim,
+          <strong>“Profiling-Based Task Graph Extraction on Multiprocessor System-on-Chip”</strong>,
+          <em>Asia Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+
+        <li>Hyunjeong Kwon, and Young Hwan Kim,
+          <strong>“Calculating the Probability of Timing Violation of F/F-Controlled Paths with Timing Variations”</strong>,
+          <em>Asia Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+
+        <li>Chanyoung Jang, Sanghun Kim, and Young Hwan Kim,
+          <strong>“Contrast Enhancement Using Multiple Mapping Functions for Power Reduction in OLED Display”</strong>,
+          <em>Asia Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+
+        <li>Sanghun Kim, Chanyoung Jang, and Young Hwan Kim,
+          <strong>“Weighted Peak Ratio for Estimating Stereo Confidence Level Using Color Similarity”</strong>,
+          <em>Asia Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+
+        <li>Yonghee Yun, and Young Hwan Kim,
+          <strong>“Design-Time Energy Optimization for Asymmetric Multiprocessor System-on-Chip”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Hoseop Lee, Suk-Ju Kang, and Young Hwan Kim,
+          <strong>“Motion Vector Smoothing of Boundary of Moving Object for Frame Rate Up-Conversion”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Sangho Yoon, and Young Hwan Kim,
+          <strong>“Image Interpolation Based on Hessian Analysis”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>이호섭, 김영환,
+          <strong>“Hybrid Depth Cue-Based Depth Map Generation for 2D-to-3D Conversion”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>배규진, 강석주, 김영환,
+          <strong>“Letter Box Detection for Frame Rate Up-Conversion”</strong>,
+          <em>대한전자공학회 SoC 학술대회</em>
+        </li>
+
+        <li>윤상호, 김영환,
+          <strong>“Fade Detection through the Luminance Transition Neighboring Monochromatic Frame”</strong>,
+          <em>제23회 한국반도체학술대회 (KCS)</em>
+        </li>
+
+        <li>장찬영, 김영환,
+          <strong>“Dynamic Range Compensation for Pedestrian Detection from Shaded Images”</strong>,
+          <em> 제23회 한국반도체학술대회 (KCS)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2015</h4>
+      <ul>
+        <li>Chanyoung Jang, and Young Hwan Kim,
+          <strong>“An Energy Efficient Multi-Scale Retinex Algorithm Based on the Ratio of Saturated Regions”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Jaehwan Lim, and Young Hwan Kim,
+          <strong>“Non-Rigid Registration Based on B-Spline Using Point Matching”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Yonghee Yun, Eunju Hwang, and Young Hwan Kim,
+          <strong>“An Energy-Efficient Design-Time Task Mapping Algorithm for MPSoC”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>권현정, 박해성, 김진욱, 김영환,
+          <strong>“Hybrid Gate-Level 누설 전류 모델의 Gate Library Characterization에 적합한 Error Metric”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>한소담, 윤용희, 김영환,
+          <strong>“전력 소모를 고려한 Asymmetric MPSoC의 효율 예측”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>윤상호, 배규진, 김영환,
+          <strong>“경계 기반 영역 병합을 통한 영상 분할”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2014</h4>
+      <ul>
+        <li>Seungwon Kim, Kijin Han, Seokhyeong Kang, and Youngmin Kim,
+          <strong>“Analysis and Reduction of Voltage Noise of Multi-Layer 3D ICs With PEEC-Based PDN and Frequency-Dependent TSV Models”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Jinwook Kim, Haeseong Park, and Young Hwan Kim,
+          <strong>“Memory-Efficient Data Structure for Graph Representation of DSPF Netlists”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Jaehwan Lim, and Young Hwan Kim,
+          <strong>“Transfer-Function Design for Volume Rendering Using K-Means Clustering”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>박해성, 김재훈, 김영환,
+          <strong>“버스 기반 MPSoC 구조에서의 태스크 매핑 알고리즘에 대한 조사”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>이호섭, 조한주, and 김영환,
+          <strong>“영상 디테일 수준에 따른 효율적인 영상 분할”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em></li>
+        <li>Kai Chen, 김진욱, 김영환,
+          <strong>“Application of Cumulative Gate Overdrive Voltage to Crosstalk”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>윤용희, 김재훈, 김영환,
+          <strong>“Asymmetric MPSoC에 대한 성능의 상향한계”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>강석주, 김영환,
+          <strong>“Adaptive Subpixel Rendering Using Sharpness Enhancement for Ultrasound Imaging”</strong>,
+          <em>Workshop on Image Processing and Image Understanding (IPIU)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2013</h4>
+      <ul>
+        <li>Jaesung Im, Seongin Cho, and Young Hwan Kim,
+          <strong>“Accuracy Enhancement of Image Segmentation Using Adaptive Anisotropic Diffusion”</strong>,
+          <em>IEEE Global Conference on Consumer Electronics (GCCE)</em>
+        </li>
+
+        <li>Hyoeon Yang, and Young Hwan Kim,
+          <strong>“An Efficient Metric for Detecting Timing-Failure Regions Due to Crosstalk Noise”</strong>,
+          <em>Asia Symposium on Quality Electronic Design (ASQED)</em>
+        </li>
+
+        <li>Heeseok Kim, Siho Kim, Chungmo Yoon, and Young Hwan Kim,
+          <strong>“FPGA Implementation of a Disparity-Estimation Processing Architecture for Stereo-Camera Systems”</strong>,
+          <em>International Conference on Advances in Circuits, Electronics and Micro-electronics (CENICS)</em>
+        </li>
+
+        <li>Seokju Kang, Seongin Cho, Seungjoo Yoo, and Young Hwan Kim,
+          <strong>“Multi-Histogram-Based Scene-Change Detection for Frame-Rate Up-Conversion”</strong>,
+          <em>International Conference on Consumer Electronics (ICCE)</em>
+        </li>
+
+        <li>김상훈, 유동곤, 배규진, 김영환,
+          <strong>“Fast Human Detection Using Cumulative Temporal Data”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2012</h4>
+      <ul>
+        <li>Chanyoung Jang, Jaehwan Lim, and Young Hwan Kim,
+          <strong>“A Fast Multi-Scale Retinex Algorithm Using Dominant SSR in Weights Selection”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>유동곤, 김상훈, 조한주, 김영환,
+          <strong>“입체 영상을 이용한 인간과 컴퓨터 상호작용에서 거리 측정 정확도에 대한 연구”</strong>,
+          <em>한국스마트미디어학회 추계학술발표대회</em>
+        </li>
+
+        <li>황은주, 조한주, 김영환,
+          <strong>“MPSoC에서 에너지 효율을 높이는 방법과 그에 대한 분석”</strong>,
+          <em>한국스마트미디어학회 추계학술발표대회</em>
+        </li>
+
+        <li>조성인, 임재성, 김영환,
+          <strong>“3D depth 추출을 위한 영상 분할 기술에 관한 연구”</strong>,
+          <em>한국스마트미디어학회 추계학술발표대회</em>
+        </li>
+
+        <li>김재훈, 양효언, 김영환,
+          <strong>“동적 열 관리 기법에 대한 소개 및 분석”</strong>,
+          <em>한국스마트미디어학회 추계학술발표대회</em>
+        </li>
+
+        <li>조수영, 장찬영, 김영환,
+          <strong>“적응적 가중치를 사용한 Multi Scale Retinex”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>조한주, 현준호, 김영환,
+          <strong>“ASIP 기반의 감성조명 제어 시스템”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+      <h4>2011</h4>
+      <ul>
+        <li>조성인, ,
+          <strong>“Two-Step Local Dimming for Image Quality Preservation in LCD Displays”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Jungil Ahn, Jinuk Kim, and Young Hwan Kim,
+          <strong>“Leakage Current Modeling for GPGPU Systems”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>김상훈, 유동곤, 김영환,
+          <strong>“특징의 가우시안 분포 특성을 이용한 고속 기계 학습 방법”</strong>,
+          <em>대한전자공학회 하계학술대회</em>
+        </li>
+
+        <li>장찬영, 권경준, 김영환,
+          <strong>“평면 디스플레이 장치의 RGBW 변환에 따른 색 왜곡 분석 연구”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>김상훈, 유동곤, 김영환,
+          <strong>“다단 알고리즘 구조를 이용한 고성능 보행자 인식 시스템”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2010</h4>
+      <ul>
+        <li>Donggon Yoo, Suk-Ju Kang, Seongkyu Lee, and Young Hwan Kim,
+          <strong>“Motion Vector Smoothing for Motion-Compensated Frame Rate Up-Conversion”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>강석주, 김영환,
+          <strong>“Evolutionary Algorithm-Based Motion Estimation for Frame Rate Up-Conversion”</strong>,
+          <em>신호처리합동학술대회</em>
+        </li>
+
+        <li>안정일, 김진욱, 김영환,
+          <strong>“효율적인 전원 노이즈 해석을 위한 Ground 회로의 모델링 기법”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>조성인, 강석주, 김영환,
+          <strong>“양방향 화소값 변환을 사용한 백라이트 디밍 시스템”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>현준호, 황은주, 김영환,
+          <strong>“타이밍 수율 향상을 위한 Dual Mode Element 플립플롭”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2009</h4>
+      <ul>
+        <li>박명진, 이재운, 김영환,
+          <strong>“이미지의 Region 특성을 고려한 PDP TV를 위한 Adaptive Codeword 선택 방법”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>김진욱, 김영환,
+          <strong>“전원 회로 노이즈 분석을 위한 Model Order Reduction 기법의 비교 분석”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>이재운, 박명진, 김영환,
+          <strong>“마이크로프로세서 기반의 PDP 비디오 데이터 처리기”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>김재훈, 김욱, 김영환,
+          <strong>“Gate-Level Delay/Leakage의 통계적 분석에 LER과 RDF가 미치는 영향 분석”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>강석주, 김영환,
+          <strong>“Performance Comparison of Fast Block MatchingAlgorithms Using a New Motion Vector Based Metric”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>김태훈, 김진욱, 김영환,
+          <strong>“SPICE simulation을 위한 PRIMA의 등가회로 구현”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2008</h4>
+      <ul>
+        <li>Jinwook Kim, Wook Kim, and Young Hwan Kim,
+          <strong>“Incremental Statistical Static Timing Analysis with Gate Timing-Yield Emphasis”</strong>,
+          <em>IEEE Asia-Pacific Conference on Circuits and Systems (APCCAS)</em>
+        </li>
+
+        <li>Doo Youn Ka, Jaewoon Lee, and Young Hwan Kim,
+          <strong>“Scan-Order Decision Algorithm for Improving the Reliability of PDP Data Drivers”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Suk-Ju Kang, Donggon Yoo, and Young Hwan Kim,
+          <strong>“Hardware Implementation of Motion Estimation Using a Sub-Sampled Block for Frame Rate Up-Conversion”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em></li>
+
+        <li>Hyungkyun Yang, Wook Kim, and Young Hwan Kim,
+          <strong>“Assessment of Using the Statistical Timing Analysis Software for the VLSI Design at the Macro Level”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em></li>
+
+        <li>Yasir Jan, 이재운, 김영환,
+          <strong>“Adaptive Scanorder Algorithm for Optimized Switching of PDP Data Drivers”</strong>,
+          <em>IEEK Fall Conference Proceedings</em>
+        </li>
+
+        <li>Yasir Jan, 박명진, 김영환,
+          <strong>“플라즈마 디스플레이 패널을 위한 서브필드 데이터 정열기 설계”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>유동곤, 강석주, 김영환,
+          <strong>“프레임 레이트 업 변환을 위한 움직임 가속도 모델”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2007</h4>
+      <ul>
+        <li>Hongpa Cha, Jinuk Kim, and Young Hwan Kim,
+          <strong>“The Parameterized Power Model for Embedded SRAMs with Emphasis on the Activity of Address Signals”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Seongkyu Lee, Sharjeel Saeed, and Young Hwan Kim,
+          <strong>“Image Compression Using 1-D DWT and Residual Coding”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>Daejun Hyun, Hyunsoo Park, Wook Kim, and Young Hwan Kim,
+          <strong>“The Effect of Slew Variation in Statistical Static Timing Analysis of SoCs”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+      </ul>
+
+
+      <h4>2006</h4>
+      <ul>
+        <li>이종섭, 배태일, 김영환,
+          <strong>“Crosstalk을 고려한 Gate-level Delay Calculation의 Accuracy 향상을 위한 Time-varying Output Resistance Model”</strong>,
+          <em>제13회 한국반도체학술대회 (KCS)</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2005</h4>
+      <ul>
+        <li>Sang Yeop Back and Young Hwan Kim,
+          <strong>“Codeword Selection for High Image Quality of PDPs”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>백상엽, 김영환,
+          <strong>“Simulated Annealing에 기초한 최적 Subfield Codeword Set 추출 방법론에 관한 연구”</strong>,
+          <em>반도체 소사이어티 하계학술대회</em>
+        </li>
+
+        <li>김욱, 김영환,
+          <strong>“하드웨어와 소프트웨어의 통합된 전력 소모 예측 기법”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2004</h4>
+      <ul>
+        <li>Hong Bo Che, Kibuhm Kim, and Young Hwan Kim,
+          <strong>“Power-Network Reduction Method for Efficient IR-Drop Analysis”</strong>,
+          <em>International SoC Design Conference (ISOCC)</em>
+        </li>
+
+        <li>이재운, 이종석, 김영환,
+          <strong>“Symmetric Differential Dynamic Logic을 이용한 Power Analysis Attack에 대한 회로 수준 대응 방법”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>김양효, 도경태, 김영환,
+          <strong>“Synthesizable RTL Marco를 위한 Power 모델링 방법”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+
+        <li>박현수, 차홍파, 김영환,
+          <strong>“MTCMOS 회로의 노이즈 제약에 따른 CCS 셀 최적화”</strong>,
+          <em>대한전자공학회 SoC 설계연구회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2003</h4>
+      <ul>
+        <li>이봉현, 박현수, 차홍파, 김영환,
+          <strong>“On-Chip Inductance를 고려한 RLC Power Distribution Network의 Noise Analysis”</strong>,
+          <em>제10회 한국반도체학술대회 (KCS)</em>
+        </li>
+      </ul>
+
+      <h4>2002</h4>
+      <ul>
+        <li>배태일, 김영환,
+          <strong>“Pass-Transistor Logic 합성을 위한 FBDD Minimization Algorithm”</strong>,
+          <em>SoC Design Conference</em>
+        </li>
+
+        <li>kyung Tae Do, Haeng Sun Son, and Young Hwan Kim,
+          <strong>“Advanced Black Box Timing Model for Latch-Synchronized IPs”</strong>,
+          <em>SoC Design Conference</em>
+        </li>
+
+        <li>도경태, 손행선, 김영환,
+          <strong>“래치 동기 시스템을 위한 Advanced Black-Box 타이밍 모델”</strong>,
+          <em>대한전자공학회 CAD 및 VLSI 학술대회 학술발표회</em>
+        </li>
+
+        <li>구종은, 최정연, 김영환,
+          <strong>“IR Drop 해석을 위한 회로 축소 기법의 성능 개선”</strong>,
+          <em>대한전자공학회 CAD 및 VLSI 학술대회 학술발표회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2001</h4>
+      <ul>
+        </li>
+        <li>차홍파, 김영환,
+          <strong>“Power Modeling을 위한 메모리의 구조 연구”</strong>,
+          <em>SoC Design Conference</em>
+        </li>
+
+        <li>최정연, 차홍파, 김영환,
+          <strong>“Parameterized Design을 위한 RTL Power Model”</strong>,
+          <em>대한전자공학회 CAD 및 VLSI 학술대회 학술발표회</em>
+        </li>
+      </ul>
+
+
+
+      <h4>2000</h4>
+      <ul>
+        <li>문성필, 김영환,
+          <strong>“최소 자원을 사용하는 저전력 데이터 패스 할당 알고리즘”</strong>,
+          <em>대한전자공학회 추계학술대회</em>
+        </li>
+
+        <li>나중민, 강봉구, 김영환,
+          <strong>“시각 반응 모델에 의한 AC PDP의 Dynamic False Contour Noise 해석”</strong>,
+          <em>대한전자공학회 추계학술대회</em>
+        </li>
+      </ul>
+
+      <h4>1999</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“면적 최적화를 위한 셀 교체 알고리즘”</strong>,
+          <em>IEEK Fall Conference</em>
+        </li>
+
+        <li>유현목, 나중민, 이봉현, 강봉구, 김영환,
+          <strong>“고해상도 AC PDP 시스템의 입력 처리 모듈 설계”</strong>,
+          <em>제5회 IDEC MPW 발표회</em>
+        </li>
+
+        <li>양희찬, 윤상진, 정윤권, 강봉구, 김영환,
+          <strong>“Load Independent Energy Recovery Circuit for AC PDP”</strong>,
+          <em>제5회 IDEC MPW 발표회</em>
+        </li>
+
+        <li>Young Hwan Kim,
+          <strong>“Register-Transfer Level Power Modeling for the Efficient Power Estimation of VLSI Systems”</strong>,
+          <em>IEEK CAD & VLSI Design Conference</em>
+        </li>
+      </ul>
+
+
+
+      <h4>1998</h4>
+      <ul>
+        <li>이형중, 김영환,
+          <strong>“확장 가능하고 Power-Efficient한 2-D IDCT Processor 구조의 제안”</strong>,
+          <em>2nd MPC Conference</em>
+        </li>
+      </ul>
+
+
+
+      <h4>1997</h4>
+      <ul>
+        <li>김민수, 김영환,
+          <strong>“JPEG에 규정된 Modified Huffman 압축 알고리즘을 사용한 VLC Encoder의 구현”</strong>,
+          <em>1st MPC Conference</em>
+        </li>
+      </ul>
+
+
+
+      <h4>1996</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“Timing Verification for Latch-Controlled VLSI Synchronous Systems”</strong>,
+          <em>KITE CAD & VLSI Design Conference</em>
+        </li>
+      </ul>
+
+
+
+      <h4>1992</h4>
+      <ul>
+        <li>Young Hwan Kim,
+          <strong>“Mixed-Level Timing 검증기 개발”</strong>,
+          <em>과학기술처, 91특정연구결과발표회, 한국전자통신연구소</em>
+        </li>
+
+        <li>이동학, 김영환,
+          <strong>“16 bit × 16 bit 승산기의 설계 Trade-Offs”</strong>,
+          <em>IEEE Korea Section Electron Devices Conference</em>
+        </li>
+
+        <li>권용세, 김영환,
+          <strong>“MOSFET의 구간 선형 모델”</strong>,
+          <em>제2회 젊은 공학도를 위한 반도체 Workshop</em>
+        </li>
+      </ul>
+
+
+
+      <h4>1991</h4>
+      <ul>
+        <li>한상열, 김영환,
+          <strong>“Gate-Level Timing Verifier의 개발 (II)”</strong>,
+          <em>과학기술처, 90특정연구결과발표회, 한국전자통신연구소</em>
+        </li>
+      </ul>
+
+
+
+      <h4>1990</h4>
+      <ul>
+        <li>차권호, 김영환,
+          <strong>“GATE-LEVEL TIMING VERIFIER의 개발”</strong>,
+          <em>과학기술처, 89특정연구결과발표회, 한국전자통신연구소</em>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===== Domestic Journal ===== -->
+    <div id="domestic_jour" class="tab-content">
+
+    <h4>2014</h4>
+    <ul>
+      <li>S. W. Choi, Suk-Ju Kang, and Young Hwan Kim,
+        <strong>“OLED 디스플레이를 위한 히스토그램 정합 기반 파워 소모 저감 기법”</strong>,
+        <em>전자공학회 논문지</em>
+      </li>
+    </ul>
+
+    <h4>1995</h4>
+    <ul>
+      <li>Young Hwan Kim,
+        <strong>“동기 시스템의 타이밍 설계와 검증”</strong>,
+        <em>CAD 및 VLSI 설계연구회지</em>
+      </li>
+    </ul>
+
+    <h4>1994</h4>
+    <ul>
+      <li>Joon-Young Cho, Jin-Guk Cho, Yong-Se Kwon, and Young Hwan Kim,
+        <strong>“정규 구간선형 방정식을 갖는 저항성 회로의 효율적인 해석”</strong>,
+        <em>전자공학회논문지</em>
+      </li>
+    </ul>
+
+    <h4>1991</h4>
+    <ul>
+      <li>Yongsup Shin, and Young Hwan Kim,
+        <strong>“다단 조합논리회로 자동설계기의 개발”</strong>,
+        <em>연구기보</em>
+      </li>
+    </ul>
+    </div>
+
+
+
+    <!-- ===== Patent ===== -->
+    <div id="pat" class="tab-content">
+      <h2>International Patents</h2>
+      <ul>
+        <li>Seokhyeong Kang, Jaekyung Im,
+          “Quantum circuit simulation device and method”,
+          Application number: US18/969,097 (2024)</li>
+
+        <li>Seokhyeong Kang,
+          “Computing system, neural network training and compression method, and neural network computation accelerator”,
+          Application number: US18/925,872 (2024)</li>
+
+        <li>Seokhyeong Kang,
+          “Method for Optimizing Analog Circuit Using Electrical Design Variables Based On Reinforcement learning and system for performing the same”,
+          Application number: US18/926,778 (2024)</li>
+
+        <li>Seok-Hyeong Kang,
+          “Quantum computer and qubit-mapping method for quantum computer”,
+          Application number: US18/618,898 (2024)</li>
+
+        <li>Seokhyeong Kang, Sunmean Kim, Sunghye Park, Sungyun Lee,
+          “Ternary logic circuit device”,
+          Application number: US17/489,629, Patent(Publication) Number: 11,868,740 (2024)</li>
+
+        <li>Seokhyeong Kang, Sunghye Park, Sungyun Lee, Sunmean Kim,
+          “Apparatus for low power ternary logic circuit”,
+          Application number: US17/175,570, Patent(Publication) Number: 11,817,858 (2023)</li>
+
+        <li>Seokhyeong Kang, Sunghye Park, Sungyun Lee, Sunmean Kim,
+          “AРparatus For Low Power Ternary Logic Circuıt”,
+          Application number: US17/175,570, Patent(Publication) Number: 11,817,858 (2022)</li>
+
+        <li>Seokhyeong Kang, Sunmean Kim, Sunghye Park, Sungyun Lee,
+          “Ternary logic circuit device”,
+          Application number: US17/489,629, Patent(Publication) Number: 11,868,740 (2022)</li>
+
+        <li>Seokhyeong Kang, Sunmean Kim, Sungyun Lee, Sunghye Park,
+          “Ternary logic circuit device”,
+          Application number: US17/489,624, Patent(Publication) Number: 11,533,054 (2022)</li>
+
+        <li>Seokhyeong Kang, Yesung Kang, Sunghoon Kim, Yoonho Park,
+          “Neural network accelerator and operating method thereof”,
+          Application number: US16/751,503, Patent(Publication) Number: 11,960,986 (2022)</li>
+
+        <li>Kibog Park, Seokhyeong Kang, Sungchul Jung, Jinyoung Park, Jaehyeong Jo, Junhyung Kim, Wonho Song,
+          “Non-volatile memory device and operating method of the same”,
+          Application number: US17/969,123, Patent(Publication) Number: 2023/0127162 (2022)</li>
+
+        <li>Seokhyeong Kang, Sunmean Kim, Sunghye Park, Sungyun Lee,
+          “Ternary logic circuit device”,
+          Application number: US17/489,624, Patent(Publication) Number: 11,533,054 (2021)</li>
+
+        <li>Seokhyeong Kang, Sunmean Kim, Sung-Yun Lee,
+          “Apparatus and method for ternary logic synthesis with modified Quine-McCluskey algorithm”,
+          Application number: US16/714,583, Patent(Publication) Number: 11,036,904 (2021)</li>
+
+        <li>Seokhyeong Kang, Youngchang Choi, Sunmean Kim, Kyongsu Lee,
+          “Inverter including transistors having different threshold voltages and memory cell including the same”,
+          Application number: US18/060,223, Patent(Publication) Number: 12,283,953 (2021)</li>
+
+        <li>Seokhyeong Kang, Sunmean Kim, Sung-Yun Lee,
+          “Apparatus and method for ternary logic synthesis with modified Quine-McCluskey algoritһm”,
+          Application number: US16/714,583, Patent(Publication) Number: 11,036,904 (2020)</li>
+
+        <li>Seokhyeong Kang, Yesung Kang,
+          “Fir filter circuit design method using approximate computing”,
+          Application number: US15/883,104, Patent(Publication) Number: 10,374,580 (2019)</li>
+
+        <li>Seokhyeong Kang, Yesung Kang, Sunghoon Kim, Yoonho Park,
+          “Neural network accelerator and operating method thereof”,
+          Application number: US17/944,454, Patent(Publication) Number: 11,960,986 (2019)</li>
+
+        <li>Young Hwan Kim, Sung In Cho, Dong Gon Yoo, Sang Hun Kim,
+          “Method and apparatus for recognizing key input from virtual keyboard”,
+          Application number: US14/394,029, Patent(Publication) Number: 9,766,714 (2017)</li>
+
+        <li>Andrew B. Kahng, Seokhyeong Kang,
+          “Accuracy configurable adders and methods”,
+          Application number: US13/595,711, Patent(Publication) Number: 9,229,686 (2016)</li>
+
+        <li>Young Hwan Kim, Sung In Cho, Dong Gon Yoo, Sang Hun Kim,
+          “Method and apparatus for recognizing key input from virtual keyboard”,
+          Application number: Jp2015505628a, Patent(Publication) Number: 5,965,540 (2016)</li>
+
+        <li>Bong Il Park, Andrew B. Kahng, Seok Hyeong Kang, Jae Gon Lee,
+          “Data-retained power-gating circuit and devices including the same”,
+          Application number: US14/210,892, Patent(Publication) Number: 9,166,567 (2015)</li>
+
+        <li>Seokhyeong Kang, Sunmean Kim, Sung-Yun Lee,
+          “Apparatus and method for ternary logic synthesis with modified Quine-McCluskey algoritһm”,
+          Application number: US16/714,583, Patent(Publication) Number: 11,036,904 (2015)</li>
+
+        <li>Young Hwan Kim, Sung In Cho, Dong Gon Yoo, Sang Hun Kim,
+          “Method and apparatus for recognizing key input from virtual keyboard”,
+          Application number: Cn201380019732.9a, Patent(Publication) Number: 104272224 (2015)</li>
+
+        <li>ポハン工科大学校産学協力団 (포항공과대학교산학협력단),
+          “Method and apparatus for recognizing key input from virtual keyboard”,
+          Application number: PCT/KR/2013/001762, Patent(Publication) Number: 特願2015-505628 (2015)</li>
+
+        <li>浦项工科大学校产学协力团 (포항공과대학교산학협력단),
+          “用于识别来自虚拟键盘的键输入的方法及装置 (Method and apparatus for recognizing key input from virtual keyboard)”,
+          Application number: PCT/KR/2013/001762, Patent(Publication) Number: 2014111500916080 (2014)</li>
+
+        <li>Young Hwan Kim, Sung In Cho, Dong Gon Yoo, Sang Hun Kim,
+          “Method and apparatus for recognizing key input from virtual keyboard”,
+          Application number: PCT/KR/2013/001762, Patent(Publication) Number: 2013/154268 (2013)</li>
+
+        <li>Tae Ii Bae, Young Hwan Kim, Jinwook Kim,
+          “Method of calculating gate delay based on crosstalk effect due to capacitive coupling”,
+          Application number: US12/475,544, Patent(Publication) Number: 8,271,255 (2012)</li>
+
+        <li>Jiyeon An Young Hwan Kim Hyoun Soo Park,
+          “Single supply pass gate level converter for multiple supply voltage system”,
+          Application number: US12/639,188, Patent(Publication) Number: 7,961,028 (2011)</li>
+
+        <li>Hong Bo Che Young Hwan Kim,
+          “Method and apparatus for analyzing circuit model by reduction and computer program product for analyzing the circuit model”,
+          Application number: US12/027,732, Patent(Publication) Number: 7,987,439 (2011)</li>
+
+        <li>Seok-Hyeong Kang, Gyeonggi-Do,
+          “Device and method for determining a defective area on an optical media”,
+          Application number: US11/242,174, Patent(Publication) Number: 7,849,379 (2010)</li>
+
+        <li>Jinwook Kim, Young Hwan Kim, Wook Kim,
+          “Method of incremental statistical static timing analysis based on timing yield”,
+          Application number: US12/475,545, Patent(Publication) Number: 8,046,725 (2009)</li>
+
+        <li>Hyoun Soo Park, Young Hwan Kim, Dai Joon Hyun, Wook Kim,
+          “Method of timing criticality calculation for statistical timing optimization of vlsi circuit”,
+          Application number: US12/474,547, Patent(Publication) Number: 8,046,724 (2009)</li>
+
+        <li>Hyun-Chul SHIN, Young-Hwan KIM, Wook KIM, Dong-Gon YOO,
+          “Dual-mode element, semiconductor circuit including the same, and method for enhancing timing yield”,
+          Application number: PCT/KR/2009/006889, Patent(Publication) Number: WO 2011/040672 A1 (2009)</li>
+
+        <li>Hyo-sig Won, Kwangok Jeong, Young-hwan Kim, Bong-hyun Lee,
+          “Mcmos flip-flop, circuit including the mcmos flip-flop, and method of forming the mtcmos flip-flop”,
+          Application number: US11/097,235, Patent(Publication) Number: 7,453,300 (2008)</li>
+
+        <li>Kyung Tae Do, Young Hwan Kim, Haeng Seon,
+          “Black box timing modeling method and computer system for”,
+          Application number: US11/934,252, Patent(Publication) Number: 7,984,404 (2007)</li>
+
+        <li>元孝植 (원효식), 鄭光オク(정광옥), 金潁煥 (김영환), 李奉ヒュン (이봉현),
+          “MTCMOSフリップフロップ、MTCMOSフリップフロップを含む回路、及びMTCMOSフリップフロップの生成方法 (MTCMOS flip-flop, a circuit including an MTCMOS flip-flop, and a method for forming the MTCMOS flip-flop)”,
+          Application number: 特願2005-128548, Patent(Publication) Number: 特許第5258184号 (2005)</li>
+
+        <li>元孝植 (원효식), 郑光鈺(정광옥), 金颖焕 (김영환), 李奉炫(이봉현),
+          “多國值电压互补金属氧化物半导体触发器及其电路及方法 (Multi-well, multi-threshold-voltage CMOS trigger device and its circuits and methods)”,
+          Application number: 200510068440.1, Patent(Publication) Number: CN 1694358 B (2005)</li>
+
+        <li>Yun Kwon Jung, Bong Koo Kang, Young Hwan Kim, Ju Won Seo,
+          “Method of driving plasma display panel using selective inversion address method”,
+          Application number: 02252188.4, Patent(Publication) Number: EP 1 246 156 A1 (2002)</li>
+
+        <li>クー，ボン・チョル (구본철), イ，ウン・クヮン (이용관),  カン，ボン・クー (강봉구), キム，ヨン・ファン (김영환), ユン，サン・ジン (유상진), ジュン，ユン・クォン (정윤권), ソウ，ジュ・ウォン (서주원), ラ，ジューン・ミン (나중민), イ，ボン・ヒュン (이봉현), ユウ，ヒュン・モク (유현목),
+          “プラズマディスプレイパネル及びその駆動方法 (Plasma display panel and method for driving the same)”,
+          Application number: 特願2002-558248, Patent(Publication) Number: 特許第4149263号 (2002)</li>
+
+        <li>鄭文植 (정문식), 李南揆(이남규), 姜鳳求 (강봉구), 鄭允權 (정윤권), 尹相辰 (윤상진), 梁ヒー讃 (양희찬), 金颖焕 (김영환),
+          “プラズマディスプレーパネルの低電圧駆動装置及び方法 (Low-Voltage Driving Apparatus and Method for Plasma Display Panels)”,
+          Application number: 特願2000-286214, Patent(Publication) Number: 特許第3542551号 (2000)</li>
+
+        <li>Nam Kyu Lee, Yun Kwon Jung, Sang Jin Yun, Hee Chan Yang, Young Hwan Kim,
+          “Plasma display panel adapted to low voltage driving”,
+          Application number: 308251.8, Patent(Publication) Number: EP 1 087 364 A1 (1999)</li>
+
+        <li>ユン・チョル・リ (이은철), ジェ・ヒュク・リ (이재혁), ボン・クー・カン (강봉구), ヤン・ヒワン・キム (김영환),
+          “プラズマディスプレイパネル（ＰＤＰ）の駆動方法 (Method for driving a plasma display panel (PDP))”,
+          Application number: 特許平9-268550, Patent(Publication) Number: 特許第3328769号 (1997)</li>
+
+        <li>Eun-Cheol Lee, Jae-Hyuck Lee, Bong-Koo Kang, Young-Hwan Kim,
+          “Method for driving AC-type plasma display panel (PDP)”,
+          Application number: 97307072.5, Patent(Publication) Number: EP 0 834 856 A1 (1997)</li>
+
+        <li>Eun-Cheol Lee, Jae-Hyuck Lee, Bong-Koo Kang, Young-Hwan Kim,
+          “Method for driving AC-type plasma display panel (PDP)”,
+          Application number: US08/941,072, Patent(Publication) Number: 6,133,903 (1997)</li>
+
+        <li>李银哲 (이은철), 宋永复 (송영복), 姜凤求 (강봉구), 金颖焕 (김영환),
+          “分割等离子体显示面板的方法 (Method for scribing a plasma display panel)”,
+          Application number: 200310114849.3, Patent(Publication) Number: CN 1501426A (1997)</li>
+
+        <li>ユン・チョル・リ (이은철), ヤン・ボク・ソン (송영복), ボン・クー・カン (강봉구), ヤン・ヒワン・キム (김영환),
+          “プラズマディスプレイパネル(Plasma display panel)”,
+          Application number: 特許平9-238277の分割, Patent(Publication) Number: 特開2004-38214 (1997)</li>
+
+        <li>Eun-Cheol Lee, Young-Bok Song, Bong-Koo Kang, Young-Hwan Kim,
+          “Plasma display panel”,
+          Application number: 97306810.9, Patent(Publication) Number: EP 0 827 178 B1 (1997)</li>
+
+        <li>李银哲 (이은철), 宋永复 (송영복), 姜凤求 (강봉구), 金颖焕 (김영환),
+          “等离子体显示面板 (Plasma display panel)”,
+          Application number: 97116877.6, Patent(Publication) Number: CN 1175787A (1997)</li>
+
+        <li>李银哲 (이은철), 李在爀 (이재혁), 姜凤求 (강봉구), 金颖焕 (김영환),
+          “等离子体显示面板的驱动方法 Method for driving a plasma display panel)”,
+          Application number: 97116949.7, Patent(Publication) Number: CN 114188C (1997)</li>
+
+        <li>ユン・チョル・リ (이은철), ヤン・ボク・ソン (송영복), ボン・クー・カン (강봉구), ヤン・ヒワン・キム (김영환),
+          “プラズマディスプレイパネル及びその分割方法 (Plasma display panel and its scribing method)”,
+          Application number: 特許平9-238277, Patent(Publication) Number: 特許平10-92324 (1997)</li>
+
+        <li>Eun-Cheol Lee, Young-Bok Song, Bong-Koo Kang, Young-Hwan Kim,
+          “Plasma display panel with plural screens”,
+          Application number: US08/921,608, Patent(Publication) Number: 5,914,563 (1997)</li>
+
+      </ul>
+
+      <h2>Domestic Patents</h2>
+      <ul>
+        <li>강석형, 최영창, 이경수, 최민정,
+          “전기적 디자인 변수를 이용한 강화학습 기반의 아날로그 회로 최적화 방법 및 이를 수행하는 시스템”,
+          출원번호: 10-2024-0070997 (2024)</li>
+
+        <li>강석형, 이자강, 이재승, 박성현,
+          “설계 기술 공동 최적화를 위한 여러 소스 전이 학습 방법”,
+          출원번호: 10-2024-0065267 (2024)</li>
+
+        <li>권은지, 강석형,
+          “가지치기 및 양자화를 이용한 트랜스포머 가속 방법 및 그 장치”,
+          출원번호: 10-2024-0051528 (2024)</li>
+
+        <li>강석형, 송해나, 윤종호, 김도훈, 오태현, 권은지,
+          “컴퓨팅 시스템, 신경망 훈련 및 압축 방법, 및 신경망 연산 가속기”,
+          출원번호: 10-2024-0036087 (2024)</li>
+
+        <li>강석형, 임재경,
+          “양자 회로 시뮬레이션 장치 및 방법”,
+          출원번호: 10-2023-0182284 (2023)</li>
+
+        <li>강석형, 박성혜, 심재윤, 권민혁,
+          “큐비트 매핑 방법 및 이를 사용하는 양자 컴퓨터”,
+          출원번호: 10-2023-0156509, 등록(공개)번호: 10-2025-0070375 (2023)</li>
+
+        <li>강석형, 박성혜, 심재윤, 김도훈,
+          “다중 제약 조건 큐비트 할당 방법 및 이를 이용하는 양자 장치”,
+          출원번호: 10-2023-0125128, 등록(공개)번호: 10-2025-0042016 (2023)</li>
+
+        <li>강석형, 최영창, 김선민, 이경수,
+          “다른 문턱 전압들을 갖는 트랜지스터들을 포함하는 인버터 및 이를 포함하는 메모리 셀”,
+          출원번호: 10-2022-0134349, 등록(공개)번호: 10-2023-0081606 (2022)</li
+
+        <li>강석형, 강예성, 권은지, 이승규,
+          “하드웨어 가속기 성능을 개선시키기 위한 합성곱 신경망의 연산 순서 조정을 위한 장치 및 방법”,
+          출원번호: 10-2021-0156873, 등록(공개)번호: 10-2724725 (2021)</li>
+
+        <li>강석형, 김선민, 백승한, 최영창,
+          “삼진 곱셈기”,
+          출원번호: 10-2021-0131932, 등록(공개)번호: 10-2596434 (2021)</li>
+
+        <li>강석형, 백승한, 김선민, 최영창,
+          “삼진-이진 변환기 및 이의 삼진-이진 변환 방법, 및 이진-삼진 변환기 및 이의 이진-삼진 변환 방법”,
+          출원번호: 10-2021-0131931, 등록(공개)번호: 10-2568174 (2021)</li>
+
+        <li>강석형, 김성훈, 권은지, 박윤호, 강예성,
+          “특징맵을 컴프레싱하는 장치 및 방법”,
+          출원번호: 10-2021-0056723, 등록(공개)번호: 10-2502162 (2021)</li>
+
+        <li>강석형, 김선민, 이승윤, 박성혜,
+          “삼진 논리 회로 장치 II”,
+          출원번호: 10-2021-0055864, 등록(공개)번호: 10-2505205 (2021)</li>
+
+        <li>강석형, 김선민, 박성혜, 이승윤,
+          “삼진 논리 회로 장치 I”,
+          출원번호: 10-2021-0055863, 등록(공개)번호: 10-2505200 (2021)</li>
+
+        <li>강석형, 박성혜, 이승윤, 김선민,
+          “저전력 삼진 논리 회로 장치”,
+          출원번호: 10-2020-0129024, 등록(공개)번호: 10-2348169 (2020)</li>
+
+        <li>강석형, 강예성, 김성훈, 박윤호,
+          “신경망 가속기 및 그것의 동작 방법”,
+          출원번호: 10-2019-0034583, 등록(공개)번호: 10-2233174 (2019)</li>
+
+        <li>강석형, 김선민, 이승윤,
+          “변조 퀸맥클러스키 알고리즘을 이용한 삼진 논리 합성 장치 및 방법”,
+          출원번호: 10-2018-0173933, 등록(공개)번호: 10-2130980 (2018)</li>
+
+        <li>강석형, 김선민, 이세기,
+          “삼진 순차 회로 장치”,
+          출원번호: 10-2018-0029323, 등록(공개)번호: 10-1991622 (2018)</li>
+
+        <li>강석형, 강예성,
+          “삼진 곱셈기”,
+          출원번호: 10-2018-0024614, 등록(공개)번호: 10-1967872 (2018)</li>
+
+        <li>강석형, 김선민, 임태호,
+          “삼진 논리 회로 장치”,
+          출원번호: 10-2017-0183831, 등록(공개)번호: 10-1928223 (2017)</li>
+
+        <li>강석형, 강예성,
+          “근사연산을 이용한 FIR필터 연산방법”,
+          출원번호: 10-2017-0016179, 등록(공개)번호: 10-1878400 (2017)</li>
+
+        <li>강석형, 김선민, 임태호,
+          “삼진 논리 회로 장치”,
+          출원번호: 10-2017-0183831, 등록(공개)번호: 10-1928223 (2017)</li>
+
+        <li>김재준, 김영환, 이민아, 김상훈,
+          "이동 단말기 및 그 제어방법",
+          출원번호: 10-2015-0083392, 등록(공개)번호: 10-1670978 (2015)</li>
+
+        <li>김영환, 김상훈,
+          "모바일 음향 기기의 소음 제거 방법 및 장치",
+          출원번호: 10-2015-0054164, 등록(공개)번호: 10-1607121 (2015)</li>
+
+        <li>김영환, 김상훈,
+          "사용자 단말의 이동 추정 방법 및 이를 수행하는 장치",
+          출원번호: 10-2014-0101470, 등록(공개)번호: 10-1463894 (2014)</li>
+
+        <li>김영환, 김상훈, 유동곤, 조성인,
+          "가상 키보드 상의 키 입력을 인식하는 방법 및 그 장치",
+          출원번호: 10-2014-0036136, 등록(공개)번호: 10-1809958 (2014)</li>
+
+        <li>김영환, 현준호, 장찬영,
+          "전원 공급 장치",
+          출원번호: 10-2014-0004324, 등록(공개)번호: 10-2015-0085178 (2014)</li>
+
+        <li>김영환, 유동곤, 김상훈,
+          "시청거리를 고려한 백라이트 디밍 제어 방법",
+          출원번호: 10-2013-0084725, 등록(공개)번호: 10-1460041 (2013)</li>
+
+        <li>김영환, 김진욱, 양준혁, 김원준,
+          "전기회로 분석 기법을 이용한 상품 구매자 추천 방법",
+          출원번호: 10-2012-0138919, 등록(공개)번호: 10-1428235 (2012)</li>
+
+        <li>김영환, 현준호, 장찬영,
+          "엘이디 디스플레이 모듈용 구동 제어 장치 및 이의 구동 제어 방법",
+          출원번호: 10-2012-0132000, 등록(공개)번호: 10-1452895 (2012)</li>
+
+        <li>김영환, 김상훈, 유동곤, 조성인,
+          "가상 키보드 상의 키 입력을 인식하는 방법 및 그 장치",
+          출원번호: 10-2012-0038351, 등록(공개)번호: 10-2013-0115750 (2012)</li>
+
+        <li>김영환, 조성인, 강석주, 유승주,
+          "장면전환검출장치 및 장면전환검출방법",
+          출원번호: 10-2011-0128141, 등록(공개)번호: 10-1878182 (2011)</li>
+
+        <li>신현철, 김영환, 김욱, 안지연,
+          "가변전원 공급장치, 그를 포함하는 저 전력 반도체 회로 및 반도체 회로의 전력 소모 개선 방법",
+          출원번호: 10-2010-0005178, 등록(공개)번호: 10-1116288 (2010)</li>
+
+        <li>라볼레 필립 장 이브, 강석주, 오의열, 조성인, 권경준, 안희원, 김영환,
+          "글로벌 백라이트 디밍 방법과 이를 이용한 액정표시 장치",
+          출원번호: 10-2010-0075916, 등록(공개)번호: 10-1076449 (2010)</li>
+
+        <li>신현철, 김영환, 박현수, 안지연,
+          "전압 레벨 변환기 및 그를 포함한 전압 레벨 변환 장치",
+          출원번호: 10-2009-0103644, 등록(공개)번호: 10-1116285 (2009)</li>
+
+        <li>신현철, 김영환, 김욱, 유동곤,
+          "듀얼 모드 소자, 그를 포함한 반도체 회로 및 반도체 회로의 타이밍 수율 향상 방법",
+          출원번호: 10-2009-0094110, 등록(공개)번호: 10-1085228 (2009)</li>
+
+        <li>신현철, 김영환, 박명진, 이재운,
+          "영상 처리 장치, 영상 처리 방법 및 플라즈마 표시 장치",
+          출원번호: 10-2009-0106540, 등록(공개)번호: 10-1116860 (2009)</li>
+
+        <li>김영환, 박현수, 김욱, 현대준,
+          "집적 회로의 통계적 타이밍 최적화를 위한 방법",
+          출원번호: 10-2009-0024083, 등록(공개)번호: 10-2010-0105187 (2009)</li>
+
+        <li>이환주, 강석주, 유동곤, 이성규, 김영환, 장수혁,
+          "다중 프레임 기반 움직임 추정방법 및 장치",
+          출원번호: 10-2009-0024508, 등록(공개)번호: 10-2010-0106070 (2009)</li>
+
+        <li>이환주, 강석주, 유동곤, 이성규, 김영환, 장수혁,
+          "프레임 레이트 업 컨버젼 방법 및 장치",
+          출원번호: 10-2009-0024503, 등록(공개)번호: 10-2010-0106067 (2009)</li>
+
+        <li>이환주, 강석주, 유동곤, 이성규, 김영환, 장수혁,
+          "적응적 모션 벡터 보정방법 및 장치",
+          출원번호: 10-2009-0024501, 등록(공개)번호: 10-2010-0106066 (2009)</li>
+
+        <li>김영환, 차홍파,
+          "회로 모델 축소 해석 방법",
+          출원번호: 10-2009-0024564, 등록(공개)번호: 10-0907430 (2009)</li>
+
+        <li>김영환, 김진욱, 김욱,
+          "타이밍 수율을 고려한 확률 통계 기법을 기반으로 한 점진적인 정적 타이밍 해석 방법",
+          출원번호: 10-2009-0046079, 등록(공개)번호: 10-1058866 (2009)</li>
+
+        <li>김영환, 배태일, 김진욱,
+          "캐패시티브 커플링에 의한 크로스톡 효과를 고려한 게이트 지연 시간 계산 방법",
+          출원번호: 10-2009-0045655, 등록(공개)번호: 10-1537311 (2009)</li>
+
+        <li>김영환, 신현철, 박현수, 안지연, 김욱,
+          "레벨 변환 플립플롭",
+          출원번호: 10-2008-0115281, 등록(공개)번호: 10-1025699 (2008)</li>
+
+        <li>신현철, 김영환, 이봉현, 황은주,
+          "다중 문턱전압을 가지는 플립플롭 회로 및 이의 구동방법",
+          출원번호: 10-2008-0111055, 등록(공개)번호: 10-1020940 (2008)</li>
+
+        <li>김영환, 이재운, 박명진,
+          "플라즈마 디스플레이 장치",
+          출원번호: 10-2008-0064650, 등록(공개)번호: 10-2010-0004463 (2008)</li>
+
+        <li>김영환, 차홍파, 김욱, 김진욱, 배태일, 양형균, 이준호, 이형동, 김현석,
+          "회로 모델 해석 방법 및 그 시스템",
+          출원번호: 10-2008-0129152, 등록(공개)번호: 10-1093001 (2008)</li>
+
+        <li>김영환, 장수혁, 이환주, 강석주, 유동곤, 이성규, 차동훈,
+          "프레임 레이트 변환 방법과 이를 이용한 액정표시장치",
+          출원번호: 10-2008-0112933, 등록(공개)번호: 10-1507164 (2008)</li>
+
+        <li>안지연, 박현수, 김영환,
+          "다중 전원 전압 시스템을 위한 단일 전원 전압 패스 게이트 레벨 변환기",
+          출원번호: 10-2008-0133840, 등록(공개)번호: 10-1058865 (2008)</li>
+
+        <li>김영환, 이재운, 박명진,
+          "플라즈마 디스플레이 패널의 구동 방법",
+          출원번호: 10-2007-0049860, 등록(공개)번호: 10-2008-0102866 (2007)</li>
+
+        <li>차홍파, 김영환,
+          "회로 모델 축소 해석 방법",
+          출원번호: 10-2007-0019929, 등록(공개)번호: 10-0895260 (2007)</li>
+
+        <li>김영환, 이종석, 강봉석, 박명진, 이재운,
+          "플라즈마 디스플레이 장치 및 마이크로프로세서",
+          출원번호: 10-2007-0105557, 등록(공개)번호: 10-2009-0040013 (2007)</li>
+
+        <li>김영환, 강석주, 유동곤, 이성규, 장수혁, 김창곤, 차동훈,
+          "구성조, 움직임 보상 방법, 움직임 보상 장치, 이를 구비한 액정표시장치 및 그 구동 방법",
+          출원번호: 10-2007-0136148, 등록(공개)번호: 10-1420435 (2007)</li>
+
+        <li>김영환, 차홍파,
+          "회로 모델 축소 해석 방법 및 컴퓨터로 읽을 수 있는 매체",
+          출원번호: 10-2007-0019929, 등록(공개)번호: 10-0895260 (2007)</li>
+
+        <li>김영환, 강봉구, 이종석, 이재운, 강봉석,
+          "평판 디스플레이 장치",
+          출원번호: 10-2006-0041719, 등록(공개)번호: 10-0793032 (2006)</li>
+
+        <li>김영환, 이성규, 김민규, 강석주, 이종석, 김창곤, 장수혁,
+          "액정 표시장치의 구동 회로 및 그 구동 방법",
+          출원번호: 10-2006-0138931, 등록(공개)번호: 10-1331709 (2006)</li>
+
+        <li>장수혁, 김영환, 이종석, 김민규, 이성규, 김창곤,
+          "표시장치",
+          출원번호: 10-2006-0060753, 등록(공개)번호: 10-2008-0002126 (2006)</li>
+
+        <li>김영환, 김민규, 이종석, 이성규, 김창곤, 장수혁,
+          "표시장치",
+          출원번호: 10-2006-0060755, 등록(공개)번호: 10-1330748 (2006)</li>
+
+        <li>김영환, 이종석, 이성규, 김민규, 장수혁, 김창곤,
+          "표시장치",
+          출원번호: 10-2006-0060751, 등록(공개)번호: 10-1330737 (2006)</li>
+
+        <li>김영환, 최정연, 원효식, 이봉현,
+          "다중 전원 전압 시스템을 위한 레벨 변환 플립플롭",
+          출원번호: 10-2006-0007900, 등록(공개)번호: 10-0675006 (2006)</li>
+
+        <li>도경태, 김영환, 손행선,
+          "래치 기반 서브시스템의 블랙 박스 타이밍 모델링을 위한 방법 및 컴퓨터 시스템",
+          출원번호: 10-2006-0113034, 등록(공개)번호: 10-0842214 (2006)</li>
+
+        <li>심수석, 이재찬, 윤상진, 강성호, 강봉구, 김영환, 이종석, 강봉석,
+          "플라즈마 디스플레이 패널의 구동 제어 장치",
+          출원번호: 10-2005-0097238, 등록(공개)번호: 10-0726997 (2005)</li>
+
+        <li>김영환, 이종석,
+          "파워 소모를 일정하게 하는 상보 논리 회로 장치",
+          출원번호: 10-2005-0064551, 등록(공개)번호: 10-0701200 (2005)</li>
+
+        <li>원효식, 정광옥, 김영환, 이봉현,
+          " ＭＴＣＭＯＳ 플립-플롭, 그를 포함하는 ＭＴＣＭＯＳ회로, 및 그 생성 방법",
+          출원번호: 10-2004-0029853, 등록(공개)번호: 10-2005-0104530 (2004)</li>
+
+        <li>강석형,
+          "광 저장 매체의 최적화된 결함 처리를 위한 결함 판단 장치",
+          출원번호: 10-2004-0102362, 등록(공개)번호: 10-0734262 (2004)</li>
+
+        <li>윤상진, 서주원, 정윤권, 강봉구, 김영환, 김갑식,
+          "선택적 반전 어드레스 방식을 이용한 플라즈마 디스플레이패널의 구동방법",
+          출원번호: 10-2002-0013365, 등록(공개)번호: 10-0477600 (2002)</li>
+
+        <li>구본철, 이용관, 강봉구, 김영환, 윤상진, 정윤권, 서주원, 나중민, 이봉현,
+          "플라즈마 디스플레이 패널 및 그의 구동방법",
+          출원번호: 10-2002-0002483, 등록(공개)번호: 10-0452697 (2002)</li>
+
+        <li>신성철, 윤상진, 강봉구, 김영환, 정윤권, 나중민, 이봉현, 유현목, 서주원,
+          "플라즈마 디스플레이 패널의 구동방법 및 장치",
+          출원번호: 10-2001-0003006, 등록(공개)번호: 10-0396164 (2001)</li>
+
+        <li>강봉구, 정윤권, 윤상진, 서주원, 김영환, 신영교,
+          "플라즈마 디스플레이 패널의 저전압구동 고전압 스위치장치 및 구동방법",
+          출원번호: 10-2001-0015753, 등록(공개)번호: 10-0381266 (2001)</li>
+
+        <li>홍진원, 윤상진, 강봉구, 김영환, 정윤권, 나중민, 이봉현, 유현목, 서주원,
+          "플라즈마 디스플레이 패널의 구동방법 및 장치",
+          출원번호: 10-2001-0003004, 등록(공개)번호: 10-0415613 (2001)</li>
+
+        <li>김병철, 주성구, 정성욱, 윤상진, 김영환, 강봉구,
+          "에이씨 피디피 구동장치의 데이터 정렬회로",
+          출원번호: 10-1997-0057952, 등록(공개)번호: 10-0492951 (1997)</li>
+
+        <li>윤상진, 강봉구, 권기원, 주성구, 정성욱, 김병철, 김영환,
+          "피디피구동장치의칼럼드라이버구동회로",
+          출원번호: 10-1997-0054479, 등록(공개)번호: 10-0497000 (1997)</li>
+
+        <li>윤상진, 강봉구, 김갑식, 정성욱, 김병철, 주성구, 김영환,
+          "에이씨 피디피 구동장치",
+          출원번호: 10-1997-0054478, 등록(공개)번호: 10-0462317 (1997)</li>
+
+        <li>윤상진, 김병철, 정성욱, 강봉구, 김영환, 주성구, 송영복,
+          "에이씨피디피구동시스템",
+          출원번호: 10-1997-0035067, 등록(공개)번호: 10-0492950 (1997)</li>
+
+        <li>정문식, 이남규, 강봉구, 정윤권, 윤상진, 양희찬, 김영환,
+          "플라즈마 디스플레이 패널의 저전압 구동장치 및 방법",
+          출원번호: 10-1999-0040818, 등록(공개)번호: 10-0358698 (1997)</li>
+
+        <li>윤상진, 김병철, 정성욱, 강봉구, 김영환, 주성구, 송영복,
+          "플라즈마디스플레이패널을구동하기위한프레임메모리구동방법",
+          출원번호: 10-1997-0035101, 등록(공개)번호: 10-0487867 (1997)</li>
+
+        <li>정성욱, 김병철, 윤상진, 주성구, 김영환, 강봉구,
+          "고 해상도 에이씨 피디피를 구동하기 위핸 스캔 전극 제어창지",
+          출원번호: 10-1997-0058224, 등록(공개)번호: 10-0492952 (1997)</li>
+
+        <li>안대기, 윤상진, 송영복, 강봉구, 김영환,
+          "면방전ACPDP를구동하는방법과그시스템",
+          출원번호: 10-1996-0057320, 등록(공개)번호: 10-0517361 (1996)</li>
+
+        <li>홍진원, 윤상진, 송영복, 이재혁, 강봉구, 김영환,
+          "구역 주사 방식을 이용한 AC PDP 구동방법",
+          출원번호: 10-1996-0057324, 등록(공개)번호: 10-0426574 (1996)</li>
+
+         <li>이은철, 이재혁, 강봉구, 김영환,
+          "AC 플라즈마 디스플레이 판넬 구동방법",
+          출원번호: 10-1996-0043464, 등록(공개)번호: 10-0234034 (1996)</li>
+
+        <li>이은철, 송영복, 강봉구, 김영환,
+          "플라즈마 디스플레이 판넬",
+          출원번호: 10-1996-0038013, 등록(공개)번호: 10-0217133 (1996)</li>
+
+        <li>홍진원, 윤상진, 송영복, 이재혁, 강봉구, 김영환,
+          "위상 차이법을 이용한 교류형 플라즈마 표시장치(AC PDP)구동방법",
+          출원번호: 10-1996-0053406, 등록(공개)번호: 10-0225177 (1996)</li>
+
+        <li>홍진원, 윤상진, 송영복, 강봉구, 김영환,
+          "3전극면방전ACPDP의주사방식",
+          출원번호: 10-1996-0060307, 등록(공개)번호: 10-0468420 (1996)</li>
+
+      </ul>
+
+    </div>
+
+  </main><!-- /.content -->
+</div><!-- /.container -->
+
+<!-- ===== 탭 스크립트 ===== -->
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    // 버튼 active 토글
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    // 콘텐츠 토글
+    const target = btn.dataset.target;
+    document.querySelectorAll('.tab-content').forEach(box=>{
+      box.classList.toggle('active', box.id === target);
+    });
+  });
+});
+</script>
+
+<footer style="text-align:center;font-size:13px;margin-top:40px;color:#777;">
+  Hosted on GitHub Pages — Theme by orderedlist
+</footer>
+</body>
+</html>

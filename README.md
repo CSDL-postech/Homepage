@@ -1,96 +1,127 @@
 # CSDL static backup website
 
-This repository contains the simple GitHub Pages backup website for the
-CAD & SoC Design Laboratory at POSTECH. The main lab website is
+This repository contains the GitHub Pages backup website for the CAD & SoC
+Design Laboratory at POSTECH. The main website is
 [csdl.postech.ac.kr](https://csdl.postech.ac.kr/).
 
-The main website is served and developed separately. Its source project is
-maintained in `~/csdl-migration`; that directory is not part of this repository.
-This backup keeps essential lab information available as static files. Content
-updates are manual; there is no automatic sync with the main site.
+The published site is plain HTML, CSS, JavaScript, and local media. It needs no
+server application or build service. Members and publications are generated
+from a checked-in snapshot of the main site's public boards. Reading the lists
+does not require the main site to be available; external profile and paper
+links still lead to the main site.
 
 ## Files
 
 | Path | Content |
 | --- | --- |
-| `index.html` | Lab introduction and links to introductory media |
+| `index.html` | Lab introduction and introductory media links |
 | `Research.html` | Research topics |
 | `Advisor.html` | Advisor profiles |
-| `Members.html` | Current members and alumni |
-| `Publications.html` | Publications by category and year, plus patents |
-| `Image/` | Logos, portraits, and research images |
-| `PDF/` | Lab introduction and advisor documents |
-| `Video/` | Lab videos |
+| `Members.html` | Generated current members and alumni |
+| `Publications.html` | Generated conferences, journals, domestic publications, and patents |
+| `Members-archive.html`, `Publications-archive.html` | Historical lists before the first sync; not maintained |
+| `data/content.json` | Public content snapshot with source URLs and fetch date |
+| `scripts/sync-content.php` | Fetch, render, and consistency-check commands |
+| `scripts/content.php` | Public board parser and HTML renderer |
+| `tests/content.php` | Parser and renderer regression checks |
+| `Image/`, `PDF/`, `Video/` | Local media |
 | `AGENTS.md` | Contributor and coding-agent instructions |
-
-Each page contains its own CSS. Pages with tabs also contain a small JavaScript
-script. There is no build step or dependency installation.
-
-## Preview and verify
-
-Open `index.html` in a browser. Follow the navigation to each changed page.
-Check desktop and mobile widths, tabs, images, document and video links, and the
-main-site link. Local paths must match filename case because hosting is case
-sensitive. Run `git diff --check` before submitting changes.
-
-The site is intended for GitHub Pages. Confirm the publishing branch and folder
-in the repository's **Settings → Pages** before deployment; this checkout does
-not define a deployment workflow. Keep page and asset links relative so they
-work under a GitHub Pages repository path.
-
-## Content sources
-
-Start with `/home/csdl/README_home_map.md` for server orientation. The main
-project's `docs/11-current-production-architecture.md` and
-`docs/12-operations-handbook.md` explain production storage and operations.
-Application code lives in `~/csdl-migration/www`; current board records live
-in host MariaDB, and uploaded media lives in `/home/csdl/csdl-data`.
-A Git checkout alone does not contain the current member and publication lists.
-This static website is not a database or service-recovery backup.
-
-| Backup section | Public source |
-| --- | --- |
-| Current members | [Current member board](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub4_1) |
-| Alumni | [Alumni board](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub4_2) |
-| Publications | [Publication board](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub5_1) |
-
-These routes are defined in `www/top_navi.php` in the main project.
-Check all relevant board pages and categories, including pagination.
-`www/research_map/data.json` is a derived research-map dataset; do not assume
-it covers every publication or patent in this backup. Historical SQL dumps are
-not a current content source. Copy only the public fields and media needed by
-this site, not database dumps or runtime directories.
 
 ## Update members and publications
 
-1. Compare the backup with confirmed public content on the main site or in its
-   source project. Identify additions, corrections, and member status changes.
-2. Edit `Members.html` in the Current Members or Alumni section. Preserve each
-   person's confirmed name, status, and public profile details.
-3. Edit `Publications.html` in the matching category and year. Keep the existing
-   newest-first year order. Check author order, title, venue, year, and links.
-   Check for an existing entry before adding a paper.
-4. Add required public media to the matching asset folder. Keep existing paths
-   stable and verify new links.
-5. Preview the affected pages and review the diff. Record the source URLs,
-   review date, sections checked, additions, corrections, and checks in the
-   commit or pull request description. State any sections that remain unchecked.
+Run from this repository with PHP CLI 7.4 or later, DOM/libxml, and HTTPS stream
+support. These are maintenance tools only; GitHub Pages does not run PHP.
+No Composer, Python, Node, or database dependency is required.
 
-Update the main site first, then reconcile this backup in the same maintenance
-session. For members, check moves to alumni as well as new arrivals. For papers,
-match by DOI when available, otherwise by title and authors; publication status
-or venue changes can be corrections to existing entries. Do not delete an entry
-only because it is absent from one source page.
+```sh
+php scripts/sync-content.php fetch
+php tests/content.php
+php scripts/sync-content.php check
+git diff --check
+git diff --stat
+```
 
-For now, direct HTML edits keep the maintenance process small. If update volume
-requires automation, add an explicit export of public member and publication
-fields from the main project and generate these static pages from that export.
-Keep record IDs stable, validate required fields, and review the generated diff
-before publishing. The published backup must serve its content without a live
-request to the main site. This export workflow is a future option, not an
-existing sync feature.
+`fetch` sends sequential, unauthenticated HTTPS GET requests to the six public
+boards below. It follows pagination, checks publication totals, rejects duplicate
+records and unexpected markup, and validates both page templates before writing
+`data/content.json`, `Members.html`, and `Publications.html`. A fetch or parsing
+failure leaves those files unchanged. Review the resulting diff before commit
+and publication, especially removals, member status changes, and source typos.
+The importer does not commit, push, schedule jobs, access MariaDB, or write to
+other repositories.
 
-Keep this backup small and independently usable. Update shared navigation and
-the backup notice consistently across all five pages. Content synchronization
-is the next maintenance task; the presence of the main-site link does not mean
-that the member and publication lists are current.
+Update the main site first, then run the sync in the same maintenance session.
+The command is repeatable and can be run by a future scheduled review job.
+No scheduled job is installed. Do not edit generated blocks between the sync
+markers by hand; the next render replaces them. Make factual corrections on the
+main site before fetching again. Shared layout remains outside those markers.
+
+To regenerate from the saved snapshot without network access:
+
+```sh
+php scripts/sync-content.php render
+```
+
+`check` also works offline. It exits with an error if the generated HTML differs
+from the saved snapshot. The regression checks cover pagination, wrong-page
+responses, missing markup, stable record URLs, acceptance status, HTML escaping,
+and unknown record kinds.
+
+## Content sources and scope
+
+| Section | Public source board |
+| --- | --- |
+| Current members | [sub4_1](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub4_1) |
+| Alumni | [sub4_2](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub4_2) |
+| International conferences | [sub5_1](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub5_1) |
+| International journals | [sub5_1_b](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub5_1_b) |
+| Domestic publications | [sub5_1_d](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub5_1_d) |
+| Patents | [sub5_1_c](https://csdl.postech.ac.kr/bbs/board.php?bo_table=sub5_1_c) |
+
+Members include public names, current roles or positions, and profile links.
+The importer does not extract email images or copy portraits. Publications
+include titles, author order, venues, year groups, awards, and status text.
+Patents retain the public inventor and application/publication details. Patent
+source links point to their board page because not all rows expose record URLs.
+Temporary download links are excluded. Source spelling and ordering are kept.
+The source combines domestic conferences and journals in one board, so this
+backup now uses one Domestic Publications tab.
+
+The historical pages preserve prior information that may not appear on the
+current boards, including older contact details and publication categories.
+They are labeled as historical and linked from the current lists.
+
+The first sync on **2026-09-10** imported **32 current members, 110 alumni,
+199 international conference papers, 116 international journal papers,
+168 domestic publications, and 161 patents**. Publication totals matched the
+boards. Member pages expose pagination but no total; all listed pages were read
+and profile IDs were checked for duplicates. PHP syntax, parser regression,
+offline consistency, local-link, and tab checks passed. A browser visual check
+was not run because no browser was available in the maintenance environment.
+
+## Main-site project
+
+Start with `/home/csdl/README_home_map.md` for server orientation. Main-site code
+lives in `~/csdl-migration/www`. Its `docs/11-current-production-architecture.md`
+and `docs/12-operations-handbook.md` describe the service. Current content lives
+in host MariaDB and uploaded media in `/home/csdl/csdl-data`, outside that Git
+checkout. Historical SQL dumps and `www/research_map/data.json` are not complete
+current content sources. This static website is not a service-recovery backup.
+
+Public-page import avoids database credentials and production code changes.
+If the board markup changes, update the parser and its tests here. If a future
+DB export is needed, use a dedicated SELECT-only account and an explicit list
+of public fields; do not import whole tables or runtime directories.
+
+## Preview and publish
+
+Open `index.html` in a browser and follow navigation to the changed pages. Check
+desktop and mobile widths, tabs, main-site links, archives, and local media.
+Local paths must match filename case. Keep asset links relative for GitHub Pages
+repository paths. Update shared navigation and backup notices consistently on
+the five current pages.
+
+Confirm the publishing branch and folder in **Settings → Pages** before
+deployment; this checkout does not define a deployment workflow. Review and
+commit the snapshot and both generated pages together. Record the source date,
+counts, and validation results in the commit or pull request description.

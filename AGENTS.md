@@ -6,6 +6,9 @@ Keep the site as plain HTML, CSS, JavaScript, and local media. Do not add a buil
 system or dependencies unless the task requires them. Preserve relative asset
 links and the main-site link on all five pages. Use confirmed public information
 from the main site or its source project when updating members and publications.
+Use `php scripts/sync-content.php fetch` for these updates. Do not edit generated
+HTML blocks by hand. Commit the public snapshot and generated pages together.
+Keep the historical archive pages unchanged. See README.md for source scope.
 
 Follow these guidance while implementing steps:
 1. write extremely simple code, it should be "skimmable" and you should still be able to understand it
@@ -32,7 +35,8 @@ Use concise, ASD-STE100-inspired plain technical language in user docs, docstrin
 
 Dependency guidance:
 The static site has no package manager or runtime dependencies. Do not add Python
-or Node tooling for routine content edits. If Python tooling becomes necessary,
+or Node tooling for routine content edits. The content importer uses PHP CLI
+with DOM/libxml and HTTPS support, without third-party packages. If Python tooling becomes necessary,
 use `python3 -m uv` to manage its environment and dependencies.
 
 Verification guidance:
@@ -42,8 +46,10 @@ Verification guidance:
    navigation, main-site links, and tabs on pages that have them.
 4. Check member and publication changes against the confirmed source. Preserve
    publication categories, year order, author order, and links.
-5. Record checks that could not run and why. There is no configured automated
-   test suite, Python lint, or typecheck for this static site.
+5. For content sync changes, run `php tests/content.php` and
+   `php scripts/sync-content.php check`. Lint changed PHP files with `php -l`.
+6. Record checks that could not run and why. Python lint and typecheck do not
+   apply to this static site.
 
 Commit guidance:
 ## 1. The "Golden Seven" Rules
